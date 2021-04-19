@@ -40,3 +40,17 @@ E:\项目文件(GitLab)\OA\src\OA_System2010\DAL\obj\Debug\DIANDA.DAL.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\DAL\obj\Debug\DIANDA.DAL.pdb
 E:\项目文件(GitLab)\OA\src\OA_System2010\DAL\bin\Debug\DIANDA.Model.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\DAL\bin\Debug\DIANDA.Model.pdb
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.DAL.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.DAL.pdb
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.COMMON.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.DBUtility.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.Model.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\LTP.Common.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\MySql.Data.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.COMMON.pdb
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.DBUtility.pdb
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\bin\Debug\DIANDA.Model.pdb
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DIANDA.DAL.dll
+C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DIANDA.DAL.pdb

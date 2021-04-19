@@ -1,0 +1,159 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{53995DBB-9836-4647-AD22-865884FDEB9E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DIANDA.Model</AssemblyName>
+    <RootNamespace>Dianda.Model</RootNamespace>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cash_Account.cs" />
+    <Compile Include="Cash_Account_Subscription.cs" />
+    <Compile Include="Cash_Apply.cs" />
+    <Compile Include="Cash_Apply_History.cs" />
+    <Compile Include="Cash_Cards.cs" />
+    <Compile Include="Cash_CardsDetail.cs" />
+    <Compile Include="Cash_ControlInfo.cs" />
+    <Compile Include="Cash_DetailNameList.cs" />
+    <Compile Include="Cash_Message.cs" />
+    <Compile Include="Cash_SF_Order.cs" />
+    <Compile Include="Cash_SpecialFunds.cs" />
+    <Compile Include="Document_File.cs" />
+    <Compile Include="Document_File_Share.cs" />
+    <Compile Include="Document_Folder.cs" />
+    <Compile Include="Document_Folder_Share.cs" />
+    <Compile Include="DOC_transport_From.cs" />
+    <Compile Include="DOC_transport_To.cs" />
+    <Compile Include="FaceShowMessage.cs" />
+    <Compile Include="GUESTBOOK_MAIN.cs" />
+    <Compile Include="Idcard.cs" />
+    <Compile Include="IDcardModel.cs" />
+    <Compile Include="NEWS_COLUMNS.cs" />
+    <Compile Include="News_LimitUser.cs" />
+    <Compile Include="NEWS_NEWS.cs" />
+    <Compile Include="NEWS_USERID_COLUMNSID.cs" />
+    <Compile Include="Personal_Notepad.cs" />
+    <Compile Include="Personal_Plan.cs" />
+    <Compile Include="Personal_Plan_Limits.cs" />
+    <Compile Include="Project_Apply.cs" />
+    <Compile Include="Project_Apply_orderCar.cs" />
+    <Compile Include="Project_Apply_orderFood.cs" />
+    <Compile Include="Project_Apply_orderRoom.cs" />
+    <Compile Include="Project_Apply_signet.cs" />
+    <Compile Include="Project_CarList.cs" />
+    <Compile Include="Project_Columns.cs" />
+    <Compile Include="Project_Projects.cs" />
+    <Compile Include="Project_RoomList.cs" />
+    <Compile Include="Project_ShenheList.cs" />
+    <Compile Include="Project_SignetList.cs" />
+    <Compile Include="Project_Task.cs" />
+    <Compile Include="Project_UserList.cs" />
+    <Compile Include="SYS_LOGS.cs" />
+    <Compile Include="SessionUser.cs" />
+    <Compile Include="Term_Diary.cs" />
+    <Compile Include="userPower.cs" />
+    <Compile Include="USER_EducationLevel_Base.cs" />
+    <Compile Include="USER_Groups.cs" />
+    <Compile Include="USER_ORGAN.cs" />
+    <Compile Include="USER_ORGTYPE.cs" />
+    <Compile Include="USER_Role.cs" />
+    <Compile Include="USER_Users.cs" />
+    <Compile Include="USER_WorkStats_Base.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

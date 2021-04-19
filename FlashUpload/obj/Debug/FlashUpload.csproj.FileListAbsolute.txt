@@ -1,0 +1,14 @@
+E:\wjh\OA系统\OA_System2010\FlashUpload\bin\Debug\FlashUpload.dll
+E:\wjh\OA系统\OA_System2010\FlashUpload\bin\Debug\FlashUpload.pdb
+E:\wjh\OA系统\OA_System2010\FlashUpload\obj\Debug\ResolveAssemblyReference.cache
+E:\wjh\OA系统\OA_System2010\FlashUpload\obj\Debug\FlashUpload.dll
+E:\wjh\OA系统\OA_System2010\FlashUpload\obj\Debug\FlashUpload.pdb
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\FlashUpload\bin\Debug\FlashUpload.dll
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\FlashUpload\obj\Debug\FlashUpload.dll
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\FlashUpload\obj\Debug\FlashUpload.pdb
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\FlashUpload\bin\Debug\FlashUpload.pdb
+E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\bin\Debug\FlashUpload.dll
+E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\bin\Debug\FlashUpload.pdb
+E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Debug\FlashUpload.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Debug\FlashUpload.dll
+E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Debug\FlashUpload.pdb

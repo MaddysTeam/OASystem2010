@@ -1,0 +1,376 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OAmaster.master.cs" Inherits="Dianda.Web.Admin.OAmaster" %>
+<%@ Register src="OAleftmenu.ascx" tagname="OAleftmenu" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<head id="Head1" runat="server">
+    <title>上海市教委教研室内部工作平台</title>
+    <link href="/Admin/css/OACSS.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Admin/js/master.js"></script>
+    <script type="text/javascript" src="/Admin/js/jquery-1.2.1.pack.js"></script>
+    <script type="text/javascript" src="/Admin/js/jquery-1.3.2.js"></script>
+    <script type="text/javascript" src="/Admin/js/cookie.js"></script>
+    <script type="text/javascript">
+        var GB_ROOT_DIR = "/Admin/js/greybox/";
+    </script>
+    <script type="text/javascript" src="/Admin/js/greybox/AJS.js"></script>
+    <script type="text/javascript" src="/Admin/js/greybox/AJS_fx.js"></script>
+    <script type="text/javascript" src="/Admin/js/greybox/gb_scripts.js"></script>
+    <link href="/Admin/js/greybox/gb_styles.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="/Admin/js/static_files/help.js"></script>
+
+    <script src="/Admin/js/IE8.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        .style1
+        {
+            width: 5px;
+        }
+    </style>
+
+</head>
+
+
+<body class="body1">
+
+
+<form id="form1" runat="server">
+ <div>
+  <div style="z-index:100; position:absolute; margin-left:959px; margin-top:100px; display:block;" id="right_frame">
+<script type="text/javascript">
+    var x = 'right';
+    $(document).ready(function() {
+
+        if (document.location.pathname == "/Admin/SelectUserPlan.aspx") {
+            //document.getElementById("RightTodayBook").style.visibility = "hidden";
+        }
+        $("#RightTodayBook").click(function() {
+            if (x == 'right') {
+                x = null;
+                $("#RightTodayBook").animate({ "left": "-=235px" }, "fast", null, function() {
+                    x = 'left';
+                    document.getElementById("todayBookImg").src = "/Admin/images/OAimages/move_r.gif";
+                    document.getElementById("RightTodayBook").style.width = "243px";
+
+                });
+            }
+        });
+
+        $("#todayBookImg").click(function() {
+            document.getElementById("RightTodayBook").style.width = "13px";
+            if (x == 'left') {
+                x = null;
+                $("#RightTodayBook").animate({ "left": "+=235px" }, "fast", null, function() {
+                    x = 'right';
+                    document.getElementById("todayBookImg").src = "/Admin/images/OAimages/move_l.gif";
+
+
+
+                });
+            }
+
+        });
+
+    });   
+    
+  </script>
+<table cellpadding="0" cellspacing="0" height="100%">
+    <tr>
+      <td valign="top" width="248">
+            <div id="RightTodayBook" style="LEFT: 0px; WIDTH: 13px; POSITION: absolute; TOP: 0px; POSITION: relative; OVERFLOW:hidden;">
+              <table id="Table1" height="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><img id="todayBookImg" style="CURSOR: hand" src="/Admin/images/OAimages/move_l.gif" width="13"></td>
+                    <td valign="top" width="230" height="478">
+
+            <table width="230" height="478" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" width="230" height="474"><iframe src="/Admin/presonPlan/OApresonmanage/Test.aspx" scrolling="no" frameborder="0" width="230" height="474"></iframe></td>
+              </tr>
+              <tr>
+                  <td height="4"><img src="/Admin/images/OAimages/r_bot.jpg"></td>
+          </tr>
+            </table>
+
+                </td>
+                  </tr>
+                  <tr>
+                  <td colspan="2" style="background-image:url:(../images/OAimages/move_bot.gif); height:100%;"></td>
+                  </tr>
+              </table>
+            </div>
+
+      </td></tr>
+</table>
+</div> 
+
+
+<div style="z-index:100; position:absolute; margin-left:733px; margin-top:100px; display:block; display:none;" id="right_f_main">
+<table cellpadding="0" cellspacing="0" height="100%">
+    <tr>
+      <td valign="top" width="239">
+            <div  style="WIDTH: 234px; POSITION: absolute; TOP: 0px; POSITION: relative; OVERFLOW:hidden;">
+              <table  height="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                  <td><img src="/Admin/images/OAimages/move_none.gif" width="4"></td>
+                    <td valign="top" width="230" height="478"><iframe src="/Admin/presonPlan/OApresonmanage/Test.aspx" scrolling="no" frameborder="0" width="230" height="478"></iframe></td>
+                  </tr>
+              </table>
+            </div>
+
+      </td></tr>
+</table>
+</div> 
+
+
+  
+  <table align="center" width="967" border="0" cellpadding="0" cellspacing="0" bgcolor="#99cccd">
+      <tr>
+      <td valign="top" style="height:100px; background:url(/Admin/images/OAimages/title_bg.jpg)">
+      <table width="100%">
+      <tr>
+      <td width="20px"></td>
+      <td width="530" style="padding-top:68px;">
+      <table>
+      <tr>
+      <td class="white">欢迎您！</td>
+      <td><asp:Label ID="Label_userReal" runat="server" Text="" CssClass="white"></asp:Label></td>
+      <td width="38"><a href="/login.aspx?do=logout" class="logout">注销</a></td>
+      <td width="60"><a href="javascript:window.showModalDialog('/modifypwd.aspx','','dialogWidth=500px;dialogHeight=250px');" target="_self" title='   修改密码' class="logout">修改密码</a></td>
+      </tr>
+      </table>
+      </td>
+      <td width="60" align="center"><a href="/Admin/person_Index.aspx" target="_self" id="a_germain"><img src="/Admin/images/OAimages/home1.gif" id="ger_main" onmouseover="chag_bg3(1);" onmouseout="rest_bg3(1);"></a></td>
+      <td width="10"><img src="/Admin/images/OAimages/title_s.jpg"></td>
+      <td width="60" align="center"><a href="/Admin/department_Index.aspx" target="_self" id="a_bummain"><img src="/Admin/images/OAimages/home2.gif" id="bum_main"  onmouseover="chag_bg4(1);" onmouseout="rest_bg4(1);"></a></td>
+      <td width="10"><img src="/Admin/images/OAimages/title_s.jpg"></td>
+      <td>
+      
+      <table width="234" height="85" border="0" cellspacing="0" cellpadding="0" background="/Admin/images/OAimages/bg.jpg">
+  <tr>
+    <td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="234" height="85">
+  <param name="movie" value="/Admin/swf/timeObj.swf" />
+  <param name="quality" value="high" />
+  <param name="wmode" value="transparent" />
+  <embed src="/Admin/swf/timeObj.swf" width="234" height="85" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" wmode="transparent"></embed>
+</object>
+</td>
+  </tr>
+</table>
+      
+      </td></tr>
+      </table></td>
+      </tr> 
+      <tr>
+      <td valign="top" style="height:50px;">
+      <table width="967" height="50" border="0" cellspacing="0" cellpadding="0" background="/Admin/images/OAimages/nav_bg.jpg">
+  <tr>
+    <td width="120" id="td_menu1_child"><div id="menu1" onmouseover="openChildMenu('menu1_child');" onmouseout="closeChildMenu('menu1_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav1.gif"></td><td width="5"></td>
+    <td align="left"><span class="menu_ziti">项目</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu1_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr   runat="server" id="menu_myprojectManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAproject/manage.aspx?projectstatus=1" target="_self" class="mchild_a2" id="td_menu1">我的项目</a></td></tr>
+<tr  runat="server" id="menu_applyProjectManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAproject/add.aspx" target="_self" class="mchild_a2">新建项目</a></td></tr>
+<%--<tr  runat="server" id="menu_caogaoxiangManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAproject/manage.aspx?projecttype=4" target="_self" class="mchild_a">立项草稿箱</a></td></tr>--%>
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+
+    
+<%--     <td width="120" id="td_menu2_child"><div id="menu2" onmouseover="openChildMenu('menu2_child');" onmouseout="closeChildMenu('menu2_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav2.gif"></td><td width="5"></td>
+    <td align="left"><a href="/Admin/DocumentManage/manage.aspx?types=1" target="_self" class="menu_ziti2" id="td_menu2">文档</a></td>
+  </tr>
+</table></div></td> 
+--%>
+<td width="120" id="td_menu2_child"><div id="menu2" onmouseover="openChildMenu('menu2_child');" onmouseout="closeChildMenu('menu2_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav2.gif"></td><td width="5"></td>
+    <td align="left"><span class="menu_ziti">文档</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu2_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr runat="server" id="menu_mydocuments" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/DocumentManage/manage.aspx?tp=0&types=1" target="_self" class="mchild_a2" id="td_menu2">我的文档</a></td></tr>
+<tr runat="server" id="menu_projectdocumentation" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/DocumentManage/manage.aspx?tp=1&types=1" target="_self" class="mchild_a2" id="td_menu3">项目文档</a></td></tr>
+<tr runat="server" id="menu_shareddocuments" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/DocumentManage/manage.aspx?tp=2&CID=1&types=1" target="_self" class="mchild_a2" id="td_menu4">共享文档</a></td></tr>
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+
+
+
+<%--    <td width="120" id="td_menu3_child"><div id="menu3" onmouseover="openChildMenu('menu3_child');" onmouseout="closeChildMenu('menu3_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav3.gif"></td><td width="5"></td>
+    <td align="left"><a href="/Admin/personalProjectManage/OAapply/add.aspx?apply=true" target="_self" class="menu_ziti2" id="td_menu3">资源</a></td>
+  </tr>
+</table></div></td>--%>
+    <td width="120" id="td_menu3_child"><div id="menu3" onmouseover="openChildMenu('menu3_child');" onmouseout="closeChildMenu('menu3_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav3.gif"></td>
+      <td class="style1"></td>
+    <td align="left"><span class="menu_ziti">资源</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu3_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr  runat="server" id="menu_orderfood" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAapply/add.aspx?apply=orderFood" target="_self" class="mchild_a2" id="A1">客饭预约</a></td></tr>
+<tr  runat="server" id="menu_ordercar" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAapply/add.aspx?apply=orderCar" target="_self" class="mchild_a2">车辆预约</a></td></tr>
+<tr  runat="server" id="menu_orderroom" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAapply/add.aspx?apply=orderRoom" target="_self" class="mchild_a2">会议室预约</a></td></tr>
+<tr  runat="server" id="menu_ordersignet" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAapply/add.aspx?apply=orderSignet" target="_self" class="mchild_a2">用印申请</a></td></tr>
+<tr  runat="server" id="menu_orderresource" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/personalProjectManage/OAapply/resourceManage.aspx" target="_self" class="mchild_a2">资源汇总</a></td></tr>
+
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+
+
+
+    <td width="120" id="td_menu4_child"><div id="menu4" onmouseover="openChildMenu('menu4_child');" onmouseout="closeChildMenu('menu4_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav4.gif"></td><td width="5"></td>
+    <td align="left"><span class="menu_ziti">消息</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu4_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr  runat="server" id="menu_noticenewsManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/newsManage/OAnews/manage.aspx?PARENTID=5" target="_self" class="mchild_a2" id="td_menu4">通知公告</a></td></tr>
+<tr  runat="server" id="menu_sysnewsManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/newsManage/OAnews/manage.aspx?PARENTID=4" target="_self" class="mchild_a2">个人消息</a></td></tr>
+<tr  runat="server" id="menu_departnewsManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/newsManage/OAnews/manage.aspx?PARENTID=3" target="_self" class="mchild_a2">部门消息</a></td></tr>
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+    <td width="120" id="td_menu5_child"><div id="menu5" onmouseover="openChildMenu('menu5_child');" onmouseout="closeChildMenu('menu5_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav5.gif"></td><td width="5"></td>
+    <td align="left"><span class="menu_ziti">经费</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu5_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr  runat="server" id="menu_budgetManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/budgetManage/budgetmanage.aspx" target="_self" class="mchild_a2">预算申请</a></td></tr>
+<tr  runat="server" id="menu_cashapplyManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashApplyPerson.aspx" target="_self" class="mchild_a2" id="td_menu5">经费预约</a></td></tr>
+<tr  runat="server" id="menu_cardsearchManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashCard.aspx" target="_self" class="mchild_a2">资金卡查询</a></td></tr>
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+    <td width="120" id="td_menu6_child"><div id="menu6" onmouseover="openChildMenu('menu6_child');" onmouseout="closeChildMenu('menu6_child');"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><img src="/Admin/images/OAimages/nav6.gif"></td><td width="5"></td>
+    <td align="left"><span class="menu_ziti">管理</span></td>
+  </tr>
+</table>
+<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+<tr><td align="center"></td></tr>
+<tr><td height="0" align="left" valign="top">
+<div id="menu6_child" style="visibility:hidden; position:absolute; width:120px; z-index:2; margin-left:0px;">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+<tr  runat="server" id="menu_menManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/userManager/OAusersmanage/manage.aspx" target="_self" class="mchild_a2" id="td_menu6">人事管理</a></td></tr>
+<tr  runat="server" id="menu_cashManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashApply.aspx?role=manage" target="_self" class="mchild_a2">财务管理</a></td></tr>
+<tr  runat="server" id="menu_cashManage_show" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/Cash_Account.aspx?role=viewer" target="_self" class="mchild_a2">财务管理</a></td></tr>
+<tr   runat="server" id="menu_projectManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/SystemProjectManage/ProjectInfo/manage.aspx" target="_self" class="mchild_a2">项目管理</a></td></tr>
+<tr  runat="server" id="menu_foodManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/applyManage/OrderfoodManage/manage.aspx" target="_self" class="mchild_a2">订饭管理</a></td></tr>
+<tr  runat="server" id="menu_carManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/applyManage/OrdercarManage/manage.aspx" target="_self" class="mchild_a2">车辆管理</a></td></tr>
+<tr  runat="server" id="menu_roomManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/applyManage/OrderroomManage/manage.aspx" target="_self" class="mchild_a2">会议室管理</a></td></tr>
+<tr runat="server" id="menu_yinManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/applyManage/OrdersignetManage/manage.aspx" target="_self" class="mchild_a2">用印管理</a></td></tr>
+<tr runat="server" id="menu_powerManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/sysRights/setRight.aspx" target="_self" class="mchild_a2">权限管理</a></td></tr>
+<tr runat="server" id="termdariy" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/sysrili.aspx" target="_self" class="mchild_a2">学期管理</a></td></tr>
+<tr runat="server" id="menu_budgetManage_manager" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/budgetManage/budgetmanage.aspx?role=manager" target="_self" class="mchild_a2">预算管理</a></td></tr>
+<tr runat="server" id="menu_budgetManage_lister" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/budgetManage/budgetmanage.aspx?role=lister" target="_self" class="mchild_a2">预算管理</a></td></tr>
+<tr runat="server" id="personPlanShowOut"><td class="menuChildTd">&gt; <a href="/Admin/presonPlan/planout.aspx" target="_blank" class="mchild_a2">导出计划</a></td></tr>
+<tr runat="server" id="menu_statisticsManage"><td class="menuChildTd">&gt; <a href="/Admin/sysTongji/DataStatistics.aspx" target="_self" class="mchild_a2">统计管理</a></td></tr>
+
+<%--<tr runat="server" id="ProjectColumns"><td class="menuChildTd">&gt; <a href="/Admin/sysRights/projectColumns.aspx" target="_self" class="mchild_a">项目分类管理</a></td></tr>
+<tr runat="server" id="systongji"><td class="menuChildTd">&gt; <a href="/Admin/sysTongji/manager.aspx" target="_self" class="mchild_a">项目统计</a></td></tr>--%>
+</table>
+</div>
+</td></tr></table>
+
+</div></td>
+    <td width="247"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><%--<span class="menu_ziti" id="menu_time"></span>--%><asp:Label CssClass="menu_ziti" ID="Label_time" runat="server"
+            Text=""></asp:Label></td>
+  </tr>
+</table>
+</td><td></td>
+  </tr>
+</table>
+      </td>
+      </tr>
+      
+      <tr>
+      <td valign="top" style="height:33px;">
+      <table align="center" cellpadding="0" cellspacing="0" style="margin-top:3px;">
+      <tr>
+      <td  align="left" runat="server" id="bannerid">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left">
+                    <asp:Label ID="Label_navigation"  runat="server" Text=""></asp:Label>
+                </td>
+                <td align="right">
+                    <asp:DropDownList ID="Master_DDList_BMXZ" runat="server" Visible="false" 
+                onselectedindexchanged="Master_DDList_BMXZ_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </table>
+      </td>
+      <td  runat="server" id="bannerid2"></td>
+      </tr>
+      </table></td></tr>
+      <tr>
+      <td valign="top"><table id="main_tab" width="100%" cellpadding="0" cellspacing="0"><tr><td valign="top"><asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder></td></tr></table></td>
+      </tr>
+      
+  </table>
+
+  
+  <table align="center"><tr><td class="bottom_sty">2010版权所有 上海市教委教研室 <a href="/教研室OA系统版本修改记录.xlsx" target="_blank" title="点击下载修改记录" class="bottom_sty">V1.3</a>
+ <div id="rolecontrol" runat="server" visible="false"><br /> 配置页面权限专用（权限配置完毕后，即删除以下内容）<br />
+ <asp:TextBox ID="TextBox1" Width="200" runat="server"></asp:TextBox> <br />
+     <asp:TextBox ID="TextBox2" runat="server" Width="200"></asp:TextBox>
+      <asp:LinkButton 
+          ID="LinkButton1" runat="server" CssClass="bottom_sty" 
+          onclick="LinkButton1_Click" CausesValidation="false">-将当前页加入权限中-</asp:LinkButton></div> 
+      </td></tr></table>
+  </div>
+</form>
+    
+
+
+</body>
+</html>

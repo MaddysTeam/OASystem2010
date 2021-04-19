@@ -1,0 +1,40 @@
+<publishData>
+  <publishTarget publishUrl="E:\公司项目发布文件备份\OAWBS\">
+    <file relUrl="bin/DIANDA.DAL.pdb" publishTime="07/11/2011 13:59:12" />
+    <file relUrl="bin/DIANDA.Model.pdb" publishTime="07/11/2011 13:59:11" />
+    <file relUrl="Web.config" publishTime="06/03/2011 14:04:28" />
+    <file relUrl="bin/WBS001.dll" publishTime="07/13/2011 15:46:42" />
+    <file relUrl="bin/DIANDA.DAL.dll" publishTime="07/11/2011 13:59:12" />
+    <file relUrl="bin/WBS001.pdb" publishTime="07/13/2011 15:46:41" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="Service1.asmx" publishTime="03/12/2011 17:51:55" />
+    <file relUrl="bin/LTP.Common.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="bin/DIANDA.COMMON.pdb" publishTime="07/11/2011 13:59:10" />
+    <file relUrl="bin/DIANDA.DBUtility.pdb" publishTime="07/11/2011 13:59:09" />
+    <file relUrl="bin/ICSharpCode.SharpZipLib.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="bin/DIANDA.Model.dll" publishTime="07/11/2011 13:59:11" />
+    <file relUrl="bin/DIANDA.BLL.pdb" publishTime="07/11/2011 13:59:13" />
+    <file relUrl="bin/DIANDA.DBUtility.dll" publishTime="07/11/2011 13:59:09" />
+    <file relUrl="bin/DIANDA.BLL.dll" publishTime="07/11/2011 13:59:13" />
+    <file relUrl="bin/DIANDA.COMMON.dll" publishTime="07/11/2011 13:59:10" />
+  </publishTarget>
+  <publishTarget publishUrl="E:\公司项目发布文件备份\OA WebService\">
+    <file relUrl="bin/DIANDA.DAL.pdb" publishTime="06/17/2011 15:49:51" />
+    <file relUrl="bin/DIANDA.Model.pdb" publishTime="06/17/2011 15:49:48" />
+    <file relUrl="Web.config" publishTime="06/03/2011 14:04:28" />
+    <file relUrl="bin/WBS001.dll" publishTime="06/17/2011 16:17:17" />
+    <file relUrl="bin/DIANDA.DAL.dll" publishTime="06/17/2011 15:49:51" />
+    <file relUrl="bin/WBS001.pdb" publishTime="06/17/2011 16:17:16" />
+    <file relUrl="bin/MySql.Data.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="Service1.asmx" publishTime="03/12/2011 17:51:55" />
+    <file relUrl="bin/LTP.Common.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="bin/DIANDA.BLL.pdb" publishTime="06/17/2011 15:49:52" />
+    <file relUrl="bin/DIANDA.DBUtility.pdb" publishTime="06/17/2011 15:49:48" />
+    <file relUrl="bin/ICSharpCode.SharpZipLib.dll" publishTime="12/14/2010 12:55:03" />
+    <file relUrl="bin/DIANDA.Model.dll" publishTime="06/17/2011 15:49:49" />
+    <file relUrl="bin/DIANDA.DBUtility.dll" publishTime="06/17/2011 15:49:48" />
+    <file relUrl="bin/DIANDA.COMMON.dll" publishTime="06/17/2011 15:49:49" />
+    <file relUrl="bin/DIANDA.BLL.dll" publishTime="06/17/2011 15:49:52" />
+    <file relUrl="bin/DIANDA.COMMON.pdb" publishTime="06/17/2011 15:49:49" />
+  </publishTarget>
+</publishData>

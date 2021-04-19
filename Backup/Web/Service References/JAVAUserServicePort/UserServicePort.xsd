@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.jypt.dianda.com/" targetNamespace="http://ws.jypt.dianda.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="editUser" type="tns:editUser" />
+  <xs:element name="editUserResponse" type="tns:editUserResponse" />
+  <xs:element name="importUser" type="tns:importUser" />
+  <xs:element name="importUserResponse" type="tns:importUserResponse" />
+  <xs:complexType name="editUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editUserResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="importUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="importUserResponse">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>

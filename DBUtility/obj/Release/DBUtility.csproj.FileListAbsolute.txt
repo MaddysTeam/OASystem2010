@@ -1,0 +1,8 @@
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\DBUtility\bin\Release\DIANDA.DBUtility.dll
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\DBUtility\bin\Release\MySql.Data.dll
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\DBUtility\obj\Release\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\bin\Release\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\bin\Release\MySql.Data.dll
+E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\obj\Release\DIANDA.DBUtility.dll

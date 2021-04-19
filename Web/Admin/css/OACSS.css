@@ -1,0 +1,1467 @@
+﻿body{ padding:0; margin:0;} 
+*{ font-size: 12px; font-family:Tahoma,Arial,Verdana,simsun; font-weight:normal;}
+input{ padding:0px  }
+img{border:0px;}
+a{ color:#000000; text-decoration:underline;  cursor:hand;}
+a:hover { color:Red; text-decoration:underline;  cursor:hand;}
+.c{ clear: both; height: 0px ; font:0px/0px Arial }
+
+
+html
+{
+     overflow-x:hidden;    
+}
+
+.body1
+{
+    width:100%;
+    background-color:#000B19;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+}
+
+.body2
+{
+    border-color:#0e3e6e;
+}
+.tag1
+{
+    color:Red;
+}
+.GridView1 
+{
+    background-color:White;
+    width:100%;
+    border-color:#929C9E;                                               
+}
+.GridView2 
+{
+    background-color:White;
+    width:698px;
+    border-color:#fcfcfc;        
+    border-width:2px;                                       
+}
+.RowStyle1
+{
+    color:#000000;
+}
+.FooterStyle1
+{
+    background-color:White;
+    color:#000000;
+}
+.PagerStyle1
+{
+    background-color:White;
+    color:#000000;
+    border-color:#000000;
+}
+.SelectedRowStyle1
+{
+    background-color:#669999;
+    font-weight:bold;
+    color:White;
+}
+.ItemStyle1
+{
+    width:50;
+    border-color:#929C9E;
+    font-family:微软雅黑,黑体;
+    word-break: break-all;
+}
+.ItemStyle2
+{
+    width:50;
+    border-color:#99CCCD;
+    font-family:微软雅黑,黑体;
+    word-break: break-all;
+}
+/*.HeaderStyle1
+{
+    width:50;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+}*/
+.HeaderStyle1
+{
+    width:50;
+    height:20px;
+    color:#000000;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+    background:url(../images/OAimages/bg_grey1.jpg);
+    display:block;
+}
+
+.HeaderStyle2
+{
+    color:White;
+    width:50;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+    background:url(../images/OAimages/bg_bule2.jpg);
+}
+
+.HeaderStyle3
+{
+    width:50;
+    color:#000000;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+    padding-top:4px;
+    background:url(../images/OAimages/bg_grey1.jpg);
+    
+    
+}
+.HeaderStyle4
+{
+    width:50;
+    height:20px;
+    color:#000000;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#99CCCD;
+    background:url(../images/OAimages/bg_grey1.jpg);
+    display:block;
+}
+
+.notice
+{
+    
+    background-image: url(../images/OAimages/jgsj_pic1.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+}
+/*日历的状态属性*/
+.dayCell_1
+{
+     background-image: url(/Admin/images/OAimages/d1.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	 width:26px;
+	height:23px;
+}
+.dayCell_2
+{
+     background-image: url(/Admin/images/OAimages/d2.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	 width:26px;
+	height:23px;
+}
+.dayCell_3
+{
+    background-image: url(/Admin/images/OAimages/d3.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_4
+{
+    background-image: url(/Admin/images/OAimages/d4.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+		width:26px;
+	height:23px;
+}
+.dayCell_5
+{
+    background-image: url(/Admin/images/OAimages/d5.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+		width:26px;
+	height:23px;
+}
+.dayCell_6
+{
+    background-image: url(/Admin/images/OAimages/d6.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_7
+{
+    background-image: url(/Admin/images/OAimages/d7.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_8
+{
+    background-image: url(/Admin/images/OAimages/d8.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_9
+{
+    background-image: url(/Admin/images/OAimages/d9.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_10
+{
+    background-image: url(/Admin/images/OAimages/d10.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_11
+{
+    background-image: url(/Admin/images/OAimages/d11.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+.dayCell_12
+{
+    background-image: url(/Admin/images/OAimages/d12.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	width:26px;
+	height:23px;
+}
+/*日历的状态属性*/
+.weekbak
+{
+    background-image: url(/Admin/images/OAimages/h5.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	text-decoration: none;
+	display:block;
+	color:White;
+	width:26px;
+	display:block;
+	height:23px;
+	 cursor:hand;
+}
+.button1
+{
+    width:60px;
+    border: 1px solid #109900;
+    background: url(../images/OAimages/btn_g.jpg) #109900;
+    color: White;
+    clear:none;
+}
+
+.button1_1
+{
+    width:68px;
+    height: 18px;
+    border: 1px solid #109900;
+    background: url(../images/OAimages/btn_g.jpg) #109900;
+    color: White;
+    clear:none;
+}
+
+.button1_links
+{
+    border: 1px solid #109900;
+    background: url(../images/OAimages/btn_g.jpg) #109900;
+    color: White;
+    clear:none;
+	height: 18px;
+	display:block;
+	width:70px;
+    cursor:hand;
+    text-decoration: none;
+    text-align:center;
+}
+
+a.button1_links:hover
+{
+    border: 1px solid #109900;
+    background: url(../images/OAimages/btn_g.jpg) #109900;
+    color: White;
+    clear:none;
+	height: 18px;
+	display:block;
+	width:70px;
+    cursor:hand;
+    text-decoration: none;
+    text-align:center;
+}
+
+
+.button1a
+{
+    height: 18px;
+    border: 1px solid #109900;
+    background: url(../images/OAimages/btn_g.jpg) #109900;
+    color: White;
+    clear:none;
+}
+
+.button2
+{
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+    width:60px;
+    
+}
+
+.button3 /*适用于Linkbtn*/
+{
+    width:50px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg1.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	padding-left:0px;
+}
+
+.button3a /*适用于2个字符的btn*/
+{
+    width:50px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg2.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+a.button3a /*适用于2个字符的btn*/
+{
+    width:50px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg2.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+a.button3a:hover
+{
+    width:50px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg2.jpg);
+	text-decoration: none;
+	display:block;
+}
+
+.button3b /*适用于4个字符的btn*/
+{
+    width:74px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg3.jpg);
+	text-decoration: none;
+	display:block;
+}
+
+a.button3b /*适用于4个字符的btn*/
+{
+    width:74px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg3.jpg);
+	text-decoration: none;
+	display:block;
+}
+
+a.button3b:hover
+{
+    width:74px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg3.jpg);
+	text-decoration: none;
+	display:block;
+}
+
+
+.button3c /*适用于5个字符的btn*/
+{
+    width:84px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg4.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+
+a.button3c
+{
+    width:84px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg4.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+a.button3c:hover
+{
+    width:84px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg4.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+.button3d /*适用于7个字符的btn*/
+{
+    width:118px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg5.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+a.button3d
+{
+    width:118px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg5.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+a.button3d:hover
+{
+    width:118px;
+    height:20px;
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family:  "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/btn_bg5.jpg);
+	/*background-repeat: no-repeat;
+	background-position: 0px 7px;*/
+	text-decoration: none;
+	display:block;
+}
+
+.button4
+{
+    border: 1px solid #003466 ;
+    background: url(../images/OAimages/bg_dblue.jpg) #003466;
+    color: White;
+    clear:none;
+    
+}
+
+.button5
+{
+    border:none;
+    background: #ffffff;
+    color: #000000;
+    clear:none;
+    cursor:hand;
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	list-style-image: none;
+	background-image: url(../images/OAimages/jgsj_pic1.jpg);
+	background-repeat: no-repeat;
+	background-position: 6px 1px;
+	text-decoration: none;
+	padding-left:19px;
+}
+
+table .tab1
+{
+    border: 1px solid #379EB7;
+    background: url(../images/OAimages/bg_bule.jpg);
+    width: 100%;
+    color: White;
+    height: 23px;
+}
+table .tab2
+{
+    width: 100%;
+}
+table .tab3
+{
+    width: 100%;
+    background-color:#bbbbbb;   
+}
+table .tab3a /*适用于部门主页*/
+{
+    width: 100%;
+    background-color:#bbbbbb;
+}
+table .tab4
+{
+    width: 100%;
+    background-color:#ffffff;
+    height: 354px;
+}
+table .tab12
+{
+    width: 100%;
+    background-color:#ffffff;
+    height: 280px;
+}
+table .tab5
+{
+    width: 98%;
+    margin-left:10px;
+    
+}
+table .tab6
+{
+    width:100%;
+}
+table .tab7
+{
+    width: 100%;
+    background-color:#bbbbbb;
+}
+
+table .tab8 /*适用于ProjectUserList*/
+{
+    width:695px;
+    height:30px;
+    border:0;
+    background:url(/Admin/images/OAimages/ProjectUserList_bg.jpg); 
+}
+
+table .tab9
+{
+    width: 100%;
+    background-color:#ffffff;
+    height: 200px;
+}
+
+
+table .tab_height1
+{
+}
+table .tab_height2
+{
+}
+.LB_name1
+{
+    color: White;
+    font-weight:bolder;
+}
+table .tab1 .tab1_td1
+{
+    width:20px;
+}
+table .tab1 .tab1_td2
+{
+    font-weight:bolder;
+}
+a.master_a
+{
+    color:White;
+    padding-left:10px;
+    text-decoration:none;
+    
+}
+a.master_a:hover
+{
+    color:White;
+    text-decoration:none;
+}
+a.master_b
+{
+    color:White;
+    padding-left:10px;
+    text-decoration:none;
+    font-weight:bolder;
+    
+}
+a.master_b:hover
+{
+    color:White;
+    text-decoration:none;
+    font-weight:bolder;
+}
+
+.textbox_name
+{
+    width: 376px;
+    border: 1px   solid   #929C9E; 
+}
+.textbox_content
+{
+    width: 700px;
+    height: 100px;
+    border: 1px   solid   #929C9E; 
+}
+.bottom_sty
+{
+    height:43px;
+    color:#2f6aa2;
+}
+.master_menu
+{
+    background:url(/Admin/images/OAimages/leftsideBar_bg.jpg); 
+    height:20px;
+}
+.master_label
+{
+    height:30px;
+    width:938px; 
+    background:url(/Admin/images/OAimages/001.jpg); 
+    padding-left:10px; 
+    color:White;
+     font-weight:bolder;
+}
+.master_label_small
+{
+    height:30px;
+    width:720px; 
+    background:url(/Admin/images/OAimages/001_1.jpg) no-repeat; 
+    padding-left:10px; 
+    color:White;
+     font-weight:bolder;
+    
+}
+.menu_ziti
+{
+    color:#ffffff; 
+    font-size:12px; 
+    font-weight:bolder;
+    text-decoration:none;
+    
+}
+a.menu_ziti2
+{
+    color:#ffffff; 
+    font-size:12px; 
+    font-weight:bolder;
+    text-decoration:none;
+    
+}
+a.menu_ziti2:hover
+{
+    color:Red; 
+    font-size:12px; 
+    font-weight:bolder;
+    text-decoration:none;
+    
+}
+
+a.mchild_a
+{
+    color:#ffffff;
+    font-family:  "宋体";
+}
+a.mchild_a:hover
+{
+    color:Red;
+    font-family:  "宋体";
+}
+a.mchild_a2
+{
+    color:#ffffff;
+    font-family:  "宋体";
+    text-decoration:none;
+}
+a.mchild_a2:hover
+{
+    color:yellow;
+    font-family:  "宋体";
+    text-decoration:none;
+}
+.weat_style
+{
+    color: #008BCA;
+	font-size: 12px;
+}
+.am_pm
+{
+    color:#ff7920; 
+    font-size:14px; 
+    font-weight:bolder;
+}
+.hour_mi
+{
+    color:#19E6FD; 
+    font-size:32px; 
+    font-weight:bolder;
+    font-family:Times New Roman;
+}
+.zjk_tongz
+{
+    color:Red;
+    text-decoration:none;
+}
+/*项目文档的目录树部分的分页卡样式定义*/
+/*AJAX 分页卡的样式表*/
+/* ajax__tab_ie-theme theme */ 
+.ajax__tab_ie-theme .ajax__tab_header 
+{ 
+padding-left:1px; 
+} 
+.ajax__tab_ie-theme .ajax__tab_header .ajax__tab_tab 
+{ 
+margin-right:0px; 
+background:url(/Admin/images/OAimages/noselect.jpg);
+width:63px; 
+height:19px;
+padding:0px 0px 0px 0px; 
+text-align:center;
+color:#999a95;
+font-family:verdana;
+vertical-align:bottom;
+font-size:12px; 
+display:block; 
+cursor:hand;
+} 
+.ajax__tab_ie-theme .ajax__tab_active .ajax__tab_tab 
+{ 
+padding:0px 0px 0px 0px; 
+background:url(/Admin/images/OAimages/selected.jpg); 
+color:#000000;
+font-weight:bold;
+cursor:hand;
+} 
+.ajax__tab_ie-theme .ajax__tab_body 
+{ 
+background:url(/Admin/images/OAimages/noselect.jpg) no-repeat; 
+font-size:12px; 
+font-family:verdana; 
+height:680px; 
+width:210px; 
+} 
+.ajax__tab_ie-theme .ajax__tab_body div 
+{ 
+padding:0px;
+background-color:#99cccd;
+height:680px;
+} 
+/*AJAX 分页卡的样式表*/
+
+/*项目文档的目录树部分的分页卡样式定义*/
+
+/*ProjectPanal*/
+a.ProjectPanal /*正常的状态：兰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_1.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#FFFFFF;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+
+a.ProjectPanal:hover /*被选中的状态：灰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+a.ProjectPanal:visited /*被选中的状态：灰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+
+a.ProjectPanal_2 /*正常的状态：灰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;
+}
+
+a.ProjectPanal_2:hover /*被选中的状态：兰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+a.ProjectPanal_2:visited /*被选中的状态：兰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_1.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#FFFFFF;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;
+}
+/*ProjectPanal*/
+
+
+
+/*注销*/
+a.logout
+{
+    width:60px;
+    height:18px;
+    background:url(/Admin/images/OAimages/logout.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#FFFFFF;
+	font-size: 12px;
+	line-height: 20px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;
+}
+
+a.logout:hover 
+{
+    width:60px;
+    height:18px;
+    background:url(/Admin/images/OAimages/logout.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#ffff00;
+	font-size: 12px;
+	line-height: 20px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;
+}
+
+/*注销*/
+
+.white
+{
+    color: #ffffff;
+    font-family: "宋体";
+    font-size: 12px;
+}
+
+
+
+/*右侧栏*/
+.ziti_style
+{
+    color:#ffffff;
+    font-family: "宋体";
+}
+.ziti_style2
+{
+    color:#64d3e6;
+}
+.ziti_style3
+{
+    color:#ffffff;
+    font-family: "宋体";
+    font-weight:bolder;
+}
+a.right_a
+{
+    color: #ffffff;
+    text-decoration: none;   
+}
+a.right_a:hover
+{
+    color: Red;
+    text-decoration: none;   
+}
+.TabContainer1
+{
+    color:#ffffff;
+    font-family: "宋体";
+    font-weight: bolder;
+    cursor: hand;
+}
+.GridVie_NoteDetial1
+{
+    color:#ffffff;
+    border-color:#125698;
+    width:200px;
+}
+
+
+/* Following are tab control styles, Special for Outsourcing Set-up Process Page */
+/* Default tab */
+.AjaxTabStrip .ajax__tab_tab
+{
+    font-weight:bold;
+    font-size: 12px;
+    width: 112px;  /* Your proper width */
+    height:21px;   /* Your proper height */
+    background: url(/Admin/images/OAimages/right_001.jpg);
+    text-decoration: none;
+    color: #0099ff;
+    cursor: hand;
+    margin-left:2px;
+    padding-top:3px;
+     text-align:center;
+}
+/* When mouse over */
+.AjaxTabStrip .ajax__tab_hover .ajax__tab_tab
+{
+    font-weight:bold;
+    text-decoration: none;
+    color: #ffffff;
+    background: url(/Admin/images/OAimages/right_002.jpg);
+    paddingn-top:3px;
+     text-align:center;
+}
+/* Current selected tab */
+.AjaxTabStrip .ajax__tab_active .ajax__tab_tab
+{
+    font-weight:bold;
+    text-decoration: none;
+    color: #ffffff;
+    background: url(/Admin/images/OAimages/right_002.jpg);
+    padding-top:3px;
+   
+}
+/* TabPanel Content */
+.AjaxTabStrip .ajax__tab_body
+{
+    background-color: #125698;
+    border-color:#125698;
+    height:100px;
+}
+
+.ffont
+{
+    font-family: "宋体";
+    color: #000000;
+    text-decoration: none;
+    padding-left:10px;
+    
+}
+.div_scroll
+{
+    
+    width:230px;
+    height:98px;
+    overflow-y:scroll;
+    scrollbar-face-color: #0e65b5; 
+    /* 滚动条的滑动块，即在它上面按下鼠标左键不放可上下或左右移动的滑动块以及滚动条两头的小方块    face即滚动条的“脸”，注意它有三张“脸”：滑动条和两头的小方块。*/
+    scrollbar-shadow-color: #0b4278; 
+    /* 滚动条阴影部分，指主滑块和两头方块的阴影，位于左边和左下 */
+    scrollbar-highlight-color: #3299e4; 
+    /* 滚动条亮边框部分   这个亮边框，和表格的亮边框概念是一样的，即左边和上边部分，滚动条的亮边框部分是指滚动条的“脸”（即滑动块和两头小方块）的亮边框。*/
+    scrollbar-3dlight-color: #125698; 
+    /*滚动条亮边框部分的外围立体修饰部分。 3d即立体的意思，它将包围在滚动条亮边框部分的外边。*/
+    scrollbar-darkshadow-color: #0b4278; 
+    /* 滚动条阴影部分还有一个强阴影部分,它包围在阴影部分的外边。*/
+    scrollbar-track-color: #0b4278; 
+    /* 滚动条的轨迹。所谓“轨迹”，指滚动条的滑动块运行时所必经的路线。*/
+    scrollbar-arrow-color: #0b4278;
+    /* 滚动条两头方志标志箭头,箭头方向为向下、向上、向左、向右。*/
+}
+.div_scroll_notepad /* 便签条的更多*/
+{
+    height:374px; 
+    width:220px; 
+    overflow-y:scroll;
+    word-break:break-all;
+    scrollbar-face-color: #0e65b5; 
+    scrollbar-shadow-color: #0b4278; 
+    scrollbar-highlight-color: #3299e4; 
+    scrollbar-3dlight-color: #125698; 
+    scrollbar-darkshadow-color: #0b4278; 
+    scrollbar-track-color: #0b4278; 
+    scrollbar-arrow-color: #0b4278;
+  
+}
+
+/*个人主页*/
+a.person_index /*正常的状态：暗*/
+{
+    width:60px;
+    height:80px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_1.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#FFFFFF;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+
+a.ProjectPanal:hover /*被选中的状态：灰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+
+}
+a.ProjectPanal:visited /*被选中的状态：灰色*/
+{
+    width:134px;
+    height:25px;
+    border:none;
+    background:url(/Admin/images/OAimages/ProjectPanal_2.jpg);
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block; 
+}
+.linkb_style
+{
+    text-decoration:none;
+    color:White;
+}
+
+
+
+/* Default tab */
+.AjaxTabStrip_bumen .ajax__tab_tab
+{
+    font-weight:bold;
+    font-size: 12px;
+    line-height: 24px;
+    width: 346px;  /* Your proper width */
+    height:24px;   /* Your proper height */
+    background-image: url(/Admin/images/OAimages/pppp2.jpg);
+    text-decoration: none;
+    color: #ffffff;
+    cursor: hand;
+    margin-left:7px;
+}
+/* When mouse over */
+.AjaxTabStrip_bumen .ajax__tab_hover .ajax__tab_tab
+{
+    font-weight:bold;
+    text-decoration: none;
+    color: #ffffff;
+}
+/* Current selected tab */
+.AjaxTabStrip_bumen .ajax__tab_active .ajax__tab_tab
+{
+    font-weight:bold;
+    text-decoration: none;
+    color: #ffffff;
+    background-image: url(/Admin/images/OAimages/pppp1.jpg);
+}
+/* TabPanel Content */
+.AjaxTabStrip_bumen .ajax__tab_body
+{
+    border-color:#125698;
+  
+}
+
+a.ProjectPanal_3  /*蓝色底*/
+{
+    width: 95px;
+    height:21px;
+    background-image: url(/Admin/images/OAimages/initPanal.jpg);
+    border:none;    
+    cursor:hand;
+	font-family: "宋体";
+	color:#ffffff;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;	
+}
+a.ProjectPanal_3:hover  /*白色底*/
+{
+    width: 94px;
+    height:27px;
+    background-image: url(/Admin/images/OAimages/overPanal.jpg);
+    border:none;    
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;	
+}
+
+a.ProjectPanal_4
+{
+    width: 94px;
+    height:27px;
+    background-image: url(/Admin/images/OAimages/overPanal.jpg);   
+    border:none;    
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;	
+	
+}
+a.ProjectPanal_4:hover
+{
+    width: 94px;
+    height:27px;
+    background-image: url(/Admin/images/OAimages/overPanal.jpg);   
+    border:none;    
+    cursor:hand;
+	font-family: "宋体";
+	color:#000000;
+	font-size: 12px;
+	line-height: 24px;
+	text-decoration:none;
+	text-align:center;
+	vertical-align:bottom;
+	display:block;	
+	
+}
+
+.menuChildTd /* 子目录样式*/
+{
+    height:20px;
+    text-align:left;
+    background:url(/Admin/images/OAimages/nav_sub.jpg);
+    padding-left:30px;
+    color:#FFFFFF;
+}
+.projectStatusBack
+{
+    color:#000000;
+    font-family: "宋体";
+    font-size: 14px;
+}
+.head_div11_InSamePage /*大DIV样式，当新闻展示时，将背景图加上蒙版*/
+{
+	height:450px;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	background-color: #E5E5E5;
+}
+
+.showDivInSamePage /*在同一个页面中显示内容，且让内容可以自动有下*/
+{
+    position: absolute;
+	overflow: auto;
+	right:130px;
+	height: 380px;
+	top: 50px;
+	 width: 680px;
+	line-height:22px;
+	letter-spacing:1px;
+	text-align:left;
+
+}
+.showdivInSamePagebutton
+{
+    position: absolute;
+	overflow: auto;
+	right:-500px;
+	height: 50px;
+	top:20px;
+	 width: 680px;
+	line-height:22px;
+	letter-spacing:1px;
+	text-align:left;
+}
+
+.Green_Table
+{
+	border-left: solid 1px #99cccd;
+	border-top: solid 1px #99cccd;
+	border-bottom: solid 1px #99cccd;
+	border-right: solid 1px #99cccd;
+}
+.Green_TableHeader
+{
+	background-color: #99cccd;
+	text-align: center;
+	height:25px;
+}
+.Green_TableRowCenter
+{
+	border-right: solid 1px #99cccd;
+	border-bottom: solid 1px #99cccd;
+	text-align:center;
+	height:30px;
+}
+.Green_TableRowLeft
+{
+	border-right: solid 1px #99cccd;
+	border-bottom: solid 1px #99cccd;
+	text-align:left;
+}
+.HistoryDataList
+{
+	border-right:solid 1px #242727;
+	text-align:center;
+}
+.GridView11
+{
+    background-color:White;
+    border-color:#929C9E;                                               
+}
+
+.ItemStyle11
+{
+    width:56px;
+    border-color:#929C9E;
+    font-family:微软雅黑,黑体;
+    word-break: break-all;
+    text-align:center;
+}
+.HeaderStyle11
+{
+    width:56px;
+    height:20px;
+    color:#000000;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+    background:url(../images/OAimages/bg_grey1.jpg);
+    display:block;
+    text-align:center;
+}
+.ItemStyle12
+{
+    width:74px;
+    border-color:#929C9E;
+    font-family:微软雅黑,黑体;
+    word-break: break-all;
+    text-align:center;
+}
+.HeaderStyle12
+{
+    width:74px;
+    height:20px;
+    color:#000000;
+    font-family:微软雅黑,黑体;
+    font-weight:bold;
+    border-color:#929C9E;
+    background:url(../images/OAimages/bg_grey1.jpg);
+    display:block;
+    text-align:center;
+}

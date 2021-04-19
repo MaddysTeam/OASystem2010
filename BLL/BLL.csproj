@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38D7AA58-C95B-449B-86C6-A8073A56E11F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>DIANDA.BLL</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Dianda.BLL</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LTP.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Web\lib\LTP.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Maticsoft.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Web\lib\Maticsoft.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cash_Account.cs" />
+    <Compile Include="Cash_Account_Subscription.cs" />
+    <Compile Include="Cash_Apply.cs" />
+    <Compile Include="Cash_Apply_History.cs" />
+    <Compile Include="Cash_Cards.cs" />
+    <Compile Include="Cash_CardsDetail.cs" />
+    <Compile Include="Cash_CardsExt.cs" />
+    <Compile Include="Cash_ControlInfo.cs" />
+    <Compile Include="Cash_DetailNameList.cs" />
+    <Compile Include="Cash_Message.cs" />
+    <Compile Include="Cash_SF_Order.cs" />
+    <Compile Include="Cash_SpecialFunds.cs" />
+    <Compile Include="Document_File.cs" />
+    <Compile Include="Document_File_Share.cs" />
+    <Compile Include="Document_Folder.cs" />
+    <Compile Include="Document_FolderExt.cs" />
+    <Compile Include="Document_Folder_Share.cs" />
+    <Compile Include="DOC_transport_From.cs" />
+    <Compile Include="DOC_transport_To.cs" />
+    <Compile Include="FaceShowMessage.cs" />
+    <Compile Include="GUESTBOOK_MAIN.cs" />
+    <Compile Include="NEWS_COLUMNS.cs" />
+    <Compile Include="News_ColumnsExt.cs" />
+    <Compile Include="News_LimitUser.cs" />
+    <Compile Include="NEWS_NEWS.cs" />
+    <Compile Include="NEWS_USERID_COLUMNSID.cs" />
+    <Compile Include="Personal_Notepad.cs" />
+    <Compile Include="Personal_Plan.cs" />
+    <Compile Include="Personal_Plan_Limits.cs" />
+    <Compile Include="Project_Apply.cs" />
+    <Compile Include="Project_Apply_orderCar.cs" />
+    <Compile Include="Project_Apply_orderFood.cs" />
+    <Compile Include="Project_Apply_orderRoom.cs" />
+    <Compile Include="Project_Apply_signet.cs" />
+    <Compile Include="Project_CarList.cs" />
+    <Compile Include="Project_Columns.cs" />
+    <Compile Include="Project_Projects.cs" />
+    <Compile Include="Project_ProjectsExt.cs" />
+    <Compile Include="Project_RoomList.cs" />
+    <Compile Include="Project_ShenheList.cs" />
+    <Compile Include="Project_SignetList.cs" />
+    <Compile Include="Project_Task.cs" />
+    <Compile Include="Project_UserList.cs" />
+    <Compile Include="SYS_LOGS.cs" />
+    <Compile Include="SYS_LogsExt.cs" />
+    <Compile Include="Term_Diary.cs" />
+    <Compile Include="USER_EducationLevel_Base.cs" />
+    <Compile Include="USER_Groups.cs" />
+    <Compile Include="USER_ORGAN.cs" />
+    <Compile Include="USER_ORGTYPE.cs" />
+    <Compile Include="USER_Role.cs" />
+    <Compile Include="USER_Users.cs" />
+    <Compile Include="USER_WorkStats_Base.cs" />
+    <Compile Include="YYJEHZ.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COMMON\COMMON.csproj">
+      <Project>{5419B3A9-21EE-4E5E-AECC-128E62809CF6}</Project>
+      <Name>COMMON</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9FE00521-3A8B-42B1-814E-585E99407B2E}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988C62E-247F-471F-A183-DB509C7A3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\DIANDA.BLL.dll" />
+    <Content Include="bin\Debug\DIANDA.BLL.pdb" />
+    <Content Include="bin\Debug\DIANDA.COMMON.dll" />
+    <Content Include="bin\Debug\DIANDA.COMMON.pdb" />
+    <Content Include="bin\Debug\DIANDA.DAL.dll" />
+    <Content Include="bin\Debug\DIANDA.DAL.pdb" />
+    <Content Include="bin\Debug\DIANDA.DBUtility.dll" />
+    <Content Include="bin\Debug\DIANDA.DBUtility.pdb" />
+    <Content Include="bin\Debug\DIANDA.Model.dll" />
+    <Content Include="bin\Debug\DIANDA.Model.pdb" />
+    <Content Include="bin\Debug\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Debug\LTP.Common.dll" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="obj\Debug\BLL.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\BLL.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

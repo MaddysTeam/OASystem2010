@@ -17,3 +17,7 @@ C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Mod
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Model\obj\Debug\DIANDA.Model.dll
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Model\obj\Debug\DIANDA.Model.pdb
+E:\项目文件(GitLab)\OA2021\Model\bin\Debug\DIANDA.Model.dll
+E:\项目文件(GitLab)\OA2021\Model\bin\Debug\DIANDA.Model.pdb
+E:\项目文件(GitLab)\OA2021\Model\obj\Debug\DIANDA.Model.dll
+E:\项目文件(GitLab)\OA2021\Model\obj\Debug\DIANDA.Model.pdb

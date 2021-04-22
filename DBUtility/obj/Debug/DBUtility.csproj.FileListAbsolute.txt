@@ -16,3 +16,9 @@ E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\bin\Debug\MySql.Data.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
 E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\obj\Debug\DIANDA.DBUtility.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\DBUtility\obj\Debug\DIANDA.DBUtility.pdb
+E:\项目文件(GitLab)\OA2021\DBUtility\bin\Debug\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA2021\DBUtility\bin\Debug\DIANDA.DBUtility.pdb
+E:\项目文件(GitLab)\OA2021\DBUtility\bin\Debug\MySql.Data.dll
+E:\项目文件(GitLab)\OA2021\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\DBUtility\obj\Debug\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA2021\DBUtility\obj\Debug\DIANDA.DBUtility.pdb

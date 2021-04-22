@@ -17,3 +17,7 @@ C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Fla
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\FlashUpload\obj\Debug\FlashUpload.csprojResolveAssemblyReference.cache
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\FlashUpload\obj\Debug\FlashUpload.dll
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\FlashUpload\obj\Debug\FlashUpload.pdb
+E:\项目文件(GitLab)\OA2021\FlashUpload\bin\Debug\FlashUpload.dll
+E:\项目文件(GitLab)\OA2021\FlashUpload\bin\Debug\FlashUpload.pdb
+E:\项目文件(GitLab)\OA2021\FlashUpload\obj\Debug\FlashUpload.dll
+E:\项目文件(GitLab)\OA2021\FlashUpload\obj\Debug\FlashUpload.pdb

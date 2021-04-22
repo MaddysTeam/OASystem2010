@@ -112,7 +112,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\budgetManage\addChildBudget.aspx" />
     <Content Include="Admin\budgetManage\addDepartmentBudget.aspx" />
+    <Content Include="Admin\budgetManage\Budget_DetailMX.ascx" />
     <Content Include="Admin\js\select2-4.0.2\css\select2.css" />
     <Content Include="Admin\js\select2-4.0.2\css\select2.min.css" />
     <Content Include="Admin\js\select2-4.0.2\js\i18n\ar.js" />
@@ -522,6 +524,13 @@
     <Compile Include="Admin\applyManage\OrdersignetManage\manage.aspx.designer.cs">
       <DependentUpon>manage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\budgetManage\addChildBudget.aspx.cs">
+      <DependentUpon>addChildBudget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\budgetManage\addChildBudget.aspx.designer.cs">
+      <DependentUpon>addChildBudget.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\budgetManage\addDepartmentBudget.aspx.cs">
       <DependentUpon>addDepartmentBudget.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,6 +551,13 @@
     </Compile>
     <Compile Include="Admin\budgetManage\budgetmanage.aspx.designer.cs">
       <DependentUpon>budgetmanage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\budgetManage\Budget_DetailMX.ascx.cs">
+      <DependentUpon>Budget_DetailMX.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\budgetManage\Budget_DetailMX.ascx.designer.cs">
+      <DependentUpon>Budget_DetailMX.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\budgetManage\check.aspx.cs">
       <DependentUpon>check.aspx</DependentUpon>

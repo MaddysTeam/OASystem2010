@@ -54,3 +54,17 @@ C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DIANDA.DAL.dll
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\DAL\obj\Debug\DIANDA.DAL.pdb
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.DAL.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.DAL.pdb
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.COMMON.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.Model.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\LTP.Common.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\MySql.Data.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.COMMON.pdb
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.DBUtility.pdb
+E:\项目文件(GitLab)\OA2021\DAL\bin\Debug\DIANDA.Model.pdb
+E:\项目文件(GitLab)\OA2021\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\DAL\obj\Debug\DIANDA.DAL.dll
+E:\项目文件(GitLab)\OA2021\DAL\obj\Debug\DIANDA.DAL.pdb

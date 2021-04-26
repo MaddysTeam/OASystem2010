@@ -106,8 +106,11 @@
     <Compile Include="Cash_Account.cs" />
     <Compile Include="Cash_Account_Subscription.cs" />
     <Compile Include="Cash_Apply.cs" />
+    <Compile Include="Buget_Apply_History.cs" />
     <Compile Include="Cash_Apply_History.cs" />
+    <Compile Include="Budget.cs" />
     <Compile Include="Cash_Cards.cs" />
+    <Compile Include="Budget_Detail.cs" />
     <Compile Include="Cash_CardsDetail.cs" />
     <Compile Include="Cash_ControlInfo.cs" />
     <Compile Include="Cash_DetailNameList.cs" />

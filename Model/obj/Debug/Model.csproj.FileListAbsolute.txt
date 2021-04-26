@@ -21,3 +21,4 @@ E:\项目文件(GitLab)\OA2021\Model\bin\Debug\DIANDA.Model.dll
 E:\项目文件(GitLab)\OA2021\Model\bin\Debug\DIANDA.Model.pdb
 E:\项目文件(GitLab)\OA2021\Model\obj\Debug\DIANDA.Model.dll
 E:\项目文件(GitLab)\OA2021\Model\obj\Debug\DIANDA.Model.pdb
+E:\项目文件(GitLab)\OA2021\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

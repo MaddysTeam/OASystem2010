@@ -128,6 +128,7 @@
     <Compile Include="Cash_Account_Subscription.cs" />
     <Compile Include="Cash_Apply.cs" />
     <Compile Include="Cash_Apply_History.cs" />
+    <Compile Include="Budget.cs" />
     <Compile Include="Cash_Cards.cs" />
     <Compile Include="Cash_CardsDetail.cs" />
     <Compile Include="Cash_CardsExt.cs" />

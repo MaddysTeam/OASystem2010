@@ -41,7 +41,7 @@ namespace Dianda.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(Dianda.Model.Buget_Apply_History model)
+		public int Add(Dianda.Model.Budget_Apply_History model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Buget_Apply_History(");
@@ -78,7 +78,7 @@ namespace Dianda.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public void Update(Dianda.Model.Buget_Apply_History model)
+		public void Update(Dianda.Model.Budget_Apply_History model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Buget_Apply_History set ");
@@ -131,7 +131,7 @@ namespace Dianda.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Dianda.Model.Buget_Apply_History GetModel(int ID)
+		public Dianda.Model.Budget_Apply_History GetModel(int ID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -141,7 +141,7 @@ namespace Dianda.DAL
 					new SqlParameter("@ID", SqlDbType.Int,4)};
 			parameters[0].Value = ID;
 
-			Dianda.Model.Buget_Apply_History model=new Dianda.Model.Buget_Apply_History();
+			Dianda.Model.Budget_Apply_History model=new Dianda.Model.Budget_Apply_History();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{

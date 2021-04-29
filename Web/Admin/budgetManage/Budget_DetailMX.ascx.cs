@@ -15,16 +15,7 @@ namespace Dianda.Web.Admin.budgetManage
 {
 	public partial class Budget_DetailMX : System.Web.UI.UserControl
 	{
-		public string LimitNums
-		{
-			get
-			{
-				if (TB_LimitNums.Text.Trim() != "")
-					return TB_LimitNums.Text.Trim();
-				return "0";
-			}
-			set { TB_LimitNums.Text = value; }
-		}
+		public string LimitNums = string.Empty;
 		public string Balance
 		{
 			get
@@ -46,11 +37,11 @@ namespace Dianda.Web.Admin.budgetManage
 			set { ViewState["CJ"] = value; }
 		}
 
-		Model.Cash_CardsDetail modelCardsDetail = new Dianda.Model.Cash_CardsDetail();
-		BLL.Cash_CardsDetail bllCardDetail = new Dianda.BLL.Cash_CardsDetail();//加载资金卡的明细列表
-		BllExt.StaticFactory_CASH bllextSF = new Dianda.BllExt.StaticFactory_CASH();//加载静态数据
-		Model.Cash_Cards Cards_model = new Dianda.Model.Cash_Cards();
-		BLL.Cash_Cards Cards_bll = new Dianda.BLL.Cash_Cards();
+		Model.Budget_Detail budgetDetailModel = new Dianda.Model.Budget_Detail();
+		BLL.Budget_Detail bllBudgetDetail = new Dianda.BLL.Budget_Detail();
+		//BllExt.StaticFactory_CASH bllextSF = new Dianda.BllExt.StaticFactory_CASH();//加载静态数据
+		Model.Budget budgetModel = new Dianda.Model.Budget();
+		BLL.Budget budget_bll = new Dianda.BLL.Budget();
 
 		COMMON.pageControl pagecontrol = new Dianda.COMMON.pageControl();
 		protected void Page_Load(object sender, EventArgs e)
@@ -63,32 +54,32 @@ namespace Dianda.Web.Admin.budgetManage
 			AjaxPro.Utility.RegisterTypeForAjax(typeof(Budget_DetailMX), this.Page);
 		}
 
-		public void main(string CardID)
+		public void main(string BudgetId)
 		{
-			if (!string.IsNullOrEmpty(CardID))
+			if (!string.IsNullOrEmpty(BudgetId))
 			{
-				hideID.Value = CardID;
-				TB_LimitNums.Enabled = false;
+				hideID.Value = BudgetId;
+				//TB_LimitNums.Enabled = false;
 			}
 			else
 			{
-				TB_LimitNums.Enabled = false;
+				//TB_LimitNums.Enabled = false;
 			}
 			ScriptManager.RegisterStartupScript(this, GetType(), "key", "Show()", true);
 		}
 		/// <summary>
-		/// 根据资金卡的ID，获取到资金卡明细的列表
+		/// 根据预算ID，获取到预算明细的列表
 		/// </summary>
 		/// <param name="CardID"></param>
-		private void showList(string CardID)
+		private void showList(string budgetId)
 		{
 			try
 			{
-				if (!string.IsNullOrEmpty(CardID))
+				if (!string.IsNullOrEmpty(budgetId))
 				{
-					Cards_model = Cards_bll.GetModel(int.Parse(CardID));
-					TB_Balance.Text = Cards_model.Balance.ToString();
-					TB_LimitNums.Text = Cards_model.LimitNums.ToString();
+					//Cards_model = Cards_bll.GetModel(int.Parse(CardID));
+					TB_Balance.Text = budgetModel.Balance.ToString();
+				     //TB_LimitNums.Text = Cards_model.LimitNums.ToString();
 				}
 			}
 			catch
@@ -97,15 +88,15 @@ namespace Dianda.Web.Admin.budgetManage
 		}
 
 		[AjaxPro.AjaxMethod]
-		public DataTable First_Read(string _CardID)
+		public DataTable First_Read(string budgetId)
 		{
 			DataTable dt = new DataTable();
 			try
 			{
-				if (string.IsNullOrEmpty(_CardID))
-					_CardID = "0";
+				if (string.IsNullOrEmpty(budgetId))
+					budgetId = "0";
 
-				string sql = "select * from Cash_CardsDetail where CardID=" + _CardID;
+				string sql = "select * from BudgetDetail where BudgetId=" + budgetId;
 
 				dt = pagecontrol.doSql(sql).Tables[0];
 			}
@@ -114,19 +105,25 @@ namespace Dianda.Web.Admin.budgetManage
 			return dt;
 		}
 
-		public void Submit(int carid)
+		public void Submit()
 		{
 			try
 			{
 				string DelDetailID = hideDelDetailID.Value;
+
+				if (string.IsNullOrEmpty(hideID.Value))
+					return; 
+
+				int budgetId = int.Parse(hideID.Value);
+
 				if (!string.IsNullOrEmpty(DelDetailID.Replace(",", "")))
 				{
-					string sql = "delete Cash_CardsDetail where id in (" + DelDetailID + ")";
+					string sql = "delete BudgetDetail where id in (" + DelDetailID + ")";
 					pagecontrol.doSql(sql);
 				}
 
 				char _charsplit = ',';
-				string[] CardsDetail = Request.Form["CardsDetail"].Split(_charsplit);
+				string[] BudgetsDetail = Request.Form["BudgetsDetail"].Split(_charsplit);
 				string[] DetailName = Request.Form["DetailName"].Split(_charsplit);
 				string[] balance = Request.Form["balance"].Split(_charsplit);
 				string[] Unit = Request.Form["Unit"].Split(_charsplit);
@@ -142,26 +139,27 @@ namespace Dianda.Web.Admin.budgetManage
 						decimal _balance = decimal.Parse(b);
 						decimal _unit = decimal.Parse(Unit[i]);
 						_balance = _balance * _unit;
+						
 
-						if (string.IsNullOrEmpty(CardsDetail[i]))
+						if (string.IsNullOrEmpty(BudgetsDetail[i]))
 						{
-							modelCardsDetail.CardID = carid;
-							modelCardsDetail.DetailName = DetailName[i];
-							modelCardsDetail.Unit = int.Parse(Unit[i]);
-							modelCardsDetail.TypesName = typename;
-							modelCardsDetail.Oldbalance = _balance;
-							modelCardsDetail.Balance = _balance;
-							modelCardsDetail.KYbalance = _balance;
+							budgetDetailModel.BudgetID = budgetId;
+							budgetDetailModel.DetailName = DetailName[i];
+							budgetDetailModel.Unit = int.Parse(Unit[i]);
+							//budgetDetailModel.TypesName = typename;
+							budgetDetailModel.Oldbalance = _balance;
+							budgetDetailModel.Balance = _balance;
+							budgetDetailModel.KYbalance = _balance;
 
-							bllCardDetail.Add(modelCardsDetail);
+							bllBudgetDetail.Add(budgetDetailModel);
 						}
 						else
 						{
-							modelCardsDetail = bllCardDetail.GetModel(int.Parse(CardsDetail[i]));
-							modelCardsDetail.CardID = carid;
-							modelCardsDetail.DetailName = DetailName[i];
-							modelCardsDetail.Unit = int.Parse(Unit[i]);
-							modelCardsDetail.TypesName = typename;
+							budgetDetailModel = bllBudgetDetail.GetModel(int.Parse(BudgetsDetail[i]));
+							budgetDetailModel.BudgetID = budgetId;
+							budgetDetailModel.DetailName = DetailName[i];
+							budgetDetailModel.Unit = int.Parse(Unit[i]);
+							//budgetDetailModel.TypesName = typename;
 
 							//编辑时，预算金额不变，还是最初始的值，但是可用金额有可能被调整了。。那么当前余额也要对应增加或减少
 							//当前余额 (可用金额调整额度是多少，就要在原来的当前余额基础上加减多少)
@@ -169,17 +167,17 @@ namespace Dianda.Web.Admin.budgetManage
 							{
 								//首先获得可用金额调整的差值
 								decimal cz = _balance - decimal.Parse(KYbalance[i]);
-								modelCardsDetail.Balance = modelCardsDetail.Balance + cz;
+								budgetDetailModel.Balance = budgetDetailModel.Balance + cz;
 							}
 							else
 							{
 								//首先获得可用金额调整的差值
 								decimal cz = decimal.Parse(KYbalance[i]) - _balance;
-								modelCardsDetail.Balance = modelCardsDetail.Balance - cz;
+								budgetDetailModel.Balance = budgetDetailModel.Balance - cz;
 							}
-							modelCardsDetail.KYbalance = _balance;
+							budgetDetailModel.KYbalance = _balance;
 
-							bllCardDetail.Update(modelCardsDetail);
+							bllBudgetDetail.Update(budgetDetailModel);
 						}
 
 					}

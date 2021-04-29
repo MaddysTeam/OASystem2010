@@ -67,6 +67,60 @@ namespace Dianda.Web.Admin.budgetManage {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
+        /// DDL_Budget 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Budget;
+        
+        /// <summary>
+        /// DP_Department 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DP_Department;
+        
+        /// <summary>
+        /// HID_Department 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HID_Department;
+        
+        /// <summary>
+        /// BTN_Departmetn 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_Departmetn;
+        
+        /// <summary>
+        /// DP_Manager 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DP_Manager;
+        
+        /// <summary>
+        /// HID_Manager 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HID_Manager;
+        
+        /// <summary>
         /// TB_StartDateTime 控件。
         /// </summary>
         /// <remarks>
@@ -85,13 +139,22 @@ namespace Dianda.Web.Admin.budgetManage {
         protected global::System.Web.UI.HtmlControls.HtmlInputText TB_EndDateTime;
         
         /// <summary>
-        /// Budget_DetailMX1 控件。
+        /// DDL_AssignChecker 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Dianda.Web.Admin.budgetManage.Budget_DetailMX Budget_DetailMX1;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_AssignChecker;
+        
+        /// <summary>
+        /// budgetDetails 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Dianda.Web.Admin.budgetManage.Budget_DetailMX budgetDetails;
         
         /// <summary>
         /// Button_sumbit 控件。

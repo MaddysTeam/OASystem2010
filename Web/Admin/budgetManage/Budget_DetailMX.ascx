@@ -26,12 +26,12 @@
                     </td>
                     <td width="15">
                     </td>
-                    <td runat="server" id="td_LimitNums">
+                   <%-- <td runat="server" id="td_LimitNums">
                         可用金额：<asp:TextBox ID="TB_LimitNums" runat="server" AutoPostBack="true" CssClass="textbox_name"
                             Height="16px" Width="60px" Text="0"
                             ></asp:TextBox>
                         元
-                    </td>
+                    </td>--%>
                 </tr>
             </table>
         </td>
@@ -42,7 +42,7 @@
 var RowsNum = 0;
 //加载完成时运行的代码
 $(document).ready(function(){
-    
+	Show();
 });
 
 function Show()
@@ -117,11 +117,12 @@ function CreateRow(obj,drows)
 
     switch (RowsNum) {
     	case 1: DetailName = '劳务费'; break;
-    	case 2: DetailName = '餐费'; break;
-    	case 3: DetailName = '材料费'; break;
-    	case 4: DetailName = '交通费'; break;
-    	case 5: DetailName = '会务费'; break;
-    	case 6: DetailName = '其他'; break;
+    	case 2: DetailName = '会务费'; break;
+    	case 3: DetailName = '差旅费'; break;
+    	case 4: DetailName = '业务委托费'; break;
+    	case 5: DetailName = '政府采购'; break;
+    	case 6: DetailName = '出版印刷费'; break;
+    	case 7: DetailName = '其他经费'; break;
     }
     
     for(var j=0;j<7;j++)
@@ -138,15 +139,15 @@ function CreateRow(obj,drows)
                 str += "<option value='10000'"+ (Unit == "10000" ? "selected='selected'" :"") + "  >万元</option></select>";
                 newTd.innerHTML = str;
                 break;
-            case 3: 
-                 str = "&nbsp;<input type='radio' id='typename1_"+RowsNum+"' name='typename"+RowsNum+"' value='现金' "+ (typename == "现金" ? "checked='checked'" :"") + " />现金"
-                 str += "&nbsp;<input type='radio' id='typename1_"+RowsNum+"2' name='typename"+RowsNum+"' value='公务卡' "+ (typename == "公务卡" ? "checked='checked'" :"") + " />公务卡";
-                newTd.innerHTML =str;
-                break;
+            //case 3: 
+            //     str = "&nbsp;<input type='radio' id='typename1_"+RowsNum+"' name='typename"+RowsNum+"' value='现金' "+ (typename == "现金" ? "checked='checked'" :"") + " />现金"
+            //     str += "&nbsp;<input type='radio' id='typename1_"+RowsNum+"2' name='typename"+RowsNum+"' value='公务卡' "+ (typename == "公务卡" ? "checked='checked'" :"") + " />公务卡";
+            //    newTd.innerHTML =str;
+            //    break;
             case 4: newTd.innerHTML = "&nbsp;<input type='button' id='"+ID+"' value='-' onclick='DelRow(this)' />";break;
             case 5: newTd.innerHTML = "&nbsp;<label id='bili_"+RowsNum+"'></label>"; break;
             case 6: 
-                newTd.innerHTML = "&nbsp;<input type='hidden' id='CardsDetail_"+RowsNum+"' name='CardsDetail' value='"+ID+"' /><input type='hidden' id='RowsNum_"+RowsNum+"' name='RowsNum' value='"+RowsNum+"' /><input type='hidden' id='KYbalance_"+RowsNum+"' name='KYbalance' value='"+KYbalance+"' />";break;
+            	newTd.innerHTML = "&nbsp;<input type='hidden' id='BudgetsDetail_" + RowsNum + "' name='BudgetsDetail' value='" + ID + "' /><input type='hidden' id='RowsNum_" + RowsNum + "' name='RowsNum' value='" + RowsNum + "' /><input type='hidden' id='KYbalance_" + RowsNum + "' name='KYbalance' value='" + KYbalance + "' />"; break;
         }
     }
 }

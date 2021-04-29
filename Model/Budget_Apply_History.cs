@@ -5,9 +5,9 @@ namespace Dianda.Model
 	/// 实体类Buget_Apply_History 。(属性说明自动提取数据库字段的描述信息)
 	/// </summary>
 	[Serializable]
-	public class Buget_Apply_History
+	public class Budget_Apply_History
 	{
-		public Buget_Apply_History()
+		public Budget_Apply_History()
 		{}
 		#region Model
 		private int _id;

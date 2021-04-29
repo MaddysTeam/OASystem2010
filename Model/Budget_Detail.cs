@@ -16,6 +16,7 @@ namespace Dianda.Model
 		private int? _unit;
 		private decimal? _oldbalance;
 		private decimal? _kybalance;
+		private string _detailname;
 
 		/// <summary>
 		/// 预算明细ID
@@ -53,7 +54,7 @@ namespace Dianda.Model
 		}
 
 		/// <summary>
-		/// 记录的是最初在新建资金卡时记录的各项的初始预算金额(元)，是不变的。
+		/// 记录的是最初在新建预算时记录的各项的初始预算金额(元)，是不变的。
 		/// </summary>
 		public decimal? Oldbalance
 		{
@@ -68,6 +69,15 @@ namespace Dianda.Model
 		{
 			set{ _kybalance=value;}
 			get{return _kybalance;}
+		}
+
+		/// <summary>
+		/// 明细项名称
+		/// </summary>
+		public string DetailName
+		{
+			set { _detailname = value; }
+			get { return _detailname; }
 		}
 
 	}

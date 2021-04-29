@@ -11,6 +11,8 @@ namespace Dianda.Model
 		{}
 		#region Model
 		private int _id;
+		private int _parentid;
+		private string _code;
 		private string _budgetname;
 		private string _departmentids;
 		private string _managerids;
@@ -36,6 +38,23 @@ namespace Dianda.Model
 		{
 			set{ _id=value;}
 			get{return _id;}
+		}
+
+		/// <summary>
+		/// ∏∏‘§À„id
+		/// </summary>
+		public int ParentId
+		{
+			set { _parentid = value; }
+			get { return _parentid; }
+		}
+
+		/// <summary>
+		/// ‘§À„±‡∫≈
+		/// </summary>
+		public string Code {
+			set { _code = value; }
+			get { return _code; }
 		}
 
 		/// <summary>
@@ -190,6 +209,7 @@ namespace Dianda.Model
 			set{ _temp3=value;}
 			get{return _temp3;}
 		}
+
 		#endregion Model
 
 	}

@@ -45,9 +45,9 @@ namespace Dianda.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Budget(");
-            strSql.Append("BudgetName,Balance,DepartmentIDs,ManagerIDs,ApproverIDs,LimitNums,BudgetType,Statas,YEBalance,DATETIME,DoUserID,StartTime,EndTime,TEMP0,TEMP1,TEMP2,TEMP3)");
+            strSql.Append("BudgetName,Balance,DepartmentIDs,ManagerIDs,ApproverIDs,LimitNums,BudgetType,Statas,YEBalance,DATETIME,DoUserID,StartTime,EndTime,TEMP0,TEMP1,TEMP2,TEMP3,Code,ParentId)");
 			strSql.Append(" values (");
-            strSql.Append("@BudgetName,@Balance,@DepartmentIDs,@ManagerIDs,@ApproverIDs,@LimitNums,@BudgetType,@Statas,@YEBalance,@DATETIME,@DoUserID,@StartTime,@EndTime,@TEMP0,@TEMP1,@TEMP2,@TEMP3)");
+            strSql.Append("@BudgetName,@Balance,@DepartmentIDs,@ManagerIDs,@ApproverIDs,@LimitNums,@BudgetType,@Statas,@YEBalance,@DATETIME,@DoUserID,@StartTime,@EndTime,@TEMP0,@TEMP1,@TEMP2,@TEMP3,@Code,@ParentId)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@BudgetName", SqlDbType.VarChar,50),
@@ -66,7 +66,9 @@ namespace Dianda.DAL
 					new SqlParameter("@TEMP0", SqlDbType.VarChar,5000),
 					new SqlParameter("@TEMP1", SqlDbType.VarChar,50),
 					new SqlParameter("@TEMP2", SqlDbType.VarChar,50),
-					new SqlParameter("@TEMP3", SqlDbType.VarChar,50)
+					new SqlParameter("@TEMP3", SqlDbType.VarChar,50),
+					new SqlParameter("@Code", SqlDbType.VarChar,50),
+					new SqlParameter("@ParentId", SqlDbType.Int,50),
 			};
 			parameters[0].Value = model.BudgetName;
 			parameters[1].Value = model.Balance;
@@ -85,6 +87,8 @@ namespace Dianda.DAL
 			parameters[14].Value = model.TEMP1;
 			parameters[15].Value = model.TEMP2;
             parameters[16].Value = model.TEMP3;
+			parameters[17].Value = model.Code;
+			parameters[18].Value = model.ParentId;
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
@@ -118,7 +122,9 @@ namespace Dianda.DAL
 			strSql.Append("TEMP0=@TEMP0,");
             strSql.Append("TEMP1=@TEMP1,");
             strSql.Append("TEMP2=@TEMP2,");
-            strSql.Append("TEMP3=@TEMP3");
+            strSql.Append("TEMP3=@TEMP3,");
+			strSql.Append("Code=@Code,");
+			strSql.Append("ParentId=@ParentId");
 			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4),
@@ -138,26 +144,30 @@ namespace Dianda.DAL
 					new SqlParameter("@TEMP0", SqlDbType.VarChar,5000),
 					new SqlParameter("@TEMP1", SqlDbType.VarChar,50),
 					new SqlParameter("@TEMP2", SqlDbType.VarChar,50),
-					new SqlParameter("@TEMP3", SqlDbType.VarChar,50)
+					new SqlParameter("@TEMP3", SqlDbType.VarChar,50),
+					new SqlParameter("@Code", SqlDbType.VarChar,50),
+					new SqlParameter("@ParentId", SqlDbType.Int,50),
 			};
 			parameters[0].Value = model.ID;
-			parameters[0].Value = model.BudgetName;
-			parameters[1].Value = model.Balance;
-			parameters[2].Value = model.DepartmentIDs;
-			parameters[3].Value = model.ManagerIDs;
-			parameters[4].Value = model.ApproverIDs;
-			parameters[5].Value = model.LimitNums;
-			parameters[6].Value = model.BudgetType;
-			parameters[7].Value = model.Statas;
-			parameters[8].Value = model.YEBalance;
-			parameters[9].Value = model.DATETIME;
-			parameters[10].Value = model.DoUserID;
-			parameters[11].Value = model.StartTime;
-			parameters[12].Value = model.EndTime;
-			parameters[13].Value = model.TEMP0;
-			parameters[14].Value = model.TEMP1;
-			parameters[15].Value = model.TEMP2;
-			parameters[16].Value = model.TEMP3;
+			parameters[1].Value = model.BudgetName;
+			parameters[2].Value = model.Balance;
+			parameters[3].Value = model.DepartmentIDs;
+			parameters[4].Value = model.ManagerIDs;
+			parameters[5].Value = model.ApproverIDs;
+			parameters[6].Value = model.LimitNums;
+			parameters[7].Value = model.BudgetType;
+			parameters[8].Value = model.Statas;
+			parameters[9].Value = model.YEBalance;
+			parameters[10].Value = model.DATETIME;
+			parameters[11].Value = model.DoUserID;
+			parameters[12].Value = model.StartTime;
+			parameters[13].Value = model.EndTime;
+			parameters[14].Value = model.TEMP0;
+			parameters[15].Value = model.TEMP1;
+			parameters[16].Value = model.TEMP2;
+			parameters[17].Value = model.TEMP3;
+			parameters[18].Value = model.Code;
+			parameters[19].Value = model.ParentId;
 			DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 		}
 
@@ -236,7 +246,18 @@ namespace Dianda.DAL
 				model.TEMP1=ds.Tables[0].Rows[0]["TEMP1"].ToString();
 				model.TEMP2=ds.Tables[0].Rows[0]["TEMP2"].ToString();
 				model.TEMP3=ds.Tables[0].Rows[0]["TEMP3"].ToString();
-               
+
+
+				if (ds.Tables[0].Rows[0]["Code"].ToString() != "")
+				{
+					model.Code = ds.Tables[0].Rows[0]["Code"].ToString();
+				}
+
+				if (ds.Tables[0].Rows[0]["ParentId"].ToString() != "")
+				{
+					model.ParentId = int.Parse(ds.Tables[0].Rows[0]["ParentId"].ToString());
+				}
+
 				return model;
 			}
 			else

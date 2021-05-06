@@ -11,7 +11,7 @@ namespace Dianda.DAL
 	public class Budget_Apply_History
 	{
 		public Budget_Apply_History()
-		{}
+		{} 
 		#region  成员方法
 
 		/// <summary>

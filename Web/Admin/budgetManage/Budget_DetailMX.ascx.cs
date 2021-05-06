@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dianda.Model;
+using System;
 using System.Collections;
 using System.Configuration;
 using System.Data;
@@ -51,7 +52,7 @@ namespace Dianda.Web.Admin.budgetManage
 				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"您目前已经登录超时！请重新登录！谢谢！\");location.href='/login.aspx';</script>";
 				Response.Write(coutws);
 			}
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(Budget_DetailMX), this.Page);
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(Budget_DetailMX), this.Page);	
 		}
 
 		public void main(string BudgetId)
@@ -77,9 +78,9 @@ namespace Dianda.Web.Admin.budgetManage
 			{
 				if (!string.IsNullOrEmpty(budgetId))
 				{
-					//Cards_model = Cards_bll.GetModel(int.Parse(CardID));
+					budgetModel = budget_bll.GetModel(int.Parse(budgetId));
 					TB_Balance.Text = budgetModel.Balance.ToString();
-				     //TB_LimitNums.Text = Cards_model.LimitNums.ToString();
+				   // TB_LimitNums.Text = budgetModel.LimitNums.ToString();
 				}
 			}
 			catch
@@ -183,7 +184,9 @@ namespace Dianda.Web.Admin.budgetManage
 					}
 				}
 			}
-			catch { }
+			catch(Exception e) {
+				return;
+			}
 		}
 
 		/// <summary>

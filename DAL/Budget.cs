@@ -195,7 +195,7 @@ namespace Dianda.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-            strSql.Append("SELECT top 1 [ID],[BudgetName],[Balance],[DepartmentIDs],[ManagerIDs],[ApproverIDs],[BudgetType],[YEBalance],[LimitNums],[Statas],[DATETIME],[DoUserID],[StartTime],[EndTime],[TEMP0],[TEMP1],[TEMP2],[TEMP3] FROM [dbo].[Budget] ");
+            strSql.Append("SELECT top 1 [ID],[BudgetName],[Balance],[DepartmentIDs],[ManagerIDs],[ApproverIDs],[BudgetType],[YEBalance],[LimitNums],[Statas],[DATETIME],[DoUserID],[StartTime],[EndTime],[TEMP0],[TEMP1],[TEMP2],[TEMP3],[Code],[ParentId] FROM [dbo].[Budget] ");
 			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)};
@@ -251,6 +251,16 @@ namespace Dianda.DAL
 				if (ds.Tables[0].Rows[0]["Code"].ToString() != "")
 				{
 					model.Code = ds.Tables[0].Rows[0]["Code"].ToString();
+				}
+
+				if (ds.Tables[0].Rows[0]["DepartmentIDs"].ToString() != "")
+				{
+					model.DepartmentIDs = ds.Tables[0].Rows[0]["DepartmentIDs"].ToString();
+				}
+
+				if (ds.Tables[0].Rows[0]["ManagerIDs"].ToString() != "")
+				{
+					model.ManagerIDs = ds.Tables[0].Rows[0]["ManagerIDs"].ToString();
 				}
 
 				if (ds.Tables[0].Rows[0]["ParentId"].ToString() != "")

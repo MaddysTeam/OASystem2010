@@ -50,7 +50,7 @@ function Show()
     var hideID = $("input[id*=hideID]");
     if(hideID.val() != "")
     {  
-        var Frist_dt = Dianda.Web.Admin.cashCardManage.Cash_CarDetailMX.First_Read(hideID.val()).value;
+    	var Frist_dt = Dianda.Web.Admin.budgetManage.Budget_DetailMX.First_Read(hideID.val()).value;
         
         if(Frist_dt!=null)
         {

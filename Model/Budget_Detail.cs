@@ -8,7 +8,7 @@ namespace Dianda.Model
 	public partial class Budget_Detail
 	{
 		public Budget_Detail()
-		{}
+		{}  
 		#region Model
 		private int _id;
 		private int? _budgetid;

@@ -8,7 +8,7 @@ namespace Dianda.Model
 	public class Budget_Apply_History
 	{
 		public Budget_Apply_History()
-		{}
+		{}    
 		#region Model
 		private int _id;
 		private int? _budgetid;

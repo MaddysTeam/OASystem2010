@@ -10,7 +10,7 @@
 namespace Dianda.Web.Admin.budgetManage {
     
     
-    public partial class addDepartmentbudget {
+    public partial class addChild {
         
         /// <summary>
         /// div2 控件。
@@ -65,6 +65,15 @@ namespace Dianda.Web.Admin.budgetManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
+        /// DDL_Budget 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Budget;
         
         /// <summary>
         /// DP_Department 控件。
@@ -139,13 +148,13 @@ namespace Dianda.Web.Admin.budgetManage {
         protected global::System.Web.UI.WebControls.DropDownList DDL_AssignChecker;
         
         /// <summary>
-        /// LB_BudgetLimit 控件。
+        /// budgetDetails 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_BudgetLimit;
+        protected global::Dianda.Web.Admin.budgetManage.Budget_DetailMX budgetDetails;
         
         /// <summary>
         /// Button_sumbit 控件。

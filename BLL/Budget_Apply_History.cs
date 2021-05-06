@@ -11,8 +11,8 @@ namespace Dianda.BLL
 	public class Budget_Apply_History
 	{
 		private readonly Dianda.DAL.Budget_Apply_History dal =new Dianda.DAL.Budget_Apply_History();
-		public Budget_Apply_History()
-		{}
+		public Budget_Apply_History() 
+		{}   
 		#region  成员方法
 
 		/// <summary>

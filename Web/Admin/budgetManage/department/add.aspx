@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/OAmaster.Master" AutoEventWireup="true"
-	CodeBehind="addDepartmentBudget.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.addDepartmentbudget" %>
+	CodeBehind="add.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+	<link href="/Admin/css/select2.min.css" rel="stylesheet" />
 	<script src="/Admin/js/SelectDate.js" type="text/javascript"></script>
 
 	<table align="center" cellpadding="0" cellspacing="0" width="100%" height="397">
@@ -160,8 +160,8 @@
 			<td width="5"></td>
 		</tr>
 	</table>
-	<script src="../js/select2-4.0.2/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-	<script src="../js/select2-4.0.2/js/select2.min.js" type="text/javascript"></script>
+	<script src="/Admin/js/select2-4.0.2/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/Admin/js/select2-4.0.2/js/select2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		setTimeout(function () {
 

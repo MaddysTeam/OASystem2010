@@ -11,7 +11,7 @@ namespace Dianda.DAL
 	public partial class Budget_Detail
 	{
 		public Budget_Detail()
-		{}
+		{}   
 		#region  Method
 
 		/// <summary>

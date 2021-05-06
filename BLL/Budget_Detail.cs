@@ -12,7 +12,7 @@ namespace Dianda.BLL
 	{
 		private readonly Dianda.DAL.Budget_Detail dal=new Dianda.DAL.Budget_Detail();
 		public Budget_Detail()
-		{}
+		{}    
 		#region  Method
 
 		/// <summary>

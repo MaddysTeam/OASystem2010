@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
 namespace Dianda.Web.Admin.budgetManage
 {
-	public partial class addDepartmentbudget : System.Web.UI.Page
+	public partial class addChild : System.Web.UI.Page
 	{
 		Dianda.COMMON.fileUploads fileup = new Dianda.COMMON.fileUploads();
 		COMMON.pageControl pageControl = new Dianda.COMMON.pageControl();
@@ -28,31 +28,31 @@ namespace Dianda.Web.Admin.budgetManage
 					userid = user_model.ID.ToString();
 				}
 
+				//加载所属项目列表
+				ShowParentBudgetList(userid);
 				//加载预算审批人
 				ShowAssignCheckerList();
 
-				this.ShowDepartments();
+				ShowDepartments();
 
-				//    //说明是编辑过来的
+				//说明是编辑过来的
 				if (null != Request["ID"] && !Request["ID"].ToString().Equals(""))
 				{
-
 					ShowInitInfor(common.cleanXSS(Request["ID"].ToString()));
 					//        LB_file.Visible = true;
 
 					//        //设置模板页中的管理值
 					//        (Master.FindControl("Label_navigation") as Label).Text = "经费 > 预算申请 > 编辑申请 ";
 					//        //设置模板页中的管理值
-				}
-				else
-				{
+					//    }
+					//    else
+					//    {
 					//        LB_file.Visible = false;
 					//        //设置模板页中的管理值
 					//        (Master.FindControl("Label_navigation") as Label).Text = "经费 > 预算申请 > 新建申请 ";
 					//        //设置模板页中的管理值
-
-					LB_BudgetLimit.Text = "0万元";
 				}
+
 
 			}
 		}
@@ -66,13 +66,39 @@ namespace Dianda.Web.Admin.budgetManage
 			try
 			{
 				budgetModel = budgetBll.GetModel(int.Parse(ID));
-				//预算报告名称
+				//预算名称
 				TB_BudgetName.Text = budgetModel.BudgetName;
 				//报告审批人
 				DDL_AssignChecker.SelectedValue = budgetModel.ApproverIDs;
+				if (!budgetModel.ParentId.ToString().Equals("9999"))
+				{
+					DDL_Budget.SelectedValue = budgetModel.ParentId.ToString();
+				}
 
-				LB_BudgetLimit.Text = budgetModel.LimitNums.ToString();
-				//所属项目
+				if (!budgetModel.DepartmentIDs.Equals("9999"))
+				{
+					HID_Department.Value = budgetModel.DepartmentIDs;
+				}
+
+				if (!budgetModel.ManagerIDs.Equals("9999"))
+				{
+					HID_Manager.Value = budgetModel.ManagerIDs;
+				}
+
+
+				//显示详细插件
+				budgetDetails.Balance = budgetModel.Balance.ToString();
+				budgetDetails.LimitNums = budgetModel.LimitNums.ToString();
+				budgetDetails.main(budgetModel.ID.ToString());
+
+				//LB_BudgetLimit.Text = budgetModel.LimitNums.ToString();
+
+				//cashorder_model = cashorder_bll.GetModel(int.Parse(ID));
+				////预算报告名称
+				//TB_Name.Text = cashorder_model.NAMES;
+				////报告审批人
+				//DDL_AssignChecker.SelectedValue = cashorder_model.Checker;
+				////所属项目
 				//if (null != cashorder_model.ProjectID && !cashorder_model.ProjectID.ToString().Equals("9999"))
 				//{
 				//    RBL_project.SelectedValue = "1";
@@ -85,43 +111,17 @@ namespace Dianda.Web.Admin.budgetManage
 				//    DDL_Project.Visible = false;
 				//}
 				////预算金额
-				//TB_BudgetAmount.Text = budgetModel.LimitNums.ToString();
+				//TB_BudgetAmount.Text = cashorder_model.BudgetAmount.ToString();
 				////预算金额单位
 				//RB_BudgetAmount.SelectedValue = cashorder_model.BAUNIT.ToString().Equals("万元") ? "1" : "0";
 
 
 			}
-			catch
-			{ }
-		}
-
-		/// <summary>
-		/// 加载预算审批人
-		/// </summary>
-		protected void ShowAssignCheckerList()
-		{
-			try
+			catch(Exception e)
 			{
-				DataTable DT = groups_bllext.getLeaderList();
-				if (DT.Rows.Count > 0)
-				{
-					DDL_AssignChecker.DataSource = DT;
-					DDL_AssignChecker.DataValueField = "ID";
-					DDL_AssignChecker.DataTextField = "REALNAME";
-					DDL_AssignChecker.DataBind();
-				}
-				else
-				{
-					ListItem li = new ListItem("-暂无可选审批人-", "");
-					DDL_AssignChecker.Items.Add(li);
-					Button_sumbit.Enabled = false;
-				}
-
 			}
-			catch
-			{ }
-
 		}
+
 		/// <summary>
 		/// 有无所属项目切换
 		/// </summary>
@@ -151,7 +151,6 @@ namespace Dianda.Web.Admin.budgetManage
 			try
 			{
 				Model.USER_Users user_model = (Model.USER_Users)Session["USER_Users"];
-
 
 				if (null != Request["ID"] && !Request["ID"].ToString().Equals(""))//表示是修改
 				{
@@ -228,6 +227,7 @@ namespace Dianda.Web.Admin.budgetManage
 					//    mFaceShowMessage.URLS = ((Model.USER_Users)Session["USER_Users"]).REALNAME + "(" + ((Model.USER_Users)Session["USER_Users"]).USERNAME.ToString() + ")编辑预算申请<a href='/Admin/budgetManage/budgetmanage.aspx?Status=" + cashorder_model.Status.ToString() + "&role=manager' target='_self' title='编辑时间:" + DateTime.Now + "'>  点击处理</a>";
 					//    bFaceShowMessage.Add(mFaceShowMessage);
 					//    /*给业务申请者发信息*/
+					//
 				}
 				else//新建
 				{
@@ -237,6 +237,8 @@ namespace Dianda.Web.Admin.budgetManage
 					budgetModel.ManagerIDs = this.HID_Manager.Value;
 					//ID
 					budgetModel.ID = budgetBll.GetMaxId();
+					//父预算ID
+					budgetModel.ParentId = int.Parse(this.DDL_Budget.SelectedValue);
 					//指定审批人
 					budgetModel.ApproverIDs = DDL_AssignChecker.SelectedValue.ToString();
 					budgetModel.BudgetType = 1;
@@ -245,12 +247,16 @@ namespace Dianda.Web.Admin.budgetManage
 					//申请时间
 					budgetModel.DATETIME = DateTime.Now;
 
+					//新增子项目预算
 					budgetBll.Add(budgetModel);
 
-					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChildBudget.aspx\";</script>";
-					Response.Write(coutws);
+					//将父项目预算id放入 子项目预算明细用户控件
+					budgetDetails.main(budgetModel.ID.ToString());
 
-					//预算报告的名称
+
+					//    //ID
+					//    cashorder_model.ID = cashorder_bll.GetMaxId();
+					//    //预算报告的名称
 					//    cashorder_model.NAMES = TB_Name.Text.Trim().ToString();
 					//    //所属项目
 					//    if (RBL_project.SelectedValue.ToString().Equals("1"))//表示有所属项目
@@ -261,10 +267,9 @@ namespace Dianda.Web.Admin.budgetManage
 					//    {
 					//        cashorder_model.ProjectID = 9999;
 					//    }
-
-
+					//    //申请时间
+					//    cashorder_model.ADDTIME = DateTime.Now;
 					//    //预算金额
-					//budgetModel.bu
 					//    cashorder_model.BudgetAmount = decimal.Parse(TB_BudgetAmount.Text.Trim().ToString());
 					//    //预算金额单位
 					//    cashorder_model.BAUNIT = RB_BudgetAmount.SelectedItem.Text.ToString();
@@ -314,7 +319,8 @@ namespace Dianda.Web.Admin.budgetManage
 					//    }
 					//    //资金卡数目
 					//    cashorder_model.CarNums = 0;
-					//   
+					//    //指定审批人
+					//    cashorder_model.Checker = DDL_AssignChecker.SelectedValue.ToString();
 					//    //备注信息
 					//    cashorder_model.Note = user_model.REALNAME + " " + DateTime.Now + "上传预算报告：<a href='" + cashorder_model.BudgetList.ToString() + "' target='_blank'>" + FileUpload_list.FileName.ToString() + "</a><br>";
 
@@ -339,11 +345,13 @@ namespace Dianda.Web.Admin.budgetManage
 					//    /*给业务申请者发信息*/
 				}
 
+				// 提交预算明细用户控件数据
+				this.budgetDetails.Submit();
 				//string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"budgetmanage.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
 				//Response.Write(coutws);
 
 			}
-			catch(Exception en)
+			catch
 			{ }
 		}
 
@@ -360,11 +368,70 @@ namespace Dianda.Web.Admin.budgetManage
 			Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
 		}
 
+
 		protected void BTN_Departmetn_Click(object sender, EventArgs e)
 		{
 			DepartIdChanged();
 		}
 
+
+		/// <summary>
+		/// 加载所属预算
+		/// </summary>
+		protected void ShowParentBudgetList(string userid)
+		{
+			try
+			{
+				DataTable DT = new DataTable();
+				//我负责的预算
+				//string sql1 = " SELECT * FROM budget WHERE  (charindex('"+ common.SafeString(userid) + "',ManagerIDs)>0)";
+
+				string sql1 = " SELECT * FROM budget WHERE  ( ParentId is null or ParentId = 0)";
+
+				DT = pageControl.doSql(sql1).Tables[0];
+
+				if (DT.Rows.Count > 0)
+				{
+					DDL_Budget.DataSource = DT;
+					DDL_Budget.DataValueField = "ID";
+					DDL_Budget.DataTextField = "BudgetName";
+					DDL_Budget.DataBind();
+				}
+				else
+				{
+					ListItem li = new ListItem("-暂无可选项目-", "");
+					// DDL_Project.Items.Add(li);
+				}
+			}
+			catch
+			{ }
+		}
+		/// <summary>
+		/// 加载预算审批人
+		/// </summary>
+		protected void ShowAssignCheckerList()
+		{
+			try
+			{
+				DataTable DT = groups_bllext.getLeaderList();
+				if (DT.Rows.Count > 0)
+				{
+					DDL_AssignChecker.DataSource = DT;
+					DDL_AssignChecker.DataValueField = "ID";
+					DDL_AssignChecker.DataTextField = "REALNAME";
+					DDL_AssignChecker.DataBind();
+				}
+				else
+				{
+					ListItem li = new ListItem("-暂无可选审批人-", "");
+					DDL_AssignChecker.Items.Add(li);
+					Button_sumbit.Enabled = false;
+				}
+			}
+			catch
+			{ }
+
+		}
 
 		/// <summary>
 		/// 部门进行切换的时候，要做人员列表的切换

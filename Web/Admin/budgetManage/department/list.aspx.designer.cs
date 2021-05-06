@@ -7,19 +7,109 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Dianda.Web.Admin.budgetManage {
+namespace Dianda.Web.Admin.budgetManage.department {
     
     
-    public partial class addChildBudget {
+    public partial class list {
         
         /// <summary>
-        /// div2 控件。
+        /// OAleftmenu1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div2;
+        protected global::Dianda.Web.Admin.cashCardManage.OAleftmenu OAleftmenu1;
+        
+        /// <summary>
+        /// OAleftmenu_Show1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Dianda.Web.Admin.cashCardManage.OAleftmenu_Show OAleftmenu_Show1;
+        
+        /// <summary>
+        /// LB_name 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LB_name;
+        
+        /// <summary>
+        /// lblshowMessage 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblshowMessage;
+        
+        /// <summary>
+        /// LB_SX 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LB_SX;
+        
+        /// <summary>
+        /// DDL_SX 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_SX;
+        
+        /// <summary>
+        /// Button_add 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_add;
+        
+        /// <summary>
+        /// Button_modify 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_modify;
+        
+        /// <summary>
+        /// Button_delete 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_delete;
+        
+        /// <summary>
+        /// Button_recover 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_recover;
+        
+        /// <summary>
+        /// Button_div 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_div;
         
         /// <summary>
         /// tag 控件。
@@ -31,147 +121,120 @@ namespace Dianda.Web.Admin.budgetManage {
         protected global::System.Web.UI.WebControls.Label tag;
         
         /// <summary>
-        /// TB_Code 控件。
+        /// GridView1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_Code;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// RequiredFieldValidator2 控件。
+        /// HiddenField1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
         
         /// <summary>
-        /// TB_BudgetName 控件。
+        /// dtrowsHidden 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_BudgetName;
+        protected global::System.Web.UI.WebControls.HiddenField dtrowsHidden;
         
         /// <summary>
-        /// RequiredFieldValidator3 控件。
+        /// pageControlShow 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.HtmlControls.HtmlTable pageControlShow;
         
         /// <summary>
-        /// DDL_Budget 控件。
+        /// FirstPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_Budget;
+        protected global::System.Web.UI.WebControls.LinkButton FirstPage;
         
         /// <summary>
-        /// DP_Department 控件。
+        /// PreviousPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DP_Department;
+        protected global::System.Web.UI.WebControls.LinkButton PreviousPage;
         
         /// <summary>
-        /// HID_Department 控件。
+        /// NextPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HID_Department;
+        protected global::System.Web.UI.WebControls.LinkButton NextPage;
         
         /// <summary>
-        /// BTN_Departmetn 控件。
+        /// LastPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BTN_Departmetn;
+        protected global::System.Web.UI.WebControls.LinkButton LastPage;
         
         /// <summary>
-        /// DP_Manager 控件。
+        /// Label_showInfo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DP_Manager;
+        protected global::System.Web.UI.WebControls.Label Label_showInfo;
         
         /// <summary>
-        /// HID_Manager 控件。
+        /// DropDownList2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HID_Manager;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
-        /// TB_StartDateTime 控件。
+        /// notice 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TB_StartDateTime;
+        protected global::System.Web.UI.WebControls.Label notice;
         
         /// <summary>
-        /// TB_EndDateTime 控件。
+        /// pageindexHidden 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TB_EndDateTime;
+        protected global::System.Web.UI.WebControls.HiddenField pageindexHidden;
         
         /// <summary>
-        /// DDL_AssignChecker 控件。
+        /// H_NAME 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDL_AssignChecker;
-        
-        /// <summary>
-        /// budgetDetails 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Dianda.Web.Admin.budgetManage.Budget_DetailMX budgetDetails;
-        
-        /// <summary>
-        /// Button_sumbit 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_sumbit;
-        
-        /// <summary>
-        /// Button_cancel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_cancel;
+        protected global::System.Web.UI.WebControls.HiddenField H_NAME;
     }
 }

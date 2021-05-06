@@ -46,24 +46,26 @@ namespace Dianda.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Budget_Detail(");
-			strSql.Append("[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance])");
+			strSql.Append("[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance],[DetailName])");
 			strSql.Append(" values (");
-			strSql.Append("@BudgetID,@Balance,@Unit,@Oldbalance,@KYbalance)");
+			strSql.Append("@BudgetID,@Balance,@Unit,@Oldbalance,@KYbalance,@DetailName)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@BudgetID", SqlDbType.Int,4),
 					new SqlParameter("@Balance", SqlDbType.Float,8),
 					new SqlParameter("@Unit", SqlDbType.Int,4),
 					new SqlParameter("@Oldbalance", SqlDbType.Float,8),
-					new SqlParameter("@KYbalance", SqlDbType.Float,8)
+					new SqlParameter("@KYbalance", SqlDbType.Float,8),
+               new SqlParameter("@DetailName",SqlDbType.NVarChar)
 			};
 			parameters[0].Value = model.BudgetID;
 			parameters[1].Value = model.Balance;
 			parameters[2].Value = model.Unit;
 			parameters[3].Value = model.Oldbalance;
 			parameters[4].Value = model.KYbalance;
+         parameters[5].Value = model.DetailName;
 
-			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+         object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;
@@ -85,22 +87,26 @@ namespace Dianda.DAL
 			strSql.Append("Unit=@Unit,");
 			strSql.Append("Oldbalance=@Oldbalance,");
 			strSql.Append("KYbalance=@KYbalance");
-			strSql.Append(" where ID=@ID");
+         strSql.Append("DetailName=@DetailName");
+         strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
-					new SqlParameter("@BudgetID", SqlDbType.Int,4),
-					new SqlParameter("@Balance", SqlDbType.Float,8),
-					new SqlParameter("@Unit", SqlDbType.Int,4),
-					new SqlParameter("@Oldbalance", SqlDbType.Float,8),
-					new SqlParameter("@KYbalance", SqlDbType.Float,8),
-					new SqlParameter("@ID", SqlDbType.Int,4)};
-			parameters[0].Value = model.BudgetID;
+               new SqlParameter("@BudgetID", SqlDbType.Int,4),
+               new SqlParameter("@Balance", SqlDbType.Float,8),
+               new SqlParameter("@Unit", SqlDbType.Int,4),
+               new SqlParameter("@Oldbalance", SqlDbType.Float,8),
+               new SqlParameter("@KYbalance", SqlDbType.Float,8),
+               new SqlParameter("@ID", SqlDbType.Int,4),
+               new SqlParameter("@DetailName", SqlDbType.NVarChar)
+         };
+         parameters[0].Value = model.BudgetID;
 			parameters[1].Value = model.Balance;
 			parameters[2].Value = model.Unit;
 			parameters[3].Value = model.Oldbalance;
 			parameters[4].Value = model.KYbalance;
 			parameters[5].Value = model.ID;
+         parameters[6].Value = model.DetailName;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+         int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
 				return true;
@@ -116,7 +122,6 @@ namespace Dianda.DAL
 		/// </summary>
 		public bool Delete(int ID)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Budget_Detail ");
 			strSql.Append(" where ID=@ID");
@@ -161,7 +166,7 @@ namespace Dianda.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("SELECT top 1 [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] FROM [dbo].[Buget_Detail] ");
+			strSql.Append("SELECT top 1 [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] FROM [dbo].[Budget_Detail] ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -176,9 +181,9 @@ namespace Dianda.DAL
 				{
 					model.ID=int.Parse(ds.Tables[0].Rows[0]["ID"].ToString());
 				}
-				if(ds.Tables[0].Rows[0]["BudgetID"] !=null && ds.Tables[0].Rows[0]["CardID"].ToString()!="")
+				if(ds.Tables[0].Rows[0]["BudgetID"] !=null && ds.Tables[0].Rows[0]["BudgetID"].ToString()!="")
 				{
-					model.BudgetID=int.Parse(ds.Tables[0].Rows[0]["CardID"].ToString());
+					model.BudgetID=int.Parse(ds.Tables[0].Rows[0]["BudgetID"].ToString());
 				}
 				if(ds.Tables[0].Rows[0]["Balance"]!=null && ds.Tables[0].Rows[0]["Balance"].ToString()!="")
 				{
@@ -212,7 +217,7 @@ namespace Dianda.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] ");
-			strSql.Append(" FROM Buget_Detail ");
+			strSql.Append(" FROM Budget_Detail ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -232,7 +237,7 @@ namespace Dianda.DAL
 				strSql.Append(" top "+Top.ToString());
 			}
 			strSql.Append(" [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] ");
-			strSql.Append(" FROM Buget_Detail ");
+			strSql.Append(" FROM Budget_Detail ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

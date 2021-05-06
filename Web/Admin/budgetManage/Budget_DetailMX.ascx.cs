@@ -52,7 +52,7 @@ namespace Dianda.Web.Admin.budgetManage
 				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"您目前已经登录超时！请重新登录！谢谢！\");location.href='/login.aspx';</script>";
 				Response.Write(coutws);
 			}
-			AjaxPro.Utility.RegisterTypeForAjax(typeof(Budget_DetailMX), this.Page);	
+			AjaxPro.Utility.RegisterTypeForAjax(typeof(Dianda.Web.Admin.budgetManage.Budget_DetailMX), this.Page);	
 		}
 
 		public void main(string BudgetId)
@@ -97,11 +97,14 @@ namespace Dianda.Web.Admin.budgetManage
 				if (string.IsNullOrEmpty(budgetId))
 					budgetId = "0";
 
-				string sql = "select * from BudgetDetail where BudgetId=" + budgetId;
+				string sql = "select * from Budget_Detail where BudgetId=" + budgetId;
 
 				dt = pagecontrol.doSql(sql).Tables[0];
 			}
-			catch { }
+			catch(Exception e)
+         {
+
+         }
 
 			return dt;
 		}

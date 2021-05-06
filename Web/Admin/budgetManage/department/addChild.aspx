@@ -163,6 +163,7 @@
 			var $managerIds = $('#ctl00_ContentPlaceHolder1_HID_Manager').val();
 			//alert($managerIds);
 
+
 			$dp_department.children().each(function () {
 				var ids = $departmentIds.split(',')
 				$this = $(this);
@@ -194,6 +195,11 @@
 				$('#ctl00_ContentPlaceHolder1_HID_Manager').val(managerIds);
 			});
 
-		}, 10);
+			//if ($managerIds != '' && $dp_manager.children().size() <= 0) {
+			//	$('#ctl00_ContentPlaceHolder1_BTN_Departmetn').click();
+			//}
+
+
+		},0);
 	</script>
 </asp:Content>

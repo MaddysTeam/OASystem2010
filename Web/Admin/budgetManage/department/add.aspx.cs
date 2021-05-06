@@ -354,11 +354,13 @@ namespace Dianda.Web.Admin.budgetManage
 		/// <param name="e"></param>
 		protected void Button_cancel_click(object sender, EventArgs e)
 		{
-			string page = Request["pageindex"].ToString();
-			string status = Request["Status"].ToString();
+         //string page = Request["pageindex"].ToString();
+         //string status = Request["Status"].ToString();
 
-			Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
-		}
+         //Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
+
+         Response.Redirect("list.aspx");
+      }
 
 		protected void BTN_Departmetn_Click(object sender, EventArgs e)
 		{

@@ -38,11 +38,11 @@
     </tr>
 </table>
 
-<script type="text/javascript">
+<script type="text/javascript" >
 var RowsNum = 0;
 //加载完成时运行的代码
 $(document).ready(function(){
-	Show();
+	//Show();
 });
 
 function Show()
@@ -135,7 +135,7 @@ function CreateRow(obj,drows)
             case 1: newTd.innerHTML = "&nbsp;<input type='text' style='width:40px;' id='balance_"+RowsNum+"' name='balance' maxlength='8' value='"+balance+"' onkeyup='event.returnValue=isDigit(this);' />";break;
             case 2: 
                 str = "&nbsp;<select id='Unit_"+RowsNum+"' name='Unit' onchange='sumTotle()'>"
-                str += "<option value='1' "+ (Unit == "1" ? "selected='selected'" :"") + " >元</option>"
+<%--                str += "<option value='1' "+ (Unit == "1" ? "selected='selected'" :"") + " >元</option>"--%>
                 str += "<option value='10000'"+ (Unit == "10000" ? "selected='selected'" :"") + "  >万元</option></select>";
                 newTd.innerHTML = str;
                 break;

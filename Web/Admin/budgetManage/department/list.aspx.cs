@@ -54,10 +54,6 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			if (!IsPostBack)
 			{
-				//this.GridView1.DataSource = this.tempSource();
-				//this.GridView1.DataBind();
-				//this.GroupRows(GridView1, 1);
-
 				////可以编辑审核通过的经费权限
 				//TSQX();
 				////初始化状态下拉列表
@@ -70,6 +66,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//GetddlSpecialFunds();
 				////======初始化年份下拉列表 by guanzhq on 2012年3月20日======
 				//showYears(DropDownList_year, DateTime.Now.Year.ToString());
+
+				PageRole = Request["role"];
 
 				string count = dtrowsHidden.Value.ToString();
 				if (count.Length == 0)
@@ -496,6 +494,64 @@ namespace Dianda.Web.Admin.budgetManage.department
 			}
 		}
 
+
+		/// <summary>
+		/// 点击删除按钮触发的事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void Button_delete_onclick(object sender, EventArgs e)
+		{
+			int num = 0;
+			int rows = GridView1.Rows.Count;
+			if (rows > 0)
+			{
+				for (int i = 0; i < rows; i++)
+				{
+					CheckBox cb = (CheckBox)GridView1.Rows[i].Cells[0].FindControl("CheckBox_choose");
+					if (cb.Checked)
+					{
+						num = num + 1;
+					}
+				}
+
+				if (num == 0)
+				{
+					tag.Text = "注销时最少选择一条数据！";
+
+				}
+				else
+				{
+					tag.Text = "";
+					for (int j = 0; j < rows; j++)
+					{
+						CheckBox cb1 = (CheckBox)GridView1.Rows[j].Cells[0].FindControl("CheckBox_choose");
+						// HiddenField hid = (HiddenField)GridView1.Rows[j].Cells[0].FindControl("Hid_ID");
+						string id = GridView1.DataKeys[j]["ID"].ToString();
+						if (cb1.Checked)
+						{
+							budget_model = new Dianda.Model.Budget();
+							budget_model = budget_bll.GetModel(Int32.Parse(id));
+							budget_model.Statas = 0;
+							budget_bll.Update(budget_model);
+
+							tag.Text = "操作成功！";
+							// string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"manage.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
+
+
+							// 添加操作日志
+							Dianda.BLL.SYS_LogsExt bsyslog = new Dianda.BLL.SYS_LogsExt();
+							Model.USER_Users user_model = (Model.USER_Users)Session["USER_Users"];
+							bsyslog.addlogs(user_model.REALNAME + "(" + user_model.USERNAME + ")", "删除部门子项目预算" + budget_model.Code /*Request["tags"].ToString()*/, "删除部门子项目预算成功");
+
+							string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"manage.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
+							Response.Write(coutws);
+						}
+					}
+				}
+			}
+		}
+
 		///// <summary>
 		///// 审核通过/审核不通过时触发的事件
 		///// </summary>
@@ -790,7 +846,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 					//}
 					//e.Row.Cells[2].Text = "<a href=\"javascript:window.showModalDialog('showHistory.aspx?id=" + ID + "','','dialogWidth=726px;dialogHeight=400px');\" title='" + CardNum + "'>" + CardName + "</a>";
 
-					e.Row.Cells[2].Text = "<a href='showHistory.aspx?id=" + ID + "&PageRole=" + PageRole + "' title='" + budgetName + "'>" + budgetName + "</a>";
+					e.Row.Cells[2].Text = "<a href='showHistory.aspx?id=" + id + "&PageRole=" + PageRole + "' title='" + budgetName + "'>" + budgetName + "</a>";
 					if (parentBudgetName.Equals(""))
 					{
 						e.Row.Cells[5].Text = "--";

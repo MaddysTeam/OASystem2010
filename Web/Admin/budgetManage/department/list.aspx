@@ -84,7 +84,7 @@
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>
-                                                                                                                <asp:Button ID="Button_delete" runat="server" Text="删除" OnClientClick="if(confirm('您确定要注销吗？')){return true;}else{return false;}"
+                                                                                                                 <asp:Button ID="Button_delete" runat="server" Text="删除" OnClick="Button_delete_onclick" OnClientClick="if(confirm('您确定要注销吗？')){return true;}else{return false;}"
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>

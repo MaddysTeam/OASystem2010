@@ -86,8 +86,8 @@ namespace Dianda.DAL
 			strSql.Append("Balance=@Balance,");
 			strSql.Append("Unit=@Unit,");
 			strSql.Append("Oldbalance=@Oldbalance,");
-			strSql.Append("KYbalance=@KYbalance");
-         strSql.Append("DetailName=@DetailName");
+			strSql.Append("KYbalance=@KYbalance,");
+         strSql.Append("DetailName=@DetailName ");
          strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
                new SqlParameter("@BudgetID", SqlDbType.Int,4),
@@ -104,7 +104,7 @@ namespace Dianda.DAL
 			parameters[3].Value = model.Oldbalance;
 			parameters[4].Value = model.KYbalance;
 			parameters[5].Value = model.ID;
-         parameters[6].Value = model.DetailName;
+            parameters[6].Value = model.DetailName;
 
          int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -216,7 +216,7 @@ namespace Dianda.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] ");
+			strSql.Append("select [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance],[DetailName] ");
 			strSql.Append(" FROM Budget_Detail ");
 			if(strWhere.Trim()!="")
 			{
@@ -236,7 +236,7 @@ namespace Dianda.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] ");
+			strSql.Append(" [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance],[DetailName] ");
 			strSql.Append(" FROM Budget_Detail ");
 			if(strWhere.Trim()!="")
 			{

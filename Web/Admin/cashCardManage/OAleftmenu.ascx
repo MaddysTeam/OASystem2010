@@ -64,7 +64,7 @@
 	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
         id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
         <td align="left">
-            <a href="/Admin/budgetManage/todo/list.aspx" target="_self" class="master_a">
+            <a href="/Admin/budgetManage/todo/list.aspx?role=manage" target="_self" class="master_a">
                 待办预算管理</a>
         </td>
     </tr>
@@ -75,7 +75,7 @@
 	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
         id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
         <td align="left">
-            <a href="/Admin/budgetManage/department/list.aspx" target="_self" class="master_a">
+            <a href="/Admin/budgetManage/department/list.aspx?role=manage" target="_self" class="master_a">
                 部门预算管理</a>
         </td>
     </tr>

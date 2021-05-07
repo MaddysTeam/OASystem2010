@@ -143,6 +143,11 @@ C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Web
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Web\obj\Debug\Web.csproj.GenerateResource.Cache
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Web\obj\Debug\Dianda.Web.dll
 C:\project\教软公司项目\OA\OA_System2010V2\OA_System2010\OA_System2010\Web\obj\Debug\Dianda.Web.pdb
+E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Controls.CheckRight.resources
+E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Controls.CopyRight1.resources
+E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Global.resources
+E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Web.csproj.GenerateResource.Cache
 E:\项目文件(GitLab)\OA2021\Web\bin\Dianda.Web.dll.config
 E:\项目文件(GitLab)\OA2021\Web\bin\Dianda.Web.dll
 E:\项目文件(GitLab)\OA2021\Web\bin\Dianda.Web.pdb
@@ -175,10 +180,5 @@ E:\项目文件(GitLab)\OA2021\Web\bin\DIANDA.Model.pdb
 E:\项目文件(GitLab)\OA2021\Web\bin\WBS001.pdb
 E:\项目文件(GitLab)\OA2021\Web\bin\Newtonsoft.Json.pdb
 E:\项目文件(GitLab)\OA2021\Web\bin\Newtonsoft.Json.xml
-E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
-E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Controls.CheckRight.resources
-E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Controls.CopyRight1.resources
-E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.Global.resources
-E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Web.csproj.GenerateResource.Cache
 E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.dll
 E:\项目文件(GitLab)\OA2021\Web\obj\Debug\Dianda.Web.pdb

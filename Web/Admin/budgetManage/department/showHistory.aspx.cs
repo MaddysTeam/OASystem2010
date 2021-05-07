@@ -99,7 +99,7 @@ namespace Dianda.Web.Admin.budgetManage.department
                //资金卡名称
                LB_Name.Text = DT.Rows[0]["CardName"].ToString();
                //所属项目
-               LB_Project.Text = DT.Rows[0]["ProjectName"].ToString();
+              // LB_Project.Text = DT.Rows[0]["ProjectName"].ToString();
                //持卡人
                LB_Holder.Text = DT.Rows[0]["HolderRealName"].ToString();
                //审批人

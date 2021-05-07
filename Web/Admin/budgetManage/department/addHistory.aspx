@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addHistory.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.department.addHistory" %>
-<%@ Register Src="../../OAleftmenu.ascx" TagName="OAleftmenu" TagPrefix="uc1" %>
-<%@ Register Src="../../ucshow.ascx" TagName="ucshow" TagPrefix="uc2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin/OAmaster.Master" CodeBehind="addHistory.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.department.addHistory" %>
+<%@ Register Src="/Admin/cashCardManage/OAleftmenu.ascx" TagName="OAleftmenu" TagPrefix="uc1" %>
+<%@ Register Src="/Admin/budgetManage/Budget_Show.ascx" TagName="ucshow" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script src="/Admin/js/SelectDate.js" type="text/javascript"></script>
@@ -54,7 +54,7 @@
                                                                                     DataKeyNames="id" runat="server"  CellPadding="0"
                                                                                     AutoGenerateColumns="False" onrowdatabound="GridView1_RowDataBound">
                                                                                     <Columns>
-                                                                                        <asp:TemplateField HeaderText="资金卡金额操作">
+                                                                                        <asp:TemplateField HeaderText="项目经费操作情况">
                                                                                             <ItemTemplate>
                                                                                                 <table width="100%"  style="text-align:left" cellpadding="1" cellspacing="2">
                                                                                                     <tr>
@@ -131,33 +131,15 @@
                                                                 <table class="tab5" height="180" border="0" cellpadding="0" cellspacing="1" bgcolor="99cccd">
                                                                     <tr style="background-color: #99cccd" height="25px">
                                                                         <td align="center" colspan="2" style="height:30px;">
-                                                                            &nbsp;&nbsp;&nbsp;<asp:Label ID="lblCardName" Font-Bold="true" runat="server" Text=""></asp:Label>&nbsp;
+                                                                            &nbsp;&nbsp;&nbsp;<asp:Label ID="lblBudgetName" Font-Bold="true" runat="server" Text=""></asp:Label>&nbsp;
                                                                         </td>
                                                                     </tr>
                                                                     <tr style="background-color: #ffffff">
                                                                         <td style="width: 100px; height:29px;" align="right">
-                                                                            资金卡编号：
+                                                                            经费预算编号：
                                                                         </td>
                                                                         <td>
-                                                                            &nbsp;<asp:Label ID="lblCardNum" runat="server" Text=""></asp:Label>
-                                                                            &nbsp;
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr style="background-color: #ffffff">
-                                                                        <td align="right" style="width: 100px; height:29px;">
-                                                                            所属预算报告：
-                                                                        </td>
-                                                                        <td>
-                                                                            &nbsp;<asp:Label ID="LB_SFOrderName" runat="server" Text=""></asp:Label>
-                                                                            &nbsp;
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr style="background-color: #ffffff">
-                                                                        <td align="right" style="width: 100px; height:29px;">
-                                                                            所属专项资金：
-                                                                        </td>
-                                                                        <td>
-                                                                            &nbsp;<asp:Label ID="LB_SpecialFundsName" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;<asp:Label ID="lblBudgetCode" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>
@@ -166,7 +148,7 @@
                                                                             所属项目：
                                                                         </td>
                                                                         <td>
-                                                                            &nbsp;<asp:Label ID="lblProjectName" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;<asp:Label ID="lblParentBudget" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>
@@ -175,11 +157,29 @@
                                                                             所属部门：
                                                                         </td>
                                                                         <td>
-                                                                            &nbsp;<asp:Label ID="lblDepartmentName" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;<asp:Label ID="lblDepartment" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>
                                                                     <tr style="background-color: #ffffff">
+                                                                        <td align="right" style="width: 100px; height:29px;">
+                                                                            负责人：
+                                                                        </td>
+                                                                        <td>
+                                                                            &nbsp;<asp:Label ID="lblManager" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr style="background-color: #ffffff">
+                                                                        <td align="right" style="width: 100px; height:29px;">
+                                                                            项目审批人：
+                                                                        </td>
+                                                                        <td>
+                                                                            &nbsp;<asp:Label ID="lblApprover" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;
+                                                                        </td>
+                                                                    </tr>
+                                                                   <%-- <tr style="background-color: #ffffff">
                                                                         <td align="right" style="width: 100px; height:29px;">
                                                                             持卡人：
                                                                         </td>
@@ -188,11 +188,11 @@
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>
-                                                                    
+                                                                    --%>
                                                                     
                                                                     <tr style="background-color: #ffffff">
                                                                         <td align="right" style="width: 100px; height:29px;">
-                                                                            可用金额：
+                                                                            预算经费总额：
                                                                         </td>
                                                                         <td>
                                                                             &nbsp;<asp:Label ID="lblLimitNums" runat="server" Text=""></asp:Label>
@@ -201,14 +201,14 @@
                                                                     </tr>
                                                                     <tr style="background-color: #ffffff">
                                                                         <td align="right" style="width: 100px; height:29px;">
-                                                                            审批人：
+                                                                            项目起止时间：
                                                                         </td>
                                                                         <td>
-                                                                            &nbsp;<asp:Label ID="lblApproverRealName" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;<asp:Label ID="lblStartEndDate" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>
-                                                                     <tr style="background-color: #ffffff">
+                                                                    <%-- <tr style="background-color: #ffffff">
                                                                         <td align="right" style="width: 100px; height:29px;">
                                                                            到期时间：
                                                                         </td>
@@ -225,7 +225,7 @@
                                                                             &nbsp;<asp:Label ID="lblStatas" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
-                                                                    </tr>
+                                                                    </tr>--%>
                                                                 </table>
                                                             </td>
                                                         </tr>

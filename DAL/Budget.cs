@@ -236,7 +236,7 @@ namespace Dianda.DAL
 				model.DoUserID=ds.Tables[0].Rows[0]["DoUserID"].ToString();
 				if (ds.Tables[0].Rows[0]["StartTime"].ToString() != "")
 				{
-					model.EndTime = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime"].ToString());
+					model.StartTime = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime"].ToString());
 				}
 				if (ds.Tables[0].Rows[0]["EndTime"].ToString()!="")
 				{

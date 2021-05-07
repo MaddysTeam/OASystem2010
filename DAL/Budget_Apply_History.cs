@@ -6,7 +6,7 @@ using Maticsoft.DBUtility;//请先添加引用
 namespace Dianda.DAL
 {
 	/// <summary>
-	/// 数据访问类Buget_Apply_History。
+	/// 数据访问类Budget_Apply_History。
 	/// </summary>
 	public class Budget_Apply_History
 	{
@@ -19,7 +19,7 @@ namespace Dianda.DAL
 		/// </summary>
 		public int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("ID", "Buget_Apply_History"); 
+		return DbHelperSQL.GetMaxID("ID", "Budget_Apply_History"); 
 		}
 
 		/// <summary>
@@ -28,7 +28,7 @@ namespace Dianda.DAL
 		public bool Exists(int ID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from Buget_Apply_History");
+			strSql.Append("select count(1) from Budget_Apply_History");
 			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)};
@@ -44,7 +44,7 @@ namespace Dianda.DAL
 		public int Add(Dianda.Model.Budget_Apply_History model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Buget_Apply_History(");
+			strSql.Append("insert into Budget_Apply_History(");
 			strSql.Append("BudgetID,ControlInfo,Balance,DATETIME,DoUser,DoType,NOTES)");
 			strSql.Append(" values (");
 			strSql.Append("@BudgetID,@ControlInfo,@Balance,@DATETIME,@DoUser,@DoType,@NOTES)");
@@ -81,7 +81,7 @@ namespace Dianda.DAL
 		public void Update(Dianda.Model.Budget_Apply_History model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update Buget_Apply_History set ");
+			strSql.Append("update Budget_Apply_History set ");
 			strSql.Append("BudgetID=@BudgetID,");
 			strSql.Append("ControlInfo=@ControlInfo,");
 			strSql.Append("Balance=@Balance,");
@@ -118,7 +118,7 @@ namespace Dianda.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Buget_Apply_History ");
+			strSql.Append("delete from Budget_Apply_History ");
 			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)};
@@ -135,7 +135,7 @@ namespace Dianda.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 ID,BudgetID,ControlInfo,Balance,DATETIME,DoUser,DoType,NOTES from Buget_Apply_History ");
+			strSql.Append("select  top 1 ID,BudgetID,ControlInfo,Balance,DATETIME,DoUser,DoType,NOTES from Budget_Apply_History ");
 			strSql.Append(" where ID=@ID ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)};
@@ -180,7 +180,7 @@ namespace Dianda.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select ID,BudgetID,ControlInfo,Balance,DATETIME,DoUser,DoType,NOTES ");
-			strSql.Append(" FROM Buget_Apply_History ");
+			strSql.Append(" FROM Budget_Apply_History ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -200,7 +200,7 @@ namespace Dianda.DAL
 				strSql.Append(" top "+Top.ToString());
 			}
 			strSql.Append(" ID,BudgetID,ControlInfo,Balance,DATETIME,DoUser,DoType,NOTES ");
-			strSql.Append(" FROM Buget_Apply_History ");
+			strSql.Append(" FROM Budget_Apply_History ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);

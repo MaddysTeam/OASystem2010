@@ -56,33 +56,31 @@
                                                                                                             </tr>--%>
                                                                                                             <tr style="background-color: #ffffff">
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    资金卡名称：
+                                                                                                                    经费名称：
                                                                                                                 </td>
-                                                                                                                <td align="left">
+                                                                                                                <td align="left"  colspan="3">
                                                                                                                     &nbsp;
                                                                                                                     <asp:Label ID="LB_Name" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
-                                                                                                                <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    所属项目：
-                                                                                                                </td>
-                                                                                                                <td align="left">
+                                    
+                                                                                                              <%--  <td align="left" colspan="2">
                                                                                                                     &nbsp;
                                                                                                                     <asp:Label ID="LB_Project" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
-                                                                                                                </td>
+                                                                                                                </td>--%>
                                                                                                             </tr>
                                                                                                             <tr style="background-color: #ffffff">
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    资金卡编号：
+                                                                                                                    经费编号：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
                                                                                                                     <asp:Label ID="LB_CardNum" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
-                                                                                                                <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    所属帐户：
+                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
+                                                                                                                    所属项目：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
@@ -92,7 +90,7 @@
                                                                                                             </tr>
                                                                                                             <tr style="background-color: #ffffff">
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    持卡人：
+                                                                                                                    经费预算：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
@@ -100,7 +98,7 @@
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    所属专项资金：
+                                                                                                                    当请总余额：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
@@ -110,7 +108,7 @@
                                                                                                             </tr>
                                                                                                             <tr style="background-color: #ffffff">
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    审批人：
+                                                                                                                    项目负责人：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
@@ -118,11 +116,29 @@
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
-                                                                                                                    所属预算报告：
+                                                                                                                    项目审批人：
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
                                                                                                                     <asp:Label ID="LB_SFOrderName" runat="server" Text=""></asp:Label>
+                                                                                                                    &nbsp;
+                                                                                                                </td>
+                                                                                                            </tr>
+																											 <tr style="background-color: #ffffff">
+                                                                                                                <td style="width: 100px; height: 25px;" align="right">
+                                                                                                                    开始时间：
+                                                                                                                </td>
+                                                                                                                <td align="left">
+                                                                                                                    &nbsp;
+                                                                                                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                                                                                                    &nbsp;
+                                                                                                                </td>
+                                                                                                                <td style="width: 100px; height: 25px;" align="right">
+                                                                                                                    结束时间：
+                                                                                                                </td>
+                                                                                                                <td align="left">
+                                                                                                                    &nbsp;
+                                                                                                                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>

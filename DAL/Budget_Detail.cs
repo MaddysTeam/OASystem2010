@@ -166,7 +166,7 @@ namespace Dianda.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("SELECT top 1 [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance] FROM [dbo].[Budget_Detail] ");
+			strSql.Append("SELECT top 1 [ID],[BudgetID],[Balance],[Unit],[Oldbalance],[KYbalance],[DetailName] FROM [dbo].[Budget_Detail] ");
 			strSql.Append(" where ID=@ID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ID", SqlDbType.Int,4)
@@ -201,8 +201,12 @@ namespace Dianda.DAL
 				{
 					model.KYbalance=decimal.Parse(ds.Tables[0].Rows[0]["KYbalance"].ToString());
 				}
+            if (ds.Tables[0].Rows[0]["DetailName"] != null && ds.Tables[0].Rows[0]["DetailName"].ToString() != "")
+            {
+               model.DetailName = ds.Tables[0].Rows[0]["DetailName"].ToString();
+            }
 
-				return model;
+            return model;
 			}
 			else
 			{

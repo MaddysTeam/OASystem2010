@@ -76,7 +76,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_CardNum" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_BudgetCode" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                  <td style="width: 100px; height: 25px;" align="right">
@@ -84,7 +84,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_AccountName" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_ParentBudget" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>
@@ -94,7 +94,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_Holder" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_LimitNumbers" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
@@ -102,7 +102,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_SpecialFundsName" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_YEBalance" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>
@@ -112,7 +112,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_Checker" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_Managers" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
@@ -120,7 +120,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="LB_SFOrderName" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_Approver" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>
@@ -130,7 +130,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_StartTime" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="right">
@@ -138,7 +138,7 @@
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                                                                                                    <asp:Label ID="LB_EndTime" runat="server" Text=""></asp:Label>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>
@@ -152,31 +152,7 @@
                                                                                                 <tr valign="bottom">
                                                                                                     <td align="center">
                                                                                                         <div style="width: 97%;text-align: left;">
-                                                                                                            <table height="30px" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-                                                                                                                <tr style="height: 30px;">
-                                                                                                                    <td style="border: solid 1px #242727; width: 36px" align="center">
-                                                                                                                        预算<br />
-                                                                                                                        金额
-                                                                                                                    </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-bottom: solid 1px #242727;">
-                                                                                                                        <asp:DataList ID="DList_YSJE" runat="server" GridLines="None" Height="100%" 
-                                                                                                                            onitemdatabound="DList_YSJE_ItemDataBound">
-                                                                                                                            <ItemTemplate>
-                                                                                                                                <%# ReturnStr(Eval("Oldbalance").ToString())%></ItemTemplate>
-                                                                                                                            <ItemStyle Width="60px" CssClass="HistoryDataList" />
-                                                                                                                        </asp:DataList>
-                                                                                                                    </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px; text-align:center;">
-                                                                                                                        <asp:Label ID="Lab_YSJE" runat="server" Text="0"></asp:Label>
-                                                                                                                    </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px;">
-                                                                                                                        &nbsp;
-                                                                                                                    </td>
-                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px;">
-                                                                                                                        &nbsp;
-                                                                                                                    </td>
-                                                                                                                </tr>
-                                                                                                            </table>
+                                                                                                           
                                                                                                             <table width="97%" border="0" cellpadding="0" cellspacing="0">
                                                                                                                 <tr>
                                                                                                                     <td style="height:30px;">
@@ -197,11 +173,10 @@
                                                                                                                 </tr>
                                                                                                             </table>
                                                                                                             <table height="30px" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-                                                                                                                <tr style="height: 30px;">
+                                                                                                                <%--<tr style="height: 30px;">
                                                                                                                     <td style="border-top: solid 1px #242727; border-left: solid 1px #242727; border-right: solid 1px #242727;
                                                                                                                         width: 36px" align="center">
-                                                                                                                        细目<br />
-                                                                                                                        名称
+                                                                                                                         总计<br />
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727;">
                                                                                                                         <asp:DataList ID="DList_xm" runat="server" GridLines="None" Height="100%">
@@ -210,7 +185,7 @@
                                                                                                                             <ItemStyle Width="60px" CssClass="HistoryDataList" />
                                                                                                                         </asp:DataList>
                                                                                                                     </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
+                                                                                                                   <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                        总计
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
@@ -219,30 +194,30 @@
                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                        &nbsp;
                                                                                                                     </td>
-                                                                                                                </tr>
+                                                                                                                </tr>--%>
                                                                                                                 <tr style="height: 30px;">
                                                                                                                     <td style="border-top: solid 1px #242727; border-left: solid 1px #242727; border-right: solid 1px #242727;
                                                                                                                         width: 36px" align="center">
-                                                                                                                        可用<br />
+                                                                                                                        预算
                                                                                                                         金额
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727;">
                                                                                                                         <asp:DataList ID="DList_KYJE" runat="server" GridLines="None" Height="100%" 
                                                                                                                             onitemdatabound="DList_KYJE_ItemDataBound">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <%# ReturnStr(Eval("KYbalance").ToString())%></ItemTemplate>
+                                                                                                                                <%# ReturnStr(Eval("LimitNums").ToString())%></ItemTemplate>
                                                                                                                             <ItemStyle Width="60px" CssClass="HistoryDataList" />
                                                                                                                         </asp:DataList>
                                                                                                                     </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
+                                                                                                                   <%-- <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                         <asp:Label ID="Lab_KYJE" runat="server" Text="0"></asp:Label>
-                                                                                                                    </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
+                                                                                                                    </td>--%>
+                                                                                                                    <%--<td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                        &nbsp;
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                        &nbsp;
-                                                                                                                    </td>
+                                                                                                                    </td>--%>
                                                                                                                 </tr>
                                                                                                                 <tr style="background-color: #FFC21A; height: 30px;">
                                                                                                                     <td style="border-top: solid 1px #242727; border-left: solid 1px #242727; border-right: solid 1px #242727;
@@ -258,7 +233,7 @@
                                                                                                                             <ItemStyle Width="60px" CssClass="HistoryDataList" />
                                                                                                                         </asp:DataList>
                                                                                                                     </td>
-                                                                                                                    <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px; text-align:center;">
+                                                                                                                   <%-- <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px; text-align:center;">
                                                                                                                         <asp:Label ID="Lab_DQYE" runat="server" Text="0"></asp:Label>
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px;">
@@ -266,7 +241,7 @@
                                                                                                                     </td>
                                                                                                                     <td style="border-top: solid 1px #242727; border-right: solid 1px #242727; border-bottom: solid 1px #242727; width: 80px;">
                                                                                                                         &nbsp;
-                                                                                                                    </td>
+                                                                                                                    </td>--%>
                                                                                                                 </tr>
                                                                                                             </table>
                                                                                                         </div>

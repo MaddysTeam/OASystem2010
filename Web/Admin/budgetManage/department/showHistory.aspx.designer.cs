@@ -85,94 +85,76 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.Label LB_Name;
         
         /// <summary>
-        /// LB_CardNum 控件。
+        /// LB_BudgetCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_CardNum;
+        protected global::System.Web.UI.WebControls.Label LB_BudgetCode;
         
         /// <summary>
-        /// LB_AccountName 控件。
+        /// LB_ParentBudget 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_AccountName;
+        protected global::System.Web.UI.WebControls.Label LB_ParentBudget;
         
         /// <summary>
-        /// LB_Holder 控件。
+        /// LB_LimitNumbers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_Holder;
+        protected global::System.Web.UI.WebControls.Label LB_LimitNumbers;
         
         /// <summary>
-        /// LB_SpecialFundsName 控件。
+        /// LB_YEBalance 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_SpecialFundsName;
+        protected global::System.Web.UI.WebControls.Label LB_YEBalance;
         
         /// <summary>
-        /// LB_Checker 控件。
+        /// LB_Managers 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_Checker;
+        protected global::System.Web.UI.WebControls.Label LB_Managers;
         
         /// <summary>
-        /// LB_SFOrderName 控件。
+        /// LB_Approver 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LB_SFOrderName;
+        protected global::System.Web.UI.WebControls.Label LB_Approver;
         
         /// <summary>
-        /// Label1 控件。
+        /// LB_StartTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LB_StartTime;
         
         /// <summary>
-        /// Label2 控件。
+        /// LB_EndTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// DList_YSJE 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DList_YSJE;
-        
-        /// <summary>
-        /// Lab_YSJE 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lab_YSJE;
+        protected global::System.Web.UI.WebControls.Label LB_EndTime;
         
         /// <summary>
         /// notice 控件。
@@ -193,15 +175,6 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// DList_xm 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DList_xm;
-        
-        /// <summary>
         /// DList_KYJE 控件。
         /// </summary>
         /// <remarks>
@@ -211,15 +184,6 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.DataList DList_KYJE;
         
         /// <summary>
-        /// Lab_KYJE 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lab_KYJE;
-        
-        /// <summary>
         /// DList_DQYE 控件。
         /// </summary>
         /// <remarks>
@@ -227,15 +191,6 @@ namespace Dianda.Web.Admin.budgetManage.department {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DList_DQYE;
-        
-        /// <summary>
-        /// Lab_DQYE 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lab_DQYE;
         
         /// <summary>
         /// LB_Info 控件。

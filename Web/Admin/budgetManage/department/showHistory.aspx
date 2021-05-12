@@ -152,12 +152,11 @@
                                                                                                 <tr valign="bottom">
                                                                                                     <td align="center">
                                                                                                         <div style="width: 97%;text-align: left;">
-                                                                                                           
                                                                                                             <table width="97%" border="0" cellpadding="0" cellspacing="0">
                                                                                                                 <tr>
                                                                                                                     <td style="height:30px;">
                                                                                                                         <asp:Label ID="notice" runat="server" Text="" ForeColor="red"></asp:Label>
-                                                                                                                        <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" CellPadding="3"
+                                                                                                                        <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" CellPadding="3"  Width="100%"
                                                                                                                             CssClass="GridView11">
                                                                                                                             <Columns>
                                                                                                                                 <asp:TemplateField HeaderText="序号">

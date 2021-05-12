@@ -64,7 +64,7 @@
                                                                                                         </td>                                                                                                        
                                                                                                         <td>
                                                                                                             <asp:TextBox ID="txtBalance" runat="server" CssClass="textbox_name" Width="70px" Text="0"></asp:TextBox>&nbsp;/&nbsp;<asp:Label
-                                                                                                                ID="LB_Balance" runat="server" Text='<%# Eval("Balance")%>'></asp:Label>&nbsp;万元
+                                                                                                                ID="LB_Balance" runat="server" Text='<%# Eval("Balance")%>'></asp:Label>&nbsp;元
                                                                                                         </td>
                                                                                                     </tr>
                                                                                                     <tr>                                                                                                       
@@ -195,7 +195,7 @@
                                                                             预算经费总额：
                                                                         </td>
                                                                         <td>
-                                                                            &nbsp;<asp:Label ID="lblLimitNums" runat="server" Text=""></asp:Label>
+                                                                            &nbsp;<asp:Label ID="lblBalance" runat="server" Text=""></asp:Label>
                                                                             &nbsp;
                                                                         </td>
                                                                     </tr>

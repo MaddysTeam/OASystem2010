@@ -166,13 +166,13 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.Label lblApprover;
         
         /// <summary>
-        /// lblLimitNums 控件。
+        /// lblBalance 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLimitNums;
+        protected global::System.Web.UI.WebControls.Label lblBalance;
         
         /// <summary>
         /// lblStartEndDate 控件。

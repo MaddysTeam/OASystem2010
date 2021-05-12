@@ -125,14 +125,16 @@ namespace Dianda.Web.Admin.budgetManage.department
 							cashmoney = "-" + tx.Text;
 						}
 						//在原来该细目的可用金额基础上减去输入的值　
-						budgetDetail.Balance = Decimal.Parse(budgetDetail.Balance.ToString()) - Decimal.Parse(tx.Text.ToString());
+						budgetDetail.KYbalance = Decimal.Parse(budgetDetail.KYbalance.ToString()) - Decimal.Parse(tx.Text.ToString());
+						//budgetDetail.Balance = Decimal.Parse(budgetDetail.Balance.ToString()) - Decimal.Parse(tx.Text.ToString());
 						budgetDetailBll.Update(budgetDetail);
 					}
 					else
 					{
 						cashmoney = tx.Text;
 						//在原来该细目的可用金额基础上加上输入的值　
-						budgetDetail.Balance = Decimal.Parse(budgetDetail.Balance.ToString()) + Decimal.Parse(tx.Text.ToString());
+						budgetDetail.KYbalance = Decimal.Parse(budgetDetail.KYbalance.ToString()) + Decimal.Parse(tx.Text.ToString());
+						//budgetDetail.Balance = Decimal.Parse(budgetDetail.Balance.ToString()) + Decimal.Parse(tx.Text.ToString());
 						budgetDetailBll.Update(budgetDetail);
 					}
 
@@ -156,11 +158,11 @@ namespace Dianda.Web.Admin.budgetManage.department
 				budgetApplyHistory.ControlInfo = NAME;
 				if (this.rblDoType.SelectedValue == "1")//增加
 				{
-					budgetApplyHistory.Balance = Decimal.Parse(this.lblLimitNums.Text) + money;
+					budgetApplyHistory.Balance = Decimal.Parse(this.lblBalance.Text) + money;
 				}
 				else//减少
 				{
-					budgetApplyHistory.Balance = Decimal.Parse(this.lblLimitNums.Text) - money;
+					budgetApplyHistory.Balance = Decimal.Parse(this.lblBalance.Text) - money;
 				}
 				budgetApplyHistory.DATETIME = DateTime.Now;
 				budgetApplyHistory.DoUser = ((Model.USER_Users)Session["USER_Users"]).USERNAME;
@@ -170,16 +172,16 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 				string oldLimitNums = budget.LimitNums.ToString();
 				//要在对应的资金卡中增加或是减少的可用金额
-				if (this.rblDoType.SelectedValue == "1")//增加
-				{
-					budget.YEBalance = (budget.YEBalance + money);
+				//if (this.rblDoType.SelectedValue == "1")//增加
+				//{
+					//budget.YEBalance = (budget.YEBalance + money);
 					//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，增加" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
-				}
-				else//减少
-				{
-					budget.YEBalance = (budget.YEBalance - money);
+				//}
+				//else//减少
+				//{
+					//budget.YEBalance = (budget.YEBalance - money);
 					//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，减少" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
-				}
+				//}
 				budgetBll.Update(budget);
 				//this.ucshow1.BindData();
 				Read_Data(common.cleanXSS(Request["id"].ToString()));
@@ -250,7 +252,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			//if (PageStr == "add")
 			//   Response.Redirect(_PageAdd + ReturnCS());
 			//else
-			Response.Redirect("showHistory.aspx?pageindex=" + Request["pageindex"] + "&role=manage");
+			Response.Redirect("showHistory.aspx?id="+ Request["id"] + "&role=manage");
 		}
 		public string ReturnCS()
 		{
@@ -292,7 +294,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 						lblParentBudget.Text = "暂无所属项目";
 					}
 
-					lblLimitNums.Text = dt.Rows[0]["LimitNums"].ToString();
+					lblBalance.Text = dt.Rows[0]["Balance"].ToString();
 					//lblApproverRealName.Text = dt.Rows[0]["ApproverRealName"].ToString();
 					//lblStatas.Text = dt.Rows[0]["Statas"].ToString();
 					string startTime = string.IsNullOrEmpty(dt.Rows[0]["StartTime"].ToString()) ? "" : DateTime.Parse(dt.Rows[0]["StartTime"].ToString()).ToLongDateString();

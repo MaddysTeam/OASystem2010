@@ -114,6 +114,8 @@ namespace Dianda.Web.Admin.budgetManage
 			try
 			{
 				string DelDetailID = hideDelDetailID.Value;
+				int unit = 10000; // 单位：万元
+				decimal totalBalance = 0;
 
 				if (string.IsNullOrEmpty(hideID.Value))
 					return; 
@@ -130,7 +132,7 @@ namespace Dianda.Web.Admin.budgetManage
 				string[] BudgetsDetail = Request.Form["BudgetsDetail"].Split(_charsplit);
 				string[] DetailName = Request.Form["DetailName"].Split(_charsplit);
 				string[] balance = Request.Form["balance"].Split(_charsplit);
-				string[] Unit = Request.Form["Unit"].Split(_charsplit);
+				//string[] Unit = Request.Form["Unit"].Split(_charsplit);
 				string[] RowsNum = Request.Form["RowsNum"].Split(_charsplit);
 				string[] KYbalance = Request.Form["KYbalance"].Split(_charsplit);
 
@@ -141,15 +143,14 @@ namespace Dianda.Web.Admin.budgetManage
 						string typename = Request.Form["typename" + RowsNum[i]];
 						string b = string.IsNullOrEmpty(balance[i]) ? "0" : balance[i];
 						decimal _balance = decimal.Parse(b);
-						decimal _unit = decimal.Parse(Unit[i]);
-						_balance = _balance * _unit;
+						_balance = _balance * unit;
 						
 
 						if (string.IsNullOrEmpty(BudgetsDetail[i]))
 						{
 							budgetDetailModel.BudgetID = budgetId;
 							budgetDetailModel.DetailName = DetailName[i];
-							budgetDetailModel.Unit = int.Parse(Unit[i]);
+							budgetDetailModel.Unit = unit;
 							//budgetDetailModel.TypesName = typename;
 							budgetDetailModel.Oldbalance = _balance;
 							budgetDetailModel.Balance = _balance;
@@ -162,30 +163,36 @@ namespace Dianda.Web.Admin.budgetManage
 							budgetDetailModel = bllBudgetDetail.GetModel(int.Parse(BudgetsDetail[i]));
 							budgetDetailModel.BudgetID = budgetId;
 							budgetDetailModel.DetailName = DetailName[i];
-							budgetDetailModel.Unit = int.Parse(Unit[i]);
-							//budgetDetailModel.TypesName = typename;
+							budgetDetailModel.Unit = 10000; //int.Parse(Unit[i]);
+															//budgetDetailModel.TypesName = typename;
 
 							//编辑时，预算金额不变，还是最初始的值，但是可用金额有可能被调整了。。那么当前余额也要对应增加或减少
 							//当前余额 (可用金额调整额度是多少，就要在原来的当前余额基础上加减多少)
-							if (CJ > 0)
-							{
-								//首先获得可用金额调整的差值
-								decimal cz = _balance - decimal.Parse(KYbalance[i]);
-								budgetDetailModel.Balance = budgetDetailModel.Balance + cz;
-							}
-							else
-							{
-								//首先获得可用金额调整的差值
-								decimal cz = decimal.Parse(KYbalance[i]) - _balance;
-								budgetDetailModel.Balance = budgetDetailModel.Balance - cz;
-							}
-							budgetDetailModel.KYbalance = _balance;
+							//if (CJ > 0)
+							//{
+							//	//首先获得可用金额调整的差值
+							//	decimal cz = _balance - decimal.Parse(KYbalance[i]);
+							//	budgetDetailModel.Balance = budgetDetailModel.Balance + cz;
+							//}
+							//else
+							//{
+							//	//首先获得可用金额调整的差值
+							//	decimal cz = decimal.Parse(KYbalance[i]) - _balance;
+							//	budgetDetailModel.Balance = budgetDetailModel.Balance - cz;
+							//}
+
+							//budgetDetailModel.KYbalance = _balance;
+
+							budgetDetailModel.Balance = _balance;
 
 							bllBudgetDetail.Update(budgetDetailModel);
-						}
 
+							totalBalance += _balance;
+						}
 					}
 				}
+
+				this.Balance = totalBalance.ToString();
 			}
 			catch(Exception e) {
 				return;

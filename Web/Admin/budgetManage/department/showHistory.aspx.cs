@@ -107,9 +107,9 @@ namespace Dianda.Web.Admin.budgetManage.department
                //预算经费编号
                LB_BudgetCode.Text = DT.Rows[0]["Code"].ToString();
                //预算经费
-               LB_LimitNumbers.Text = DT.Rows[0]["LimitNums"].ToString();
+               LB_LimitNumbers.Text = DT.Rows[0]["Balance"].ToString();
                //总余额
-               LB_YEBalance.Text = DT.Rows[0]["YEBalance"].ToString();
+               LB_YEBalance.Text = DT.Rows[0]["KYBalance"].ToString();
                //预算开始时间
                LB_StartTime.Text = DT.Rows[0]["StartTime"].ToString();
                //预算结束时间
@@ -268,8 +268,8 @@ namespace Dianda.Web.Admin.budgetManage.department
                   for (int i = 0; i < _budgetDetailDt.Rows.Count; i++)
                   {
                      _dBalanceRow[i + 1] = _budgetDetailDt.Rows[i]["Balance"];
-                     _dYeBalanceRow[i + 1] = decimal.Parse(_budgetDetailDt.Rows[i]["Balance"].ToString()) - decimal.Parse(_dTotalRow[i + 1].ToString());
-                  }
+                     _dYeBalanceRow[i + 1] = _budgetDetailDt.Rows[i]["KYbalance"];
+				  }
                }
 
                Rdt.Rows.Add(_dTotalRow);
@@ -354,23 +354,25 @@ namespace Dianda.Web.Admin.budgetManage.department
       /// <param name="e"></param>
       protected void Button_cancel_Click(object sender, EventArgs e)
       {
-         //付全文    2013-4-18   修改返回逻辑
-         if (this.ViewState["showHistoryGoto"] == null)
-         {
-            if (null != Request["role"] && Request["role"].ToString().Equals("manager"))
-            {
-               Response.Redirect("/Admin/cashCardManage/manageCashCard.aspx");
-            }
-            else
-            {
-               Response.Redirect("manage.aspx?role=" + PageRole + "&pageindex=" + Request["pageindex"]);
-            }
-         }
-         else
-         {
-            this.Response.Redirect("../person_Index.aspx");
-         }
-      }
+			//付全文    2013-4-18   修改返回逻辑
+			//if (this.ViewState["showHistoryGoto"] == null)
+			//{
+			//   if (null != Request["role"] && Request["role"].ToString().Equals("manager"))
+			//   {
+			//      Response.Redirect("/Admin/cashCardManage/manageCashCard.aspx");
+			//   }
+			//   else
+			//   {
+			//      Response.Redirect("manage.aspx?role=" + PageRole + "&pageindex=" + Request["pageindex"]);
+			//   }
+			//}
+			//else
+			//{
+			//   this.Response.Redirect("../person_Index.aspx");
+			//}
+
+			this.Response.Redirect("list.aspx?role=manage");
+		}
 
       /// <summary>
       /// 记帐

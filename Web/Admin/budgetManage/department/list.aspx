@@ -227,11 +227,11 @@
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                 </asp:BoundField>--%>
-                                                                                                <asp:BoundField HeaderText="预算总额(万元)" DataField="LimitNums">
+                                                                                                <asp:BoundField HeaderText="预算总额(万元)" DataField="Balance">
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                 </asp:BoundField>
-                                                                                                <asp:BoundField HeaderText="可用余额(万元)" DataField="YEBalance" >
+                                                                                                <asp:BoundField HeaderText="可用余额(万元)" DataField="KYbalance" >
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                 </asp:BoundField>

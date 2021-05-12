@@ -331,9 +331,9 @@ namespace Dianda.Web.Admin.budgetManage.department
 					GridView1.DataBind();//将上面指定的信息绑定到GridView1上
 					notice.Text = "";
 
-					int parentBudgetNameIndex = 5, parentLimitNumsIndex = 6, parentYEBalanceIndex = 7;
+					int parentBudgetNameIndex = 5, parentBalanceIndex = 6, parentYEBalanceIndex = 7;
 					GroupRows(GridView1, parentBudgetNameIndex);
-					GroupRows(GridView1, parentLimitNumsIndex);
+					GroupRows(GridView1, parentBalanceIndex);
 					GroupRows(GridView1, parentYEBalanceIndex);
 
 					pageControl.SetSelectPage(pageindex, int.Parse(dtrowsHidden.Value.ToString()), DropDownList2, GridView1.PageSize, FirstPage, NextPage, PreviousPage, LastPage, Label_showInfo);//加载通用组件里面的分页函数

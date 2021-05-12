@@ -102,9 +102,9 @@ function CreateRow(obj,drows)
     if(typeof(drows)!="undefined")
     {
         ID = typeof(drows["ID"])!= "undefined" ? drows["ID"] : "";
-        DetailName = typeof(drows["DetailName"]) != "undefined" ? drows["DetailName"] : "";
+        DetailName = typeof (drows["DetailName"]) != "undefined" ? drows["DetailName"] : "";
         balance = typeof(drows["Balance"]) != "undefined" ? drows["Balance"] : "0";
-        Unit = typeof(drows["Unit"]) != "undefined" ? drows["Unit"] : "1";
+        Unit = 10000;//typeof(drows["Unit"]) != "undefined" ? drows["Unit"] : "1";
         balance = balance / Unit;
         typename = typeof(drows["TypesName"]) != "undefined" ? drows["TypesName"] : "现金";
         KYbalance = typeof(drows["KYbalance"]) != "undefined" ? drows["KYbalance"] : "0";
@@ -116,13 +116,13 @@ function CreateRow(obj,drows)
 	//    newTr.id=l[0];
 
     switch (RowsNum) {
-    	case 1: DetailName = '劳务费'; break;
-    	case 2: DetailName = '会务费'; break;
-    	case 3: DetailName = '差旅费'; break;
-    	case 4: DetailName = '业务委托费'; break;
-    	case 5: DetailName = '政府采购'; break;
-    	case 6: DetailName = '出版印刷费'; break;
-    	case 7: DetailName = '其他经费'; break;
+    	case 0: DetailName = '劳务费'; break;
+    	case 1: DetailName = '会务费'; break;
+    	case 2: DetailName = '差旅费'; break;
+    	case 3: DetailName = '业务委托费'; break;
+    	case 4: DetailName = '政府采购'; break;
+    	case 5: DetailName = '出版印刷费'; break;
+    	case 6: DetailName = '其他经费'; break;
     }
     
     for(var j=0;j<7;j++)
@@ -144,7 +144,7 @@ function CreateRow(obj,drows)
             //     str += "&nbsp;<input type='radio' id='typename1_"+RowsNum+"2' name='typename"+RowsNum+"' value='公务卡' "+ (typename == "公务卡" ? "checked='checked'" :"") + " />公务卡";
             //    newTd.innerHTML =str;
             //    break;
-            case 4: newTd.innerHTML = "&nbsp;<input type='button' id='"+ID+"' value='-' onclick='DelRow(this)' />";break;
+           // case 4: newTd.innerHTML = "&nbsp;<input type='button' id='"+ID+"' value='-' onclick='DelRow(this)' />";break;
             case 5: newTd.innerHTML = "&nbsp;<label id='bili_"+RowsNum+"'></label>"; break;
             case 6: 
             	newTd.innerHTML = "&nbsp;<input type='hidden' id='BudgetsDetail_" + RowsNum + "' name='BudgetsDetail' value='" + ID + "' /><input type='hidden' id='RowsNum_" + RowsNum + "' name='RowsNum' value='" + RowsNum + "' /><input type='hidden' id='KYbalance_" + RowsNum + "' name='KYbalance' value='" + KYbalance + "' />"; break;

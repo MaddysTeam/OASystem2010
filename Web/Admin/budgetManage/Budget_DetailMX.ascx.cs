@@ -38,6 +38,17 @@ namespace Dianda.Web.Admin.budgetManage
 			set { ViewState["CJ"] = value; }
 		}
 
+		public string ManagerIds
+		{
+			get
+			{
+				if (ViewState["ManagerIds"] != null)
+					return ViewState["ManagerIds"].ToString();
+				return string.Empty;
+			}
+			set { ViewState["ManagerIds"] = value; }
+		}
+
 		Model.Budget_Detail budgetDetailModel = new Dianda.Model.Budget_Detail();
 		BLL.Budget_Detail bllBudgetDetail = new Dianda.BLL.Budget_Detail();
 		//BllExt.StaticFactory_CASH bllextSF = new Dianda.BllExt.StaticFactory_CASH();//加载静态数据

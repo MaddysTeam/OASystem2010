@@ -3,7 +3,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td>
-            项目经费预算明细：&nbsp;&nbsp;<input type="button" id="btn_create" value="+" class="" onclick="AddRow()" />&nbsp;&nbsp;<label
+            项目经费预算明细：&nbsp;&nbsp;<input type="button" id="btn_create" value="+" class="" onclick="AddRow()" style="display:none;" />&nbsp;&nbsp;<label
                 style="color: Red;">明细名称最多填写八个字</label>
             <asp:HiddenField ID="hideID" runat="server" />
             <asp:HiddenField ID="hideDelDetailID" runat="server" />
@@ -67,7 +67,7 @@ function Show()
         }
     }
     else {
-    	for (var i = 0; i < 6; i++) {
+    	for (var i = 0; i < 7; i++) {
     		AddRow();
     	}
     }
@@ -116,13 +116,13 @@ function CreateRow(obj,drows)
 	//    newTr.id=l[0];
 
     switch (RowsNum) {
-    	case 0: DetailName = '劳务费'; break;
-    	case 1: DetailName = '会务费'; break;
-    	case 2: DetailName = '差旅费'; break;
-    	case 3: DetailName = '业务委托费'; break;
-    	case 4: DetailName = '政府采购'; break;
-    	case 5: DetailName = '出版印刷费'; break;
-    	case 6: DetailName = '其他经费'; break;
+    	case 1: DetailName = '劳务费'; break;
+    	case 2: DetailName = '会务费'; break;
+    	case 3: DetailName = '差旅费'; break;
+    	case 4: DetailName = '业务委托费'; break;
+    	case 5: DetailName = '政府采购'; break;
+    	case 6: DetailName = '出版印刷费'; break;
+    	case 7: DetailName = '其他经费'; break;
     }
     
     for(var j=0;j<7;j++)

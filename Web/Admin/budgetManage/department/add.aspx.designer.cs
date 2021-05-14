@@ -13,6 +13,24 @@ namespace Dianda.Web.Admin.budgetManage {
     public partial class add {
         
         /// <summary>
+        /// OAleftmenu1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Dianda.Web.Admin.cashCardManage.OAleftmenu OAleftmenu1;
+        
+        /// <summary>
+        /// OAleftmenu_Show1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::Dianda.Web.Admin.cashCardManage.OAleftmenu_Show OAleftmenu_Show1;
+        
+        /// <summary>
         /// div2 控件。
         /// </summary>
         /// <remarks>
@@ -164,5 +182,14 @@ namespace Dianda.Web.Admin.budgetManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_cancel;
+        
+        /// <summary>
+        /// GridView2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView2;
     }
 }

@@ -49,11 +49,11 @@
                                                                                                         <table width="97%" border="0" cellpadding="0" cellspacing="1" bgcolor="#000000">
                                                                                                             <tr style="background-color: #ffffff">
                                                                                                                 <td style="width: 80px; height: 25px;" align="center">
-                                                                                                                    学科：
+                                                                                                                    经费名称：
                                                                                                                 </td>
                                                                                                                 <td style="width: 200px; height: 25px;" align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:TextBox ID="txtXK" runat="server"></asp:TextBox>
+                                                                                                                    <asp:TextBox ID="txtJF" runat="server"></asp:TextBox>
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="center">
@@ -80,85 +80,98 @@
                                                                                                                 <Columns>
                                                                                                                     <asp:TemplateField HeaderText="序号">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labID" runat="server" Text="Label"></asp:Label>
+                                                                                                                            <asp:Label ID="labID" runat="server"> <%# Eval("ID")%></asp:Label>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="学科">
+                                                                                                                    <asp:TemplateField HeaderText="经费名称">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <%# Eval("CardName")%>
+                                                                                                                            <%# Eval("BudgetName")%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="使用人">
+                                                                                                                    <asp:TemplateField HeaderText="负责人">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <%# Eval("HolderRealName")%>
+                                                                                                                            <%# Eval("Manager")%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
                                                                                                                     <asp:TemplateField HeaderText="劳务费">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labJKF" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="餐费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="labCF" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="资料费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="labZLF" runat="server" Text="0"></asp:Label>
+																														<%# Eval("LabourBudget")%>
+                                                                                                                            <%--<asp:Label ID="labJKF" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
                                                                                                                     <asp:TemplateField HeaderText="会务费">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labHWF" runat="server" Text="0"></asp:Label>
+																														<%# Eval("MeetingBudget")%>
+                                                                                                                          <%--  <asp:Label ID="labCF" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="交通费">
+                                                                                                                    <asp:TemplateField HeaderText="差旅费">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labJTF" runat="server" Text="0"></asp:Label>
+																														<%# Eval("BussinessTripBudget")%>
+                                                                                                                           <%-- <asp:Label ID="labZLF" runat="server" Text="0"></asp:Label>--%>
+                                                                                                                        </ItemTemplate>
+                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+                                                                                                                    </asp:TemplateField>
+                                                                                                                    <asp:TemplateField HeaderText="政府采购">
+                                                                                                                        <ItemTemplate>
+																														<%# Eval("GovBudget")%>
+                                                                                                                           <%-- <asp:Label ID="labHWF" runat="server" Text="0"></asp:Label>--%>
+                                                                                                                        </ItemTemplate>
+                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+                                                                                                                    </asp:TemplateField>
+                                                                                                                    <asp:TemplateField HeaderText="出版印刷费">
+                                                                                                                        <ItemTemplate>
+																														<%# Eval("PublishBudget")%>
+                                                                                                                            <%--<asp:Label ID="labJTF" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
                                                                                                                     <asp:TemplateField HeaderText="其他">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labQT" runat="server" Text="0"></asp:Label>
+																														<%# Eval("OtherBudget")%>
+                                                                                                                            <%--<asp:Label ID="labQT" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="使用合计">
+                                                                                                                    <asp:TemplateField HeaderText="当前余额">
                                                                                                                         <ItemTemplate>
-                                                                                                                            <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>
+                                                                                                                           <%-- <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="结余">
+                                                                                                                    <asp:TemplateField HeaderText="所属项目">
                                                                                                                         <ItemTemplate>
-																															   <asp:Label ID="BalanceAll" runat="server" ></asp:Label>
-                                                                                                                            <%--<%# Eval("BalanceAll")%>--%>
+																															   <asp:Label ID="ParentBudgetName" runat="server" ><%# Eval("ParentBudgetName")%></asp:Label>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="额度">
+                                                                                                                    <asp:TemplateField HeaderText="项目经费总额">
                                                                                                                         <ItemTemplate>
-																															 <asp:Label ID="OldbalanceAll" runat="server"><%# Eval("OldbalanceAll")%></asp:Label>
+																															 <asp:Label ID="OldbalanceAll" runat="server"><%# Eval("TotalBudget")%></asp:Label>
+                                                                                                                          <%--  <%# Eval("OldbalanceAll")%>--%>
+                                                                                                                        </ItemTemplate>
+                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+                                                                                                                    </asp:TemplateField>
+																													<asp:TemplateField HeaderText="经费总余额">
+                                                                                                                        <ItemTemplate>
+																															 <asp:Label ID="OldbalanceAll" runat="server"><%# Eval("TotalBalance")%></asp:Label>
                                                                                                                           <%--  <%# Eval("OldbalanceAll")%>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
@@ -187,95 +200,7 @@
                                                                                                             </table>
                                                                                                         </div>
                                                                                                         
-                                                                                                        <asp:GridView ID="GridView1" AutoGenerateColumns="False" runat="server" CellPadding="3"
-                                                                                                                CssClass="GridView11" Width="100%" Visible="false">
-                                                                                                                <Columns>
-                                                                                                                    <asp:TemplateField HeaderText="序号">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="学科">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <%# Eval("CardName")%>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="使用人">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <%# Eval("HolderRealName")%>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="讲课费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="餐费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label3" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="资料费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label4" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="会务费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label5" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="交通费">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label6" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="其他">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label7" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="使用合计">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <asp:Label ID="Label8" runat="server" Text="0"></asp:Label>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="结余">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <%# Eval("BalanceAll")%>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="额度">
-                                                                                                                        <ItemTemplate>
-                                                                                                                            <%# Eval("OldbalanceAll")%>
-                                                                                                                        </ItemTemplate>
-                                                                                                                        <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
-                                                                                                                        <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
-                                                                                                                </Columns>
-                                                                                                            </asp:GridView>
+                                                                                                       
                                                                                                         </div>
                                                                                                         
                                                                                                     </td>

@@ -21,7 +21,9 @@ namespace Dianda.Web.Admin.budgetManage.department
 			set { ViewState["PageStr"] = value; }
 		}
 		Dianda.COMMON.pageControl pageControl = new Dianda.COMMON.pageControl();
+		Model.Budget_User_Apply budgetUserApply = new Model.Budget_User_Apply();
 		Model.Budget_Apply_History budgetApplyHistory = new Dianda.Model.Budget_Apply_History();
+		BLL.Budget_User_Apply budgetUserApplyBll = new BLL.Budget_User_Apply();
 		BLL.Budget_Apply_History budgetApplyHistoryBll = new Dianda.BLL.Budget_Apply_History();
 		Model.Budget budget = new Dianda.Model.Budget();
 		BLL.Budget budgetBll = new Dianda.BLL.Budget();
@@ -93,6 +95,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//经费调整说明
 				string NAME = "";
 				decimal money = 0;
+				//登录用户
+				Model.USER_Users user_model = (Model.USER_Users)Session["USER_Users"];
 
 				foreach (GridViewRow item in GridView1.Rows)
 				{
@@ -138,6 +142,17 @@ namespace Dianda.Web.Admin.budgetManage.department
 						budgetDetailBll.Update(budgetDetail);
 					}
 
+					//记录用户记账明细
+					budgetUserApply.BudgetID = budgetDetail.BudgetID;
+					budgetUserApply.DetailID = budgetDetail.ID;
+					budgetUserApply.DoUserID = user_model.ID;
+					budgetUserApply.Balance = this.rblDoType.SelectedValue == "1" ?
+						Decimal.Parse(tx.Text) :
+						Decimal.Parse(tx.Text) * -1;
+					budgetUserApply.AddTime = DateTime.Now;
+					budgetUserApplyBll.Add(budgetUserApply);
+
+					//拼接controlInfo 
 					NAME += ID + "," + la.Text + "," + cashmoney + "|";
 					money += decimal.Parse(tx.Text);
 
@@ -174,13 +189,13 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//要在对应的资金卡中增加或是减少的可用金额
 				//if (this.rblDoType.SelectedValue == "1")//增加
 				//{
-					//budget.YEBalance = (budget.YEBalance + money);
-					//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，增加" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
+				//budget.YEBalance = (budget.YEBalance + money);
+				//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，增加" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
 				//}
 				//else//减少
 				//{
-					//budget.YEBalance = (budget.YEBalance - money);
-					//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，减少" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
+				//budget.YEBalance = (budget.YEBalance - money);
+				//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，减少" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
 				//}
 				budgetBll.Update(budget);
 				//this.ucshow1.BindData();
@@ -207,7 +222,6 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 				//添加操作日志
 				Dianda.BLL.SYS_LogsExt bsyslog = new Dianda.BLL.SYS_LogsExt();
-				Model.USER_Users user_model = (Model.USER_Users)Session["USER_Users"];
 				bsyslog.addlogs(((Model.USER_Users)Session["USER_Users"]).REALNAME + "(" + ((Model.USER_Users)Session["USER_Users"]).USERNAME + ")", "资金卡调整", "资金卡" + ((rblDoType.SelectedValue == "1") ? "增加" : "减少") + money + "成功");
 				//添加操作日志
 
@@ -234,7 +248,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 				}
 
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				tag.Text = "操作失败，请重试！";
 				tag2.Text = "操作失败，请重试！";
@@ -252,7 +266,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			//if (PageStr == "add")
 			//   Response.Redirect(_PageAdd + ReturnCS());
 			//else
-			Response.Redirect("showHistory.aspx?id="+ Request["id"] + "&role=manage");
+			Response.Redirect("showHistory.aspx?id=" + Request["id"] + "&role=manage");
 		}
 		public string ReturnCS()
 		{

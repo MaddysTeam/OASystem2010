@@ -56,12 +56,12 @@
                                                                                                 <td>
                                                                                                     <asp:Label ID="lblshowMessage" runat="server" Text=""></asp:Label>
                                                                                                     <%--   <asp:Button ID="Button_Message" runat="server" Text="新设资金卡通知" OnClick="Button_Message_onclick"
-                                                                                                        CssClass="button2" />--%>&nbsp;&nbsp;&nbsp;<asp:Label ID="LB_SX" runat="server" Text="状态："></asp:Label><asp:DropDownList
-                                                                                                            ID="DDL_SX" runat="server"  AutoPostBack="true">
+                                                                                                        CssClass="button2" />--%>&nbsp;&nbsp;&nbsp;<asp:Label ID="LB_SX" runat="server" Text="所属项目："></asp:Label><asp:DropDownList
+                                                                                                            ID="DDL_PARENT_BUDGET" runat="server"  AutoPostBack="true" OnSelectedIndexChanged="DDL_parent_budget_SelectedIndexChanged">
                                                                                                             <asp:ListItem Value="">-全部-</asp:ListItem>
-                                                                                                            <asp:ListItem Value="使用中">使用中</asp:ListItem>
+<%--                                                                                                            <asp:ListItem Value="使用中">使用中</asp:ListItem>
                                                                                                             <asp:ListItem Value="已注销">已注销</asp:ListItem>
-                                                                                                            <asp:ListItem Value="已过期">已过期</asp:ListItem>
+                                                                                                            <asp:ListItem Value="已过期">已过期</asp:ListItem>--%>
                                                                                                         </asp:DropDownList>
                                                                                                 </td>
                                                                                                 <td width="200">
@@ -303,12 +303,12 @@
                                                                                             </tr>
                                                                                             <tr>
                                                                                                 <td align="right" bgcolor="#ffffff">
-                                                                                                    <asp:LinkButton ID="FirstPage" runat="server">第一页</asp:LinkButton>
-                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="PreviousPage"  runat="server">上一页</asp:LinkButton>
-                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="NextPage"  runat="server">下一页</asp:LinkButton>
-                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="LastPage"  runat="server">最后页</asp:LinkButton>
+                                                                                                    <asp:LinkButton ID="FirstPage" OnClick="PageChange_Click" runat="server">第一页</asp:LinkButton>
+                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="PreviousPage" OnClick="PageChange_Click"  runat="server">上一页</asp:LinkButton>
+                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="NextPage" OnClick="PageChange_Click"  runat="server">下一页</asp:LinkButton>
+                                                                                                    &nbsp;&nbsp;<asp:LinkButton ID="LastPage" OnClick="PageChange_Click"  runat="server">最后页</asp:LinkButton>
                                                                                                     &nbsp;&nbsp;<asp:Label ID="Label_showInfo" runat="server" Text=""></asp:Label>&nbsp;&nbsp;跳转到：<asp:DropDownList
-                                                                                                        ID="DropDownList2" runat="server" AutoPostBack="True" >
+                                                                                                        ID="DropDownList2" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" >
                                                                                                     </asp:DropDownList>
                                                                                                     &nbsp;
                                                                                                 </td>

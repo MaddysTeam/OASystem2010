@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/OAmaster.Master" AutoEventWireup="true"
 	CodeBehind="add.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.add" %>
-
+	
+<%@ Register Src="/Admin/cashCardManage/OAleftmenu.ascx" TagName="OAleftmenu" TagPrefix="uc1" %>
+<%@ Register Src="/Admin/cashCardManage/OAleftmenu_Show.ascx" TagName="OAleftmenu_Show" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 	<link href="/Admin/css/select2.min.css" rel="stylesheet" />
@@ -8,6 +10,16 @@
 
 	<table align="center" cellpadding="0" cellspacing="0" width="100%" height="397">
 		<tr>
+
+		    <td width="10">
+            </td>
+            <td valign="top" width="115" align="left">
+                <uc1:OAleftmenu ID="OAleftmenu1" runat="server" Visible="true" />
+                <uc2:OAleftmenu_Show ID="OAleftmenu_Show1" runat="server" Visible="false" />
+            </td>
+            <td width="5">
+            </td>
+
 			<td valign="top">
 				<table align="center" bgcolor="#99cccd" cellpadding="0" cellspacing="0" width="98%">
 					<tr>
@@ -92,8 +104,8 @@
 																						<td align="right">项目审批人：
 																						</td>
 																						<td>
-																							<asp:DropDownList ID="DDL_AssignChecker" runat="server"	 Style="width: 200px">
-																							</asp:DropDownList>	
+																							<asp:DropDownList ID="DDL_AssignChecker" runat="server" Style="width: 200px">
+																							</asp:DropDownList>
 																						</td>
 																					</tr>
 
@@ -104,7 +116,7 @@
 																							<table border="0">
 																								<tr valign="middle">
 																									<td align="left">
-																									<asp:Label ID="LB_BudgetLimit" MaxLength="9"  runat="server" ReadOnly="true"></asp:Label>
+																										<asp:Label ID="LB_BudgetLimit" MaxLength="9" runat="server" ReadOnly="true"></asp:Label>
 																										<%--<asp:RadioButtonList ID="RB_BudgetAmount" runat="server" RepeatColumns="2">
 																											<asp:ListItem Value="1" Selected="True">万元</asp:ListItem>
 																											<asp:ListItem Value="0">元</asp:ListItem>
@@ -127,6 +139,97 @@
 																							<asp:Button ID="Button_sumbit" runat="server" CssClass="button1" ValidationGroup="add1" Width="120"
 																								Text="下一步：新建子项目" OnClick="Button_sumbit_click" />&nbsp;&nbsp;&nbsp;
                                                                                             <asp:Button ID="Button_cancel" runat="server" Text="返回" CssClass="button1" OnClick="Button_cancel_click" />
+																						</td>
+																					</tr>
+
+																					<tr>
+																						<td colspan="3">
+																						    <div></div>
+																							<asp:GridView ID="GridView2" AutoGenerateColumns="False" runat="server" CellPadding="3"
+																								CssClass="GridView11" Width="100%">
+																								<Columns>
+																									<asp:TemplateField HeaderText="序号">
+																										<ItemTemplate>
+																											<asp:Label ID="labID" runat="server"> <%# Eval("ID")%></asp:Label>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="经费名称">
+																										<ItemTemplate>
+																											<%# Eval("BudgetName")%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="负责人">
+																										<ItemTemplate>
+																											<%# Eval("Manager")%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="劳务费">
+																										<ItemTemplate>
+																											<%# Eval("LabourBudget")%>
+																											<%--<asp:Label ID="labJKF" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="会务费">
+																										<ItemTemplate>
+																											<%# Eval("MeetingBudget")%>
+																											<%--  <asp:Label ID="labCF" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="差旅费">
+																										<ItemTemplate>
+																											<%# Eval("BussinessTripBudget")%>
+																											<%-- <asp:Label ID="labZLF" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="政府采购">
+																										<ItemTemplate>
+																											<%# Eval("GovBudget")%>
+																											<%-- <asp:Label ID="labHWF" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="出版印刷费">
+																										<ItemTemplate>
+																											<%# Eval("PublishBudget")%>
+																											<%--<asp:Label ID="labJTF" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="其他">
+																										<ItemTemplate>
+																											<%# Eval("OtherBudget")%>
+																											<%--<asp:Label ID="labQT" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+																									<asp:TemplateField HeaderText="操作">
+																										<ItemTemplate>
+																											<asp:Button OnClick="BTN_ChildBudget_Edit_Click" Text="编辑" runat="server" CssClass="button1"></asp:Button>
+																											&nbsp;
+																											<asp:Button OnClick="BTN_ChildBudget_Delete_Click" Text="删除"  runat="server" CssClass="button1"></asp:Button>
+																											<%-- <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>--%>
+																										</ItemTemplate>
+																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
+																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
+																									</asp:TemplateField>
+
+																								</Columns>
+																							</asp:GridView>
 																						</td>
 																					</tr>
 																				</table>

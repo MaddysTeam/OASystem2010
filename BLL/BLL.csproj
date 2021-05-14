@@ -124,6 +124,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Budget_User_Apply.cs" />
     <Compile Include="Cash_Account.cs" />
     <Compile Include="Cash_Account_Subscription.cs" />
     <Compile Include="Cash_Apply.cs" />

@@ -201,7 +201,7 @@
                                                                                             </tr>--%>
                                                                                         </table>
                                                                                         <asp:GridView ID="GridView1" AutoGenerateColumns="False"  OnRowDataBound="GridView1_RowDataBound"
-                                                                                            runat="server" CellPadding="0" CssClass="GridView1" DataKeyNames="ID" Width="100%">
+                                                                                            runat="server" CellPadding="0" CssClass="GridView1" DataKeyNames="ParentID" Width="100%">
                                                                                             <Columns>
                                                                                                 <asp:TemplateField HeaderText="">
                                                                                                     <HeaderTemplate>
@@ -247,6 +247,7 @@
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                 </asp:BoundField>
+																								
                                                                                          <%--       <asp:BoundField HeaderText="所属部门" DataField="DepartmentName" Visible="false">
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />

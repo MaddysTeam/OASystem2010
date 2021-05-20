@@ -44,9 +44,6 @@ namespace Dianda.Web.Admin.budgetManage
 				//加载预算审批人
 				ShowAssignCheckerList();
 
-				ShowDepartments();
-
-
 				string id = Request["ID"];
 				//    //说明是编辑过来的
 				if (!string.IsNullOrEmpty(id))
@@ -54,6 +51,7 @@ namespace Dianda.Web.Admin.budgetManage
 					ShowInitInfor(common.cleanXSS(id));
 
 					BindChildBudgetList(int.Parse(id));
+					
 					//        LB_file.Visible = true;
 
 					//        //设置模板页中的管理值
@@ -69,6 +67,12 @@ namespace Dianda.Web.Admin.budgetManage
 
 					LB_BudgetLimit.Text = "0万元";
 				}
+
+				// 显示部门
+				ShowDepartments();
+
+			    // 显示部门人员
+				ShowUserWhenDepartmentChanged();
 
 			}
 		}
@@ -258,7 +262,7 @@ namespace Dianda.Web.Admin.budgetManage
 
 		protected void BTN_Departmetn_Click(object sender, EventArgs e)
 		{
-			DepartIdChanged();
+			ShowUserWhenDepartmentChanged();
 		}
 
 		protected void BTN_ChildBudget_Edit_Click(object sender, EventArgs e)
@@ -275,7 +279,7 @@ namespace Dianda.Web.Admin.budgetManage
 		/// <summary>
 		/// 部门进行切换的时候，要做人员列表的切换
 		/// </summary>
-		private void DepartIdChanged()
+		private void ShowUserWhenDepartmentChanged()
 		{
 			//绑定人员列表
 			DP_Manager.Items.Clear();
@@ -352,5 +356,12 @@ namespace Dianda.Web.Admin.budgetManage
 			this.GridView2.DataBind();
 		}
 
+		protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+		{
+			if (e.Row.RowType == DataControlRowType.DataRow)
+			{
+				//e.Row.Cells[5].Text = "<a href='showParent.aspx?id=" + parentId + "&PageRole=" + PageRole + "' title='" + parentBudgetName + "'>" + parentBudgetName + "</a>"; // parentBudgetName;
+			}
+		}
 	}
 }

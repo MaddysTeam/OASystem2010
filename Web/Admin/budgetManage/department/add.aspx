@@ -145,7 +145,7 @@
 																					<tr>
 																						<td colspan="3">
 																						    <div></div>
-																							<asp:GridView ID="GridView2" AutoGenerateColumns="False" runat="server" CellPadding="3"
+																							<asp:GridView ID="GridView2" AutoGenerateColumns="False" runat="server" CellPadding="3"  OnRowDataBound="GridView2_RowDataBound"
 																								CssClass="GridView11" Width="100%">
 																								<Columns>
 																									<asp:TemplateField HeaderText="序号">
@@ -219,9 +219,10 @@
 																									</asp:TemplateField>
 																									<asp:TemplateField HeaderText="操作">
 																										<ItemTemplate>
-																											<asp:Button OnClick="BTN_ChildBudget_Edit_Click" Text="编辑" runat="server" CssClass="button1"></asp:Button>
+																										    <a href="addchild.aspx?ID=<%# Eval("BudgetID")%>" >修改</a>
+																											<%--<asp:Button OnClick="BTN_ChildBudget_Edit_Click" Text="编辑" runat="server" CssClass="button1"></asp:Button>--%>
 																											&nbsp;
-																											<asp:Button OnClick="BTN_ChildBudget_Delete_Click" Text="删除"  runat="server" CssClass="button1"></asp:Button>
+																											 <a href="addchild.aspx?ID=<%# Eval("BudgetID")%>" >删除</a>
 																											<%-- <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>--%>
 																										</ItemTemplate>
 																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
@@ -306,7 +307,7 @@
 				$('#ctl00_ContentPlaceHolder1_HID_Manager').val(managerIds);
 			});
 
-		}, 10);
+		}, 100);
 
 	</script>
 </asp:Content>

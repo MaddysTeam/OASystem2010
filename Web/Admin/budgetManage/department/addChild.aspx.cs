@@ -338,7 +338,7 @@ namespace Dianda.Web.Admin.budgetManage
 
 
 				//string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"budgetmanage.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
-				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"list.aspx\";</script>";
+				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在返回部门预算编辑页面\"); location.href = \"add.aspx?ID="+ budgetModel.ParentId+ "\";</script>";
 				Response.Write(coutws);
 
 			}
@@ -357,7 +357,8 @@ namespace Dianda.Web.Admin.budgetManage
 			//string status = Request["Status"].ToString();
 
 			//Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
-			Response.Redirect("list.aspx");
+			string coutws = "<script language=\"javascript\" type=\"text/javascript\">location.href = \"add.aspx?ID=" + budgetModel.ParentId + "\";</script>";
+			Response.Write(coutws);
 		}
 
 

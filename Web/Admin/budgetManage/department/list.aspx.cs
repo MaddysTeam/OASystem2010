@@ -165,10 +165,15 @@ namespace Dianda.Web.Admin.budgetManage.department
 					sb.Append(parentId);
 				}
 
+				if (PageRole != "manage")
+				{
+					sb.Append(" and charIndex() > 0");
+				}
+
 				DataTable dt = new DataTable();
 				string allTiaoshu = dtrowsHidden.Value.ToString();//获取到所有的条数
 				int alltiaoshuInt = int.Parse(allTiaoshu);
-				dt = pageControl.GetList_FenYe_Common(sb.ToString(), pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_List", "ADDTIME").Tables[0];
+				dt = pageControl.GetList_FenYe_Common(sb.ToString(), pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_List", "PARENTID").Tables[0];
 				pageindex = pageControl.pageindex(pageindex, GridView1.PageSize, alltiaoshuInt);//获取当前要显示的页码数【如果最后一页的最后一条记录被删除后，还能正常显示】
 				if (dt.Rows.Count > 0)
 				{
@@ -279,12 +284,12 @@ namespace Dianda.Web.Admin.budgetManage.department
 					for (int j = 0; j < rows; j++)
 					{
 						CheckBox cb1 = (CheckBox)GridView1.Rows[j].Cells[0].FindControl("CheckBox_choose");
-						string id = GridView1.DataKeys[j]["ID"].ToString();
+						string parentId = GridView1.DataKeys[j]["ParentID"].ToString();
 
 						if (cb1.Checked)
 						{
 							//Response.Redirect("addbudget.aspx?pageindex=" + pageindexHidden.Value + "&Status=" + DDL_Status.SelectedValue.ToString() + "&ID=" + id);
-							Response.Redirect("addChild.aspx?pageindex=" + pageindexHidden.Value + "&ID=" + id);
+							Response.Redirect("add.aspx?pageindex=" + pageindexHidden.Value + "&ID=" + parentId);
 						}
 					}
 				}
@@ -412,6 +417,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 					//HiddenField hid = (HiddenField)e.Row.FindControl("Hid_ID");
 					string id = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
+					string parentId = DataBinder.Eval(e.Row.DataItem, "ParentId").ToString();
 					string budgetName = DataBinder.Eval(e.Row.DataItem, "BudgetName").ToString();
 					//string time = DataBinder.Eval(e.Row.DataItem, "EndTime").ToString();
 					//string CardNum = DataBinder.Eval(e.Row.DataItem, "CardNum").ToString();
@@ -439,7 +445,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 					}
 					else
 					{
-						e.Row.Cells[5].Text = parentBudgetName;
+						e.Row.Cells[5].Text = "<a href='showParent.aspx?id=" + parentId + "&PageRole=" + PageRole + "' title='" + parentBudgetName + "'>" + parentBudgetName + "</a>"; // parentBudgetName;
 					}
 
 					//e.Row.Cells[10].Text = "<a href='" + BudgetList + "' target='_blank'>" + SFOrderName + "</a>";

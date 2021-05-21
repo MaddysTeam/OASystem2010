@@ -46,24 +46,28 @@ namespace Dianda.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Budget_User_Apply(");
-			strSql.Append("[BudgetID],[DetailID],[Balance],[AddTime],[DoUserId])");
+			strSql.Append("[BudgetID],[DetailID],[Balance],[AddTime],[DoUserId],[DetailName],[RoundNO])");
 			strSql.Append(" values (");
-			strSql.Append("@BudgetID,@DetailID,@Balance,@AddTime,@DoUserId)");
+			strSql.Append("@BudgetID,@DetailID,@Balance,@AddTime,@DoUserId,@DetailName)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@BudgetID", SqlDbType.Int,4),
 					new SqlParameter("@DetailID", SqlDbType.Int,4),
 					new SqlParameter("@Balance", SqlDbType.Float,4),
 					new SqlParameter("@AddTime", SqlDbType.DateTime,8),
-					new SqlParameter("@DoUserId", SqlDbType.NVarChar,50)
+					new SqlParameter("@DoUserId", SqlDbType.NVarChar,50),
+					new SqlParameter("@DetailName", SqlDbType.NVarChar,8),
+					new SqlParameter("@RoundNO", SqlDbType.NVarChar,50),
 			};
 			parameters[0].Value = model.BudgetID;
 			parameters[1].Value = model.DetailID;
 			parameters[2].Value = model.Balance;
 			parameters[3].Value = model.AddTime;
 			parameters[4].Value = model.DoUserID;
+			parameters[5].Value = model.DetailName;
+			parameters[6].Value = model.RoundNO;
 
-         object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{
 				return 0;

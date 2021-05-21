@@ -92,7 +92,7 @@
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>
-                                                                                                                <asp:Button ID="Button_div" runat="server" Text="搜索" 
+                                                                                                                <asp:Button ID="Button_div" runat="server" Text="搜索"  OnClick="Button_div_Click"
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             
@@ -105,25 +105,25 @@
                                                                                                     <asp:Label ID="tag" runat="server" Text="" CssClass="tag1" />
                                                                                                 </td>
                                                                                             </tr>
-                                                                                           <%-- <tr>
+                                                                                            <tr>
                                                                                                 <td colspan="9" align="left">
-                                                                                                    <div id="div2" runat="server" visible="false">
+                                                                                                    <div id="DIV_SearchArea" runat="server" visible="false">
                                                                                                         <table width="95%">
                                                                                                             <tr>
                                                                                                                 <td>
-                                                                                                                    资金卡编号：
+                                                                                                                    预算编号：
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <asp:TextBox ID="txtCardNum" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    资金卡名称：
+                                                                                                                    预算名称：
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <asp:TextBox ID="txtCardName" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    持卡人：
+                                                                                                                    项目负责人：
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <asp:TextBox ID="txtCardholderRealName" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
@@ -153,33 +153,6 @@
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td>
-                                                                                                                    所属专项资金：
-                                                                                                                </td>
-                                                                                                                <td>
-                                                                                                                    <asp:DropDownList ID="DDL_SpecialFundsID" runat="server">
-                                                                                                                    </asp:DropDownList>
-                                                                                                                </td>
-                                                                                                                <td>
-                                                                                                                    所属预算报告：
-                                                                                                                </td>
-                                                                                                                <td>
-                                                                                                                    <asp:DropDownList ID="DDL_SFOrderID" runat="server">
-                                                                                                                    </asp:DropDownList>
-                                                                                                                </td>
-                                                                                                                <td>
-                                                                                                                    状态：
-                                                                                                                </td>
-                                                                                                                <td>
-                                                                                                                    <asp:DropDownList ID="DDL_ZT" runat="server" >
-                                                                                                                        <asp:ListItem Value="">-全部-</asp:ListItem>
-                                                                                                                        <asp:ListItem Value="使用中">使用中</asp:ListItem>
-                                                                                                                        <asp:ListItem Value="已注销">已注销</asp:ListItem>
-                                                                                                                        <asp:ListItem Value="已过期">已过期</asp:ListItem>
-                                                                                                                    </asp:DropDownList>
-                                                                                                                </td>
-                                                                                                            </tr>
-                                                                                                            <tr>
                                                                                                                 <td style="height: 8px" colspan="4">
                                                                                                                 </td>
                                                                                                             </tr>
@@ -198,7 +171,7 @@
                                                                                                         </table>
                                                                                                     </div>
                                                                                                 </td>
-                                                                                            </tr>--%>
+                                                                                            </tr>
                                                                                         </table>
                                                                                         <asp:GridView ID="GridView1" AutoGenerateColumns="False"  OnRowDataBound="GridView1_RowDataBound"
                                                                                             runat="server" CellPadding="0" CssClass="GridView1" DataKeyNames="ParentID" Width="100%">

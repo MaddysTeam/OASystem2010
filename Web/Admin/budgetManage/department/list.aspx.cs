@@ -491,5 +491,9 @@ namespace Dianda.Web.Admin.budgetManage.department
 			//BindData(1);//调用显示
 		}
 
+		protected void Button_div_Click(object sender, EventArgs e)
+		{
+			DIV_SearchArea.Visible = true;
+		}
 	}
 }

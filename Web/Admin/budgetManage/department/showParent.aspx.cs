@@ -98,7 +98,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			DList_ParentBudgetDetail.DataBind();
 
 
-			string childBudgetSql = "select * from vBudget_Child_Detail where parentId=" + common.SafeString(id);
+			string childBudgetSql = "select * from vBudget_Child_Apply_Detail where parentId=" + common.SafeString(id);
 			DT = new DataTable();
 			DT = pageControl.doSql(childBudgetSql).Tables[0];
 			DList_ChildBudgetDetail.DataSource = DT;

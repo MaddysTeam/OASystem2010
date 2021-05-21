@@ -90,13 +90,13 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				// string NAME = this.txtControlInfo.Text;//获取到资金卡名称
 
 				//经费调整说明
 				string NAME = "";
 				decimal money = 0;
 				//登录用户
 				Model.USER_Users user_model = (Model.USER_Users)Session["USER_Users"];
+				budgetUserApply.RoundNO = Guid.NewGuid().ToString();
 
 				foreach (GridViewRow item in GridView1.Rows)
 				{
@@ -145,6 +145,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 					//记录用户记账明细
 					budgetUserApply.BudgetID = budgetDetail.BudgetID;
 					budgetUserApply.DetailID = budgetDetail.ID;
+					budgetUserApply.DetailName = budgetDetail.DetailName;
 					budgetUserApply.DoUserID = user_model.ID;
 					budgetUserApply.Balance = this.rblDoType.SelectedValue == "1" ?
 						Decimal.Parse(tx.Text) :

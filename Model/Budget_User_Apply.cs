@@ -13,9 +13,11 @@ namespace Dianda.Model
 		private int _id;
 		private int? _budgetid;
 		private int? _detailId;
+		private string _detailName;
 		private decimal? _balance;
 		private string _doUserId;
 		private DateTime _addTime;
+		private string _roundNO;
 
 		/// <summary>
 		/// 预算明细ID
@@ -53,6 +55,15 @@ namespace Dianda.Model
 		}
 
 		/// <summary>
+		///  预算明细名称
+		/// </summary>
+		public string DetailName
+		{
+			set { _detailName = value; }
+			get { return _detailName; }
+		}
+
+		/// <summary>
 		/// 添加时间
 		/// </summary>
 		public DateTime AddTime
@@ -69,6 +80,15 @@ namespace Dianda.Model
 		{
 			set { _doUserId = value; }
 			get { return _doUserId; }
+		}
+
+		/// <summary>
+		/// 预算ID
+		/// </summary>
+		public string RoundNO
+		{
+			set { _roundNO = value; }
+			get { return _roundNO; }
 		}
 	}
 }

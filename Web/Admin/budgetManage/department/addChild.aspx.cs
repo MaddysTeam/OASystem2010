@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Dianda.Web.Admin.budgetManage
+namespace Dianda.Web.Admin.budgetManage.department
 {
 	public partial class addChild : System.Web.UI.Page
 	{

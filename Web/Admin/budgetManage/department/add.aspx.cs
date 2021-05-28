@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
+using static Dianda.Model.Budget;
 
-namespace Dianda.Web.Admin.budgetManage
+namespace Dianda.Web.Admin.budgetManage.department
 {
 	public partial class add : System.Web.UI.Page
 	{
@@ -45,6 +46,7 @@ namespace Dianda.Web.Admin.budgetManage
 				ShowAssignCheckerList();
 
 				string id = Request["ID"];
+		
 				//    //说明是编辑过来的
 				if (!string.IsNullOrEmpty(id))
 				{
@@ -112,20 +114,12 @@ namespace Dianda.Web.Admin.budgetManage
 					TB_EndDateTime.Value = budgetModel.EndTime.Value.ToString("yyyy-MM-dd");
 				}
 
-
-				Button_sumbit.Text = "编辑";
-				//所属项目
-				//if (null != cashorder_model.ProjectID && !cashorder_model.ProjectID.ToString().Equals("9999"))
-				//{
-				//    RBL_project.SelectedValue = "1";
-				//    DDL_Project.Visible = true;
-				//    DDL_Project.SelectedValue = cashorder_model.ProjectID.ToString();
-				//}
-				//else
-				//{
-				//    RBL_project.SelectedValue = "0";
-				//    DDL_Project.Visible = false;
-				//}
+				string actionType = Request["actionType"];
+				if (actionType != null)
+				{
+					Button_sumbit.Text = "编辑";
+				}
+			
 				////预算金额
 				//TB_BudgetAmount.Text = budgetModel.LimitNums.ToString();
 				////预算金额单位
@@ -208,14 +202,14 @@ namespace Dianda.Web.Admin.budgetManage
 
 					//指定审批人
 					budgetModel.ApproverIDs = DDL_AssignChecker.SelectedValue.ToString();
-					budgetModel.BudgetType = 1;
+					budgetModel.BudgetType = int.Parse(BudgetTypeEnum.department.ToString());
 					budgetModel.StartTime = DateTime.Parse(this.TB_StartDateTime.Value);
 					budgetModel.EndTime = DateTime.Parse(this.TB_EndDateTime.Value);
 					budgetModel.DATETIME = DateTime.Now;
 
 					budgetBll.Update(budgetModel);
 
-					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入部门预算列表页面\"); location.href = \"list.aspx\";</script>";
+					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx\";</script>";
 					Response.Write(coutws);
 				}
 				else//新建
@@ -351,7 +345,7 @@ namespace Dianda.Web.Admin.budgetManage
 			sb.Append(parentId);
 
 			DataTable DT = new DataTable();
-			DT = new COMMON.common().GetDatePaging(pageSize, int.Parse(nowPaging), "vBudget_User_Apply", "*", "ID", sb.ToString(), "", "", "");
+			DT = new COMMON.common().GetDatePaging(pageSize, int.Parse(nowPaging), "vBudget_Child_Detail", "*", "ID", sb.ToString(), "", "", "");
 			this.GridView2.DataSource = DT;
 			this.GridView2.DataBind();
 		}

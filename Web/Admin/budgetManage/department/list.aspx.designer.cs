@@ -130,49 +130,31 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_SearchArea;
         
         /// <summary>
-        /// txtCardNum 控件。
+        /// txtCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardNum;
+        protected global::System.Web.UI.WebControls.TextBox txtCode;
         
         /// <summary>
-        /// txtCardName 控件。
+        /// txtBudgetName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardName;
+        protected global::System.Web.UI.WebControls.TextBox txtBudgetName;
         
         /// <summary>
-        /// txtCardholderRealName 控件。
+        /// ddlManagerId 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCardholderRealName;
-        
-        /// <summary>
-        /// TB_AddDateTime 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TB_AddDateTime;
-        
-        /// <summary>
-        /// ddlProjectID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProjectID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlManagerId;
         
         /// <summary>
         /// ddlDepartmentID 控件。
@@ -184,13 +166,13 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartmentID;
         
         /// <summary>
-        /// Button_search 控件。
+        /// BtnAdvSearch 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_search;
+        protected global::System.Web.UI.WebControls.Button BtnAdvSearch;
         
         /// <summary>
         /// Button_close 控件。

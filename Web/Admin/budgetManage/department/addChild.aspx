@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/OAmaster.Master" AutoEventWireup="true" CodeBehind="addChild.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.addChild" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/OAmaster.Master" AutoEventWireup="true" CodeBehind="addChild.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.department.addChild" %>
 
 <%@ Register Src="../Budget_DetailMX.ascx" TagName="Budget_DetailMX" TagPrefix="uc3" %>
 

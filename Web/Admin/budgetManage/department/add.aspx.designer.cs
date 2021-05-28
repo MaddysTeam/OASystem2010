@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Dianda.Web.Admin.budgetManage {
+namespace Dianda.Web.Admin.budgetManage.department {
     
     
     public partial class add {

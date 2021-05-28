@@ -125,7 +125,7 @@ namespace Dianda.Web.Admin.budgetManage
 			try
 			{
 				string DelDetailID = hideDelDetailID.Value;
-				int unit = 10000; // 单位：万元
+				int unit = 1; // 单位：万元
 				decimal totalBalance = 0;
 
 				if (string.IsNullOrEmpty(hideID.Value))

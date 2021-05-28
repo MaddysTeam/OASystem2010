@@ -223,7 +223,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 				//添加操作日志
 				Dianda.BLL.SYS_LogsExt bsyslog = new Dianda.BLL.SYS_LogsExt();
-				bsyslog.addlogs(((Model.USER_Users)Session["USER_Users"]).REALNAME + "(" + ((Model.USER_Users)Session["USER_Users"]).USERNAME + ")", "资金卡调整", "资金卡" + ((rblDoType.SelectedValue == "1") ? "增加" : "减少") + money + "成功");
+				bsyslog.addlogs(((Model.USER_Users)Session["USER_Users"]).REALNAME + "(" + ((Model.USER_Users)Session["USER_Users"]).USERNAME + ")", "部门预算调整", "部门预算" + ((rblDoType.SelectedValue == "1") ? "增加" : "减少") + money + "成功");
 				//添加操作日志
 
 				if (((Button)sender).ID == "Button_sumbit")

@@ -104,7 +104,7 @@ function CreateRow(obj,drows)
         ID = typeof(drows["ID"])!= "undefined" ? drows["ID"] : "";
         DetailName = typeof (drows["DetailName"]) != "undefined" ? drows["DetailName"] : "";
         balance = typeof(drows["Balance"]) != "undefined" ? drows["Balance"] : "0";
-        Unit = 10000;//typeof(drows["Unit"]) != "undefined" ? drows["Unit"] : "1";
+        Unit = "1";//typeof(drows["Unit"]) != "undefined" ? drows["Unit"] : "1";
         balance = balance / Unit;
         typename = typeof(drows["TypesName"]) != "undefined" ? drows["TypesName"] : "现金";
         KYbalance = typeof(drows["KYbalance"]) != "undefined" ? drows["KYbalance"] : "0";
@@ -135,8 +135,8 @@ function CreateRow(obj,drows)
             case 1: newTd.innerHTML = "&nbsp;<input type='text' style='width:40px;' id='balance_"+RowsNum+"' name='balance' maxlength='8' value='"+balance+"' onkeyup='event.returnValue=isDigit(this);' />";break;
             case 2: 
                 str = "&nbsp;<select id='Unit_"+RowsNum+"' name='Unit' onchange='sumTotle()'>"
-<%--                str += "<option value='1' "+ (Unit == "1" ? "selected='selected'" :"") + " >元</option>"--%>
-                str += "<option value='10000'"+ (Unit == "10000" ? "selected='selected'" :"") + "  >万元</option></select>";
+                str += "<option value='1' "+ (Unit == "1" ? "selected='selected'" :"") + " >元</option>"
+                //str += "<option value='10000'"+ (Unit == "10000" ? "selected='selected'" :"") + "  >万元</option></select>";
                 newTd.innerHTML = str;
                 break;
             //case 3: 
@@ -238,7 +238,8 @@ function isDigit(s) {
     }
     else
     {
-        if (!regexDec.test(s.value)) {
+    	if (!regexDec.test(s.value)) {
+    		alert();
            s.value = '0';
         }
     }

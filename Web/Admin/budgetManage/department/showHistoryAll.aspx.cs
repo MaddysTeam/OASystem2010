@@ -103,58 +103,16 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				//string sqlAll = " select a.CardID,a.CardName as CardName , a.HolderRealName , ";
-				//sqlAll += " (max(case a.DetailName when '劳务费' then a.Balance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '餐费' then a.Balance else 0 end)+  ";
-				//sqlAll += " max(case a.DetailName when '资料费' then a.Balance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '会务费' then a.Balance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '交通费' then a.Balance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '其他' then a.Balance else 0 end)) as BalanceAll , ";
-				//sqlAll += " (max(case a.DetailName when '劳务费' then a.Oldbalance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '餐费' then a.Oldbalance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '资料费' then a.Oldbalance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '会务费' then a.Oldbalance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '交通费' then a.Oldbalance else 0 end)+ ";
-				//sqlAll += " max(case a.DetailName when '其他' then a.Oldbalance else 0 end)) as OldbalanceAll ";
-				//sqlAll += " from vCash_CardsDetail as a ";
-				//if (!string.IsNullOrEmpty(snm))
-				//{
-				//	sqlAll += " where a.CardName like '%" + snm + "%' ";
-				//}
-				//sqlAll += " group by CardID,CardName,HolderRealName ";
-				//sqlAll += " order by CardID desc ";
-
-
-				//string sTable = " ( ";
-				//sTable += " select a.CardID,a.CardName as CardName , a.HolderRealName ,  ";
-				//sTable += " (max(case a.DetailName when '劳务费' then a.Balance else 0 end)+ ";
-				//sTable += " max(case a.DetailName when '餐费' then a.Balance else 0 end)+   ";
-				//sTable += " max(case a.DetailName when '资料费' then a.Balance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '会务费' then a.Balance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '交通费' then a.Balance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '其他' then a.Balance else 0 end)) as BalanceAll , ";
-				//sTable += " (max(case a.DetailName when '劳务费' then a.Oldbalance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '餐费' then a.Oldbalance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '资料费' then a.Oldbalance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '会务费' then a.Oldbalance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '交通费' then a.Oldbalance else 0 end)+  ";
-				//sTable += " max(case a.DetailName when '其他' then a.Oldbalance else 0 end)) as OldbalanceAll  ";
-				//sTable += " from vCash_CardsDetail as a";
-				//if (!string.IsNullOrEmpty(snm))
-				//{
-				//	sTable += " where a.CardName like '%" + common.SafeString(snm) + "%' ";
-				//}
-				//sTable += " group by CardID,CardName,HolderRealName ";
-				//sTable += " ) ";
-
 				string swhere = " 1=1 ";
-
-				 DataTable DT = new DataTable();
-				 DT = new COMMON.common().GetDatePaging(pageSize, int.Parse(nowPaging), "vBudget_User_Apply", "*", "ID", swhere, "", "", "");
+				//swhere += string.Format(" and budgetName like %{0}%",this.txtJF);
+				DataTable DT = new DataTable();
+				DT = new COMMON.common().GetDatePaging(pageSize, int.Parse(nowPaging), "vBudget_Department_Statistical", "*", "ID", swhere, "", "", "");
 				this.GridView2.DataSource = DT;
 				this.GridView2.DataBind();
 
-
+				common.GroupRows(GridView2, 10, 10);
+				common.GroupRows(GridView2, 10, 11);
+				common.GroupRows(GridView2, 10, 12);
 				//ShowPaging(sqlAll);
 
 			}
@@ -372,29 +330,9 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 		protected void btnReport_Click(object sender, EventArgs e)
 		{
-			string sql = " select a.CardID,a.CardName as CardName , a.HolderRealName ,  ";
-			sql += " (max(case a.DetailName when '劳务费' then a.Balance else 0 end)+ ";
-			sql += " max(case a.DetailName when '餐费' then a.Balance else 0 end)+   ";
-			sql += " max(case a.DetailName when '资料费' then a.Balance else 0 end)+  ";
-			sql += " max(case a.DetailName when '会务费' then a.Balance else 0 end)+  ";
-			sql += " max(case a.DetailName when '交通费' then a.Balance else 0 end)+  ";
-			sql += " max(case a.DetailName when '其他' then a.Balance else 0 end)) as BalanceAll , ";
-			sql += " (max(case a.DetailName when '劳务费' then a.Oldbalance else 0 end)+  ";
-			sql += " max(case a.DetailName when '餐费' then a.Oldbalance else 0 end)+  ";
-			sql += " max(case a.DetailName when '资料费' then a.Oldbalance else 0 end)+  ";
-			sql += " max(case a.DetailName when '会务费' then a.Oldbalance else 0 end)+  ";
-			sql += " max(case a.DetailName when '交通费' then a.Oldbalance else 0 end)+  ";
-			sql += " max(case a.DetailName when '其他' then a.Oldbalance else 0 end)) as OldbalanceAll  ";
-			sql += " from vCash_CardsDetail as a  ";
-			if (!string.IsNullOrEmpty(snm))
-			{
-				sql += " where a.CardName like '%" + snm + "%' ";
-			}
-			sql += " group by CardID,CardName,HolderRealName ";
-			sql += " order by CardID desc ";
 
 			DataTable DT = new DataTable();
-			DT = pageControl.doSql(sql).Tables[0];
+			DT = pageControl.doSql("select * from vDepartment_Budget_Statistical").Tables[0];
 
 			DataTable dt = DT;
 			this.GridView2.DataSource = dt;
@@ -402,7 +340,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			this.GridView2.Visible = true;
 
 			Response.Clear();
-			Response.AddHeader("content-disposition", "attachment;filename=" + HttpUtility.UrlEncode("资金卡统计" + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".xls", Encoding.UTF8).ToString());
+			Response.AddHeader("content-disposition", "attachment;filename=" + HttpUtility.UrlEncode("部门经费统计" + "_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".xls", Encoding.UTF8).ToString());
 			Response.Charset = "gb2312";
 			Response.ContentType = "application/ms-excel";
 			this.EnableViewState = false;
@@ -422,6 +360,9 @@ namespace Dianda.Web.Admin.budgetManage.department
 			// Confirms that an HtmlForm control is rendered for
 		}
 
+		protected void btnSearch_Click(object sender, EventArgs e)
+		{
 
+		}
 	}
 }

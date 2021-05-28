@@ -1148,7 +1148,7 @@ namespace Dianda.COMMON
 		/// </summary>
 		/// <param name="gridView"></param>
 		/// <param name="cellNum"></param>
-		public void GroupRows(GridView gridView, int cellNum)
+		public void GroupRows(GridView gridView,int targetCellNum, int cellNum)
 		{
 			int rowSpanNum = 1;
 
@@ -1160,7 +1160,7 @@ namespace Dianda.COMMON
 				for (int j = i + 1; j < gridView.Rows.Count; j++)
 				{
 					GridViewRow nextRow = gridView.Rows[j];
-					if (nextRow.Cells[cellNum].Text == currentRow.Cells[cellNum].Text)
+					if (nextRow.Cells[targetCellNum].Text == currentRow.Cells[targetCellNum].Text)
 					{
 						rowSpanNum++;
 						nextRow.Cells[cellNum].Visible = false;

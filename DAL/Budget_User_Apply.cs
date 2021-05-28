@@ -48,7 +48,7 @@ namespace Dianda.DAL
 			strSql.Append("insert into Budget_User_Apply(");
 			strSql.Append("[BudgetID],[DetailID],[Balance],[AddTime],[DoUserId],[DetailName],[RoundNO])");
 			strSql.Append(" values (");
-			strSql.Append("@BudgetID,@DetailID,@Balance,@AddTime,@DoUserId,@DetailName)");
+			strSql.Append("@BudgetID,@DetailID,@Balance,@AddTime,@DoUserId,@DetailName,@RoundNO)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@BudgetID", SqlDbType.Int,4),

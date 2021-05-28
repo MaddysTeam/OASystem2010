@@ -212,6 +212,13 @@ namespace Dianda.Model
 
 		#endregion Model
 
+
+		public enum BudgetTypeEnum
+		{
+			department=1,
+			todo=2
+		}
+
 	}
 }
 

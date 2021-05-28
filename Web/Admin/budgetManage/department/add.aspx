@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/OAmaster.Master" AutoEventWireup="true"
-	CodeBehind="add.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.add" %>
+	CodeBehind="add.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.department.add" %>
 	
 <%@ Register Src="/Admin/cashCardManage/OAleftmenu.ascx" TagName="OAleftmenu" TagPrefix="uc1" %>
 <%@ Register Src="/Admin/cashCardManage/OAleftmenu_Show.ascx" TagName="OAleftmenu_Show" TagPrefix="uc2" %>
@@ -52,7 +52,7 @@
 																						<td>
 																							<asp:TextBox ID="TB_Code" runat="server" Width="200"></asp:TextBox>&nbsp;&nbsp;<asp:RequiredFieldValidator
 																								ID="RequiredFieldValidator2" runat="Server" ControlToValidate="TB_Code" ValidationGroup="add1"
-																								ErrorMessage="预算报告名称不能为空!" Display="Dynamic" />
+																								ErrorMessage="预算编号不能为空!" Display="Dynamic" />
 																						</td>
 																					</tr>
 																					<tr>
@@ -164,7 +164,7 @@
 																									</asp:TemplateField>
 																									<asp:TemplateField HeaderText="负责人">
 																										<ItemTemplate>
-																											<%# Eval("Manager")%>
+																											<%# Eval("ManagerIDs")%>
 																										</ItemTemplate>
 																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
 																										<ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
@@ -219,10 +219,10 @@
 																									</asp:TemplateField>
 																									<asp:TemplateField HeaderText="操作">
 																										<ItemTemplate>
-																										    <a href="addchild.aspx?ID=<%# Eval("BudgetID")%>" >修改</a>
+																										    <a href="addchild.aspx?ID=<%# Eval("ID")%>" >修改</a>
 																											<%--<asp:Button OnClick="BTN_ChildBudget_Edit_Click" Text="编辑" runat="server" CssClass="button1"></asp:Button>--%>
 																											&nbsp;
-																											 <a href="addchild.aspx?ID=<%# Eval("BudgetID")%>" >删除</a>
+																											 <a href="addchild.aspx?ID=<%# Eval("ID")%>" >删除</a>
 																											<%-- <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>--%>
 																										</ItemTemplate>
 																										<HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />

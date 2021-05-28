@@ -122,7 +122,7 @@
     <Content Include="Admin\budgetManage\department\showHistoryAll.aspx" />
     <Content Include="Admin\budgetManage\todo\add.aspx" />
     <Content Include="Admin\budgetManage\todo\addHistory.aspx" />
-    <Content Include="Admin\budgetManage\todo\List.aspx" />
+    <Content Include="Admin\budgetManage\todo\list.aspx" />
     <Content Include="Admin\budgetManage\todo\showHistory.aspx" />
     <Content Include="Admin\budgetManage\todo\showHistoryAll.aspx" />
     <Content Include="Admin\budgetManage\Budget_Show.ascx" />
@@ -640,12 +640,12 @@
     <Compile Include="Admin\budgetManage\todo\addHistory.aspx.designer.cs">
       <DependentUpon>addHistory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\budgetManage\todo\List.aspx.cs">
-      <DependentUpon>List.aspx</DependentUpon>
+    <Compile Include="Admin\budgetManage\todo\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\budgetManage\todo\list.aspx.designer.cs">
-      <DependentUpon>List.aspx</DependentUpon>
+      <DependentUpon>list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\budgetManage\todo\showHistory.aspx.cs">
       <DependentUpon>showHistory.aspx</DependentUpon>

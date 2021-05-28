@@ -155,7 +155,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 				}
 				else
 				{
-					LB_MSG.Text = "暂无该资金卡的相关信息！";
+					LB_MSG.Text = "暂无该预算的相关信息！";
 				}
 			}
 			catch (Exception e)
@@ -332,12 +332,12 @@ namespace Dianda.Web.Admin.budgetManage.department
 			}
 		}
 
-		private void BindDetailData(string id, int pageIndex = 10)
+		private void BindDetailData(string id, int pageIndex = 1)
 		{
 			DataTable dt = new DataTable();
 			string allTiaoshu = dtrowsHidden.Value.ToString();//获取到所有的条数
 			int alltiaoshuInt = int.Parse(allTiaoshu);
-			dt = pageControl.GetList_FenYe_Common(" BudgetId=" + id, pageIndex, GV_Summary.PageSize, alltiaoshuInt, "vBudget_User_Apply", "ID").Tables[0];
+			dt = pageControl.GetList_FenYe_Common(" BudgetId=" + id, pageIndex, GV_Summary.PageSize, alltiaoshuInt, "vBudget_User_Apply", "AddTime").Tables[0];
 			pageIndex = pageControl.pageindex(pageIndex, GV_Summary.PageSize, alltiaoshuInt);//获取当前要显示的页码数【如果最后一页的最后一条记录被删除后，还能正常显示】
 			if (dt.Rows.Count > 0)
 			{

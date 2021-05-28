@@ -84,11 +84,11 @@
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>
-                                                                                                                 <asp:Button ID="Button_delete" runat="server" Text="删除" OnClick="Button_delete_onclick" OnClientClick="if(confirm('您确定要注销吗？')){return true;}else{return false;}"
+                                                                                                                 <asp:Button ID="Button_delete" Visible="false" runat="server" Text="删除" OnClick="Button_delete_onclick" OnClientClick="if(confirm('您确定要注销吗？')){return true;}else{return false;}"
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>
-                                                                                                                <asp:Button ID="Button_recover" runat="server" Text="恢复"
+                                                                                                                <asp:Button ID="Button_recover" Visible="false" runat="server" Text="恢复"
                                                                                                                     CssClass="button3a" />
                                                                                                             </td>
                                                                                                             <td>
@@ -114,41 +114,42 @@
                                                                                                                     预算编号：
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    <asp:TextBox ID="txtCardNum" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
+                                                                                                                    <asp:TextBox ID="txtCode" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     预算名称：
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    <asp:TextBox ID="txtCardName" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
+                                                                                                                    <asp:TextBox ID="txtBudgetName" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     项目负责人：
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    <asp:TextBox ID="txtCardholderRealName" runat="server" CssClass="textbox_name" Width="120"></asp:TextBox>
+                                                                                                                   <asp:DropDownList ID="ddlManagerId" runat="server">
+                                                                                                                    </asp:DropDownList>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td>
+                                                                                                              <%--  <td>
                                                                                                                     创建日期：
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <input id="TB_AddDateTime" runat="server" style="width: 118px" type="text" readonly="readonly"
                                                                                                                         onclick="ShowCalendar(this);" />
-                                                                                                                </td>
-                                                                                                                <td>
+                                                                                                                </td>--%>
+                                                                                                             <%--   <td>
                                                                                                                     所属项目：
                                                                                                                 </td>
                                                                                                                 <td>
                                                                                                                     <asp:DropDownList ID="ddlProjectID" runat="server">
                                                                                                                     </asp:DropDownList>
-                                                                                                                </td>
+                                                                                                                </td>--%>
                                                                                                                 <td>
                                                                                                                     所属部门：
                                                                                                                 </td>
                                                                                                                 <td>
-                                                                                                                    <asp:DropDownList ID="ddlDepartmentID" runat="server">
+                                                                                                                    <asp:DropDownList ID="ddlDepartmentID" runat="server" OnSelectedIndexChanged="ddlDepartmentID_SelectedIndexChanged"  AutoPostBack="True">
                                                                                                                     </asp:DropDownList>
                                                                                                                 </td>
                                                                                                             </tr>
@@ -158,10 +159,10 @@
                                                                                                             </tr>
                                                                                                             <tr>
                                                                                                                 <td style="height: 18px" colspan="4">
-                                                                                                                    <asp:Button ID="Button_search" runat="server" Text="搜索"
-                                                                                                                        CssClass="button1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button_close"
+                                                                                                                    <asp:Button ID="BtnAdvSearch" runat="server" Text="搜索" OnClick="BtnAdvSearch_Click1"
+                                                                                                                        CssClass="button1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button_close" OnClick="Button_close_Click"
                                                                                                                             runat="server" Text="关闭"  CssClass="button1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button
-                                                                                                                                ID="Button_viewall" runat="server" Text="返回全部" CssClass="button1" />
+                                                                                                                                ID="Button_viewall" OnClick="Button_viewall_Click" runat="server" Text="返回全部" CssClass="button1" />
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
@@ -188,7 +189,7 @@
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                 </asp:TemplateField>
-                                                                                                <asp:BoundField HeaderText="编号" DataField="id" >
+                                                                                                <asp:BoundField HeaderText="编号" DataField="Code" >
                                                                                                     <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle3" />
                                                                                                     <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                 </asp:BoundField>

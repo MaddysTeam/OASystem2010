@@ -57,11 +57,11 @@
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                                 <td style="width: 100px; height: 25px;" align="center">
-                                                                                                                    <asp:Button ID="btnSearch" runat="server" Text="搜 索" CssClass="button1"  />
+                                                                                                                    <asp:Button ID="btnSearch" runat="server" Text="搜 索" CssClass="button1"   OnClick="btnSearch_Click"/>
                                                                                                                 </td>
                                                                                                                 <td align="left">
                                                                                                                     &nbsp;
-                                                                                                                    <asp:Button ID="btnReport" runat="server" Text="导 出" CssClass="button1"  />
+                                                                                                                    <asp:Button ID="btnReport" runat="server" Text="导 出" CssClass="button1" OnClick="btnReport_Click"  />
                                                                                                                     &nbsp;
                                                                                                                 </td>
                                                                                                             </tr>
@@ -92,13 +92,13 @@
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
                                                                                                                     </asp:TemplateField>
-                                                                                                                    <asp:TemplateField HeaderText="负责人">
+                                                                                                                  <%--  <asp:TemplateField HeaderText="负责人">
                                                                                                                         <ItemTemplate>
                                                                                                                             <%# Eval("Manager")%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />
                                                                                                                         <ItemStyle HorizontalAlign="Center" CssClass="ItemStyle1" />
-                                                                                                                    </asp:TemplateField>
+                                                                                                                    </asp:TemplateField>--%>
                                                                                                                     <asp:TemplateField HeaderText="劳务费">
                                                                                                                         <ItemTemplate>
 																														<%# Eval("LabourBudget")%>
@@ -149,6 +149,7 @@
                                                                                                                     </asp:TemplateField>
                                                                                                                     <asp:TemplateField HeaderText="当前余额">
                                                                                                                         <ItemTemplate>
+																														 <asp:Label ID="OldbalanceAll" runat="server"><%# Eval("KYBalance")%></asp:Label>
                                                                                                                            <%-- <asp:Label ID="labSYHJ" runat="server" Text="0"></asp:Label>--%>
                                                                                                                         </ItemTemplate>
                                                                                                                         <HeaderStyle HorizontalAlign="Center" CssClass="HeaderStyle1" />

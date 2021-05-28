@@ -11,6 +11,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 {
 	public partial class list : System.Web.UI.Page
 	{
+		int defaultPageIndex = 1;
 
 		#region 参数
 		public string PageRole
@@ -34,9 +35,55 @@ namespace Dianda.Web.Admin.budgetManage.department
 			}
 			set { ViewState["ParentId"] = value; }
 		}
+
+		public string BudgetName
+		{
+			get
+			{
+				if (ViewState["BudgetName"] != null)
+					return ViewState["BudgetName"].ToString();
+				return string.Empty;
+			}
+			set { ViewState["BudgetName"] = value; }
+		}
+
+		public string Code
+		{
+			get
+			{
+				if (ViewState["Code"] != null)
+					return ViewState["Code"].ToString();
+				return string.Empty;
+			}
+			set { ViewState["Code"] = value; }
+		}
+
+		public string ManagerID
+		{
+			get
+			{
+				if (ViewState["ManagerId"] != null)
+					return ViewState["ManagerId"].ToString();
+				return string.Empty;
+			}
+			set { ViewState["ManagerId"] = value; }
+		}
+
+		public string DepartmentID
+		{
+			get
+			{
+				if (ViewState["DepartmentID"] != null)
+					return ViewState["DepartmentID"].ToString();
+				return string.Empty;
+			}
+			set { ViewState["DepartmentID"] = value; }
+		}
+
+
 		#endregion
 
-	
+
 		COMMON.pageControl pageControl = new Dianda.COMMON.pageControl();
 		Model.Budget budget_model = new Dianda.Model.Budget();
 		BLL.Budget budget_bll = new Dianda.BLL.Budget();
@@ -77,8 +124,10 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//获取父预算下拉列表
 				BindParentBudgetDropdownList();
 
+				BindDepartments();
+
 				BindData(pageindex_int, ParentId);
-				
+
 			}
 		}
 
@@ -113,13 +162,12 @@ namespace Dianda.Web.Admin.budgetManage.department
 			try
 			{
 				user_model = (Model.USER_Users)Session["USER_Users"];
-				string strSQL = "select * from vBudget_List where 1=1 ";
-				if (ParentId > 0)
-				{
-					strSQL += "parentId=" + ParentId;
-				}
+				StringBuilder sb = new StringBuilder();
+				string strSQL = "select * from vBudget_List where";
+				string where = GetAdvSearchWhereOption();
+
 				DataTable dt = new DataTable();
-				dt = pageControl.doSql(strSQL).Tables[0];
+				dt = pageControl.doSql(strSQL + where).Tables[0];
 
 				if (dt.Rows.Count > 0)
 				{
@@ -137,17 +185,6 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 		protected void DDL_parent_budget_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//if (this.DDL_Status.SelectedValue == "1" || this.DDL_Status.SelectedValue == "")
-			//{
-			//    this.Button_sumbit.Enabled = false;
-			//    Button_modify.Enabled = false;
-			//}
-			//else
-			//{
-			//    this.Button_sumbit.Enabled = true;
-			//    Button_modify.Enabled = true;
-			//}
-
 			ParentId = int.Parse(this.DDL_PARENT_BUDGET.SelectedValue);
 			setRowCout();
 			BindData(1, ParentId);//调用显示
@@ -157,63 +194,27 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				StringBuilder sb = new StringBuilder();
-				sb.Append(" 1=1 ");
-				if (parentId > 0)
-				{
-					sb.Append(" and parentId=");
-					sb.Append(parentId);
-				}
-
-				if (PageRole != "manage")
-				{
-					sb.Append(" and charIndex() > 0");
-				}
+				string where = GetAdvSearchWhereOption();
 
 				DataTable dt = new DataTable();
 				string allTiaoshu = dtrowsHidden.Value.ToString();//获取到所有的条数
 				int alltiaoshuInt = int.Parse(allTiaoshu);
-				dt = pageControl.GetList_FenYe_Common(sb.ToString(), pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_List", "PARENTID").Tables[0];
+				dt = pageControl.GetList_FenYe_Common(where, pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_List", "PARENTID").Tables[0];
 				pageindex = pageControl.pageindex(pageindex, GridView1.PageSize, alltiaoshuInt);//获取当前要显示的页码数【如果最后一页的最后一条记录被删除后，还能正常显示】
 				if (dt.Rows.Count > 0)
 				{
-					//""表示全部，0待审，1审核通过，2审核不通过
-					//if (this.DDL_Status.SelectedValue == "1" || this.DDL_Status.SelectedValue == "")
-					//if (this.DDL_Status.SelectedValue == "1")
-					//{
-					//	this.Button_sumbit.Enabled = false;
-					//	Button_modify.Enabled = false;
-					//	Button_check.Enabled = false;
-					//}
-					//else
-					//{
-					//	this.Button_sumbit.Enabled = true;
-					//	Button_modify.Enabled = true;
-					//	Button_check.Enabled = true;
-					//}
-					// Button_reset.Enabled = true;
 					GridView1.Visible = true;
 					GridView1.DataSource = dt;//指定GridView1的数据是dv
 					GridView1.DataBind();//将上面指定的信息绑定到GridView1上
 					notice.Text = "";
 
 					int parentBudgetNameIndex = 5, parentBalanceIndex = 6, parentYEBalanceIndex = 7;
-					common.GroupRows(GridView1, parentBudgetNameIndex);
-					common.GroupRows(GridView1, parentBalanceIndex);
-					common.GroupRows(GridView1, parentYEBalanceIndex);
+					common.GroupRows(GridView1, parentBudgetNameIndex,parentBudgetNameIndex);
+					common.GroupRows(GridView1, parentBudgetNameIndex,parentBalanceIndex);
+					common.GroupRows(GridView1, parentBudgetNameIndex,parentYEBalanceIndex);
 
 					pageControl.SetSelectPage(pageindex, int.Parse(dtrowsHidden.Value.ToString()), DropDownList2, GridView1.PageSize, FirstPage, NextPage, PreviousPage, LastPage, Label_showInfo);//加载通用组件里面的分页函数
 					pageControlShow.Visible = true;//如果记录集不为空，则显示分页控件
-
-					//汇总统计值
-					//Label_money1.Text = daishenhe.ToString();
-					//Label_money2.Text = tongguo.ToString();
-					//Label_money3.Text = weitongguo.ToString();string.Format("{0:N}", 250000)
-					//Label_money1.Text = string.Format("{0:N}", daishenhe).Split('.')[1].ToString().Equals("00") ? string.Format("{0:N}", daishenhe).Split('.')[0].ToString() : string.Format("{0:N}", daishenhe);
-					//Label_money2.Text = string.Format("{0:N}", tongguo).Split('.')[1].ToString().Equals("00") ? string.Format("{0:N}", tongguo).Split('.')[0].ToString() : string.Format("{0:N}", tongguo);//这样是防止出现科学记数法
-					//Label_money3.Text = string.Format("{0:N}", weitongguo).Split('.')[1].ToString().Equals("00") ? string.Format("{0:N}", weitongguo).Split('.')[0].ToString() : string.Format("{0:N}", weitongguo);
-
-					//div_total.Visible = true;
 				}
 				else
 				{
@@ -228,11 +229,11 @@ namespace Dianda.Web.Admin.budgetManage.department
 					pageControlShow.Visible = false;//如果记录集为空，则不显示分页控件
 					if (alltiaoshuInt > 0)
 					{
-						BindData(pageindex - 1,parentId);
+						BindData(pageindex - 1, parentId);
 					}
 				}
 			}
-			catch(Exception e)
+			catch (Exception e)
 			{
 
 			}
@@ -289,7 +290,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 						if (cb1.Checked)
 						{
 							//Response.Redirect("addbudget.aspx?pageindex=" + pageindexHidden.Value + "&Status=" + DDL_Status.SelectedValue.ToString() + "&ID=" + id);
-							Response.Redirect("add.aspx?pageindex=" + pageindexHidden.Value + "&ID=" + parentId);
+							Response.Redirect("add.aspx?pageindex=" + pageindexHidden.Value + "&ID=" + parentId+ "&actionType=modify");
 						}
 					}
 				}
@@ -495,5 +496,116 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			DIV_SearchArea.Visible = true;
 		}
+
+		protected void BtnAdvSearch_Click1(object sender, EventArgs e)
+		{
+			Code = txtCode.Text;
+			DepartmentID = ddlDepartmentID.SelectedValue;
+			ManagerID = ddlManagerId.SelectedValue;
+			BudgetName = txtBudgetName.Text;
+
+			BindData(1, ParentId);
+		}
+
+		protected void ddlDepartmentID_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			BindManagers(ddlDepartmentID.SelectedValue);
+		}
+
+		protected void Button_close_Click(object sender, EventArgs e)
+		{
+			ClearSelectParams();
+			BindData(defaultPageIndex, ParentId);
+			DIV_SearchArea.Visible = false;
+		}
+
+		protected void Button_viewall_Click(object sender, EventArgs e)
+		{
+			ClearSelectParams();
+			BindData(defaultPageIndex, ParentId);
+		}
+
+		private string GetAdvSearchWhereOption()
+		{
+			StringBuilder sb = new StringBuilder();
+			sb.Append("  1=1 ");
+			if (ParentId > 0)
+			{
+				sb.Append("and parentId=" + ParentId);
+			}
+			if (!string.IsNullOrEmpty(DepartmentID))
+			{
+				sb.Append(string.Format(" and charIndex('{0}',DepartmentIDs) > 0", DepartmentID));
+			}
+			if (!string.IsNullOrEmpty(ManagerID) && ManagerID!="0")
+			{
+				sb.Append(string.Format(" and charIndex('{0}',ManagerIDs) > 0", ManagerID));
+			}
+			if (!string.IsNullOrEmpty(Code))
+			{
+				sb.Append(string.Format(" and Code like '%{0}%'", Code));
+			}
+			if (!string.IsNullOrEmpty(BudgetName))
+			{
+				sb.Append(string.Format(" and BudgetName like '%{0}%'", BudgetName));
+			}
+
+			return sb.ToString();
+		}
+
+		private void BindDepartments()
+		{
+			DataTable dt = new DataTable();
+			string sql = " SELECT DepartmentName, DepartmentID FROM vCash_Cards GROUP BY DepartmentName, DepartmentID";
+			dt = pageControl.doSql(sql).Tables[0];
+			if (dt.Rows.Count > 0)
+			{
+				ddlDepartmentID.DataSource = dt;
+				ddlDepartmentID.DataTextField = "DepartmentName";
+				ddlDepartmentID.DataValueField = "DepartmentID";
+				ddlDepartmentID.DataBind();
+
+				ListItem li = new ListItem("-全部-", "9999");
+				li.Selected = true;
+				ddlDepartmentID.Items.Insert(0, li);
+			}
+			else
+			{
+				ListItem li = new ListItem("-暂无可选部门-", "");
+				ddlDepartmentID.Items.Insert(0, li);
+			}
+		}
+
+		private void BindManagers(string departmentId)
+		{
+			DataTable dtuser = pageControl.doSql("select ID,USERNAME,REALNAME from USER_Users where DepartMentID in ('" + departmentId + "') and WorkStats='1' and DELFLAG=0").Tables[0];
+			ddlManagerId.Items.Clear();
+			if (dtuser.Rows.Count > 0)
+			{
+				for (int i = 0; i < dtuser.Rows.Count; i++)
+				{
+					string ApplyUserName = dtuser.Rows[i]["REALNAME"].ToString() + "(" + dtuser.Rows[i]["USERNAME"].ToString() + ")";
+					string ID = dtuser.Rows[i]["ID"].ToString();
+					ListItem li = new ListItem(ApplyUserName, ID);
+					ddlManagerId.Items.Add(li);
+
+				}
+			}
+			else
+			{
+				ListItem li = new ListItem("本部门无人员", "0");
+				ddlManagerId.Items.Add(li);
+				ddlManagerId.Enabled = false;
+			}
+		}
+
+		private void ClearSelectParams()
+		{
+			Code = string.Empty;
+			ManagerID = string.Empty;
+			DepartmentID = string.Empty;
+			BudgetName = string.Empty;
+		}
+
 	}
 }

@@ -108,7 +108,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				string sql = " SELECT * FROM vBudget_List WHERE id='" + common.SafeString(ID) + "' order by id";
+				string sql = " SELECT * FROM vBudget_Department_List WHERE id='" + common.SafeString(ID) + "' order by id";
 				DataTable DT = new DataTable();
 				DT = pageControl.doSql(sql).Tables[0];
 				if (DT.Rows.Count > 0)

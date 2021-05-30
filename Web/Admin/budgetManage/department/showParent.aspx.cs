@@ -69,7 +69,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				string sql = " SELECT BudgetName,Code FROM vBudget_List WHERE parentId='" + common.SafeString(ID) + "' order by id";
+				string sql = " SELECT BudgetName,Code FROM vBudget_Department_List WHERE parentId='" + common.SafeString(ID) + "' order by id";
 				DataTable DT = new DataTable();
 				DT = pageControl.doSql(sql).Tables[0];
 				if (DT.Rows.Count > 0)

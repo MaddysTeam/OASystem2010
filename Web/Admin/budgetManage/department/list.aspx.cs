@@ -163,7 +163,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			{
 				user_model = (Model.USER_Users)Session["USER_Users"];
 				StringBuilder sb = new StringBuilder();
-				string strSQL = "select * from vBudget_List where";
+				string strSQL = "select * from vBudget_Department_List where";
 				string where = GetAdvSearchWhereOption();
 
 				DataTable dt = new DataTable();
@@ -199,7 +199,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 				DataTable dt = new DataTable();
 				string allTiaoshu = dtrowsHidden.Value.ToString();//获取到所有的条数
 				int alltiaoshuInt = int.Parse(allTiaoshu);
-				dt = pageControl.GetList_FenYe_Common(where, pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_List", "PARENTID").Tables[0];
+				dt = pageControl.GetList_FenYe_Common(where, pageindex, GridView1.PageSize, alltiaoshuInt, "vBudget_Department_List", "PARENTID").Tables[0];
 				pageindex = pageControl.pageindex(pageindex, GridView1.PageSize, alltiaoshuInt);//获取当前要显示的页码数【如果最后一页的最后一条记录被删除后，还能正常显示】
 				if (dt.Rows.Count > 0)
 				{

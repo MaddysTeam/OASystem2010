@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="showHistory.aspx.cs" Inherits="Dianda.Web.Admin.budgetManage.todo.showHistory" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="showHistory.aspx.cs" MasterPageFile="~/Admin/OAmaster.Master"  Inherits="Dianda.Web.Admin.budgetManage.todo.showHistory" %>
 
 <%@ Register Src="/Admin/cashCardManage/OAleftmenu.ascx" TagName="OAleftmenu" TagPrefix="uc1" %>
 <%@ Register Src="/Admin/cashCardManage/OAleftmenu_Show.ascx" TagName="OAleftmenu_Show" TagPrefix="uc2" %>

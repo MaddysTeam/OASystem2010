@@ -293,7 +293,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			try
 			{
 				DataTable dt = new DataTable();
-				string strSQL = "Select * From vBudget_List Where id=" + common.SafeString(_id);
+				string strSQL = "Select * From vBudget_Department_List Where id=" + common.SafeString(_id);
 				dt = pageControl.doSql(strSQL).Tables[0];
 				if (dt.Rows.Count > 0)
 				{

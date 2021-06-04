@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dianda.COMMON;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace Dianda.Web.Admin.budgetManage.todo
 		BLL.Budget budgetBll = new Dianda.BLL.Budget();
 		BLL.Budget_Detail budgetDetailBll = new Dianda.BLL.Budget_Detail();
 		Dianda.COMMON.common common = new COMMON.common();
+		USER_GroupsExt userGroupExt = new USER_GroupsExt();
+		USER_Ext userExt = new USER_Ext();
 
 		const string _PageAdd = "/admin/personalProjectManage/OACashApply/add.aspx";
 		const string _PageAdd1 = "/Admin/budgetManage/showHistory.aspx";
@@ -187,18 +190,8 @@ namespace Dianda.Web.Admin.budgetManage.todo
 				budgetApplyHistory.NOTES = TextBox1.Text;
 				budgetApplyHistoryBll.Add(budgetApplyHistory);
 
-				string oldLimitNums = budget.LimitNums.ToString();
-				//要在对应的资金卡中增加或是减少的可用金额
-				//if (this.rblDoType.SelectedValue == "1")//增加
-				//{
-				//budget.YEBalance = (budget.YEBalance + money);
-				//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，增加" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
-				//}
-				//else//减少
-				//{
-				//budget.YEBalance = (budget.YEBalance - money);
-				//mCash_Cards.TEMP0 = mCash_Cards.TEMP0 + "&nbsp;&nbsp;" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "，减少" + money + "元，可用金额由" + oldLimitNums + "元调整为" + mCash_Cards.LimitNums + "元<br> ";
-				//}
+				//string oldLimitNums = budget.LimitNums.ToString();
+
 				budgetBll.Update(budget);
 				//this.ucshow1.BindData();
 				Read_Data(common.cleanXSS(Request["id"].ToString()));
@@ -268,7 +261,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			//if (PageStr == "add")
 			//   Response.Redirect(_PageAdd + ReturnCS());
 			//else
-			Response.Redirect("showHistory.aspx?id=" + Request["id"] + "&role=manage");
+			Response.Redirect("showHistory.aspx?id=" + Request["id"] + "&PageRole=manage");
 		}
 		public string ReturnCS()
 		{
@@ -293,35 +286,20 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			try
 			{
 				DataTable dt = new DataTable();
-				string strSQL = "Select * From vBudget_Department_List Where id=" + common.SafeString(_id);
+				string strSQL = "Select * From vBudget_Todo_List Where id=" + common.SafeString(_id);
 				dt = pageControl.doSql(strSQL).Tables[0];
 				if (dt.Rows.Count > 0)
 				{
 					lblBudgetName.Text = "《" + dt.Rows[0]["BudgetName"].ToString() + "》的预算经费信息";
 					lblBudgetCode.Text = dt.Rows[0]["Code"].ToString();
-					//lblCardholderRealName.Text = dt.Rows[0]["CardholderRealName"].ToString();
-					//lblDepartmentName.Text = dt.Rows[0]["DepartmentName"].ToString();
-					if (null != dt.Rows[0]["ParentBudgetName"] && !dt.Rows[0]["ParentBudgetName"].ToString().Equals(""))
-					{
-						lblParentBudget.Text = dt.Rows[0]["ParentBudgetName"].ToString();
-					}
-					else
-					{
-						lblParentBudget.Text = "暂无所属项目";
-					}
-
+					lblApprover.Text = dt.Rows[0]["Approver"].ToString();
 					lblBalance.Text = dt.Rows[0]["Balance"].ToString();
-					//lblApproverRealName.Text = dt.Rows[0]["ApproverRealName"].ToString();
-					//lblStatas.Text = dt.Rows[0]["Statas"].ToString();
+					lblManager.Text = userExt.GetUserRealNamesByIds(dt.Rows[0]["ManagerIds"].ToString(),',');
+					lblDepartment.Text = userGroupExt.GetGroupNamesByIds(dt.Rows[0]["DepartmentIds"].ToString());
+
 					string startTime = string.IsNullOrEmpty(dt.Rows[0]["StartTime"].ToString()) ? "" : DateTime.Parse(dt.Rows[0]["StartTime"].ToString()).ToLongDateString();
 					string endTime = string.IsNullOrEmpty(dt.Rows[0]["EndTime"].ToString()) ? "" : DateTime.Parse(dt.Rows[0]["EndTime"].ToString()).ToLongDateString();
 					lblStartEndDate.Text = string.Format("{0} - {1}", startTime, endTime);
-
-
-					//所属专项资金
-					//LB_SpecialFundsName.Text = dt.Rows[0]["SpecialFundsName"].ToString();
-					//所属预算报告
-					//LB_SFOrderName.Text = "<a href='" + dt.Rows[0]["BudgetList"].ToString() + "' target='_blank'>" + dt.Rows[0]["SFOrderName"].ToString() + "</a>";
 				}
 			}
 			catch

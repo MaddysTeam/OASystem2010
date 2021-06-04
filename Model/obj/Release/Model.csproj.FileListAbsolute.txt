@@ -4,3 +4,6 @@ E:\项目文件\2010上海市教委教研室OA系统\src\OA_System2010\Model\obj
 E:\项目文件(GitLab)\OA\src\OA_System2010\Model\bin\Release\DIANDA.Model.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
 E:\项目文件(GitLab)\OA\src\OA_System2010\Model\obj\Release\DIANDA.Model.dll
+E:\项目文件(GitLab)\OA2021\Model\bin\Release\DIANDA.Model.dll
+E:\项目文件(GitLab)\OA2021\Model\obj\Release\Model.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\Model\obj\Release\DIANDA.Model.dll

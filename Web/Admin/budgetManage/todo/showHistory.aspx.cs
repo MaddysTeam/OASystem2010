@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dianda.COMMON;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -41,6 +42,8 @@ namespace Dianda.Web.Admin.budgetManage.todo
 		BLL.Budget_Apply_History bBudget_Apply_History = new Dianda.BLL.Budget_Apply_History();
 		BLL.Budget_Detail budget_DetailBll = new Dianda.BLL.Budget_Detail();
 		COMMON.common common = new COMMON.common();
+		USER_Ext userExt = new USER_Ext();
+		USER_GroupsExt userGroupExt = new USER_GroupsExt();
 
 		string hztotal = "";
 		string hzActionBalance = "0";
@@ -53,6 +56,8 @@ namespace Dianda.Web.Admin.budgetManage.todo
 					PageRole = common.cleanXSS(Request["PageRole"].ToString());
 
 				BudgetID = Request["id"].ToString();
+
+				LB_Info.Text = bBudget_Apply_History.GetNotes(BudgetID);
 
 				//显示部门子项目预算的基本信息
 				ShowInitInfo(BudgetID);
@@ -103,6 +108,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 		public void ShowButton(bool b)
 		{
 			Button_jz.Visible = b;
+			Button_cancel.Visible = b;
 		}
 
 		protected void ShowInitInfo(string ID)
@@ -116,10 +122,8 @@ namespace Dianda.Web.Admin.budgetManage.todo
 				{
 					//预算名称
 					LB_Name.Text = DT.Rows[0]["BudgetName"].ToString();
-					//所属项目
-					LB_ParentBudget.Text = DT.Rows[0]["ParentBudgetName"].ToString();
 					//项目负责人
-					LB_Managers.Text = DT.Rows[0]["ManagerIds"].ToString();
+					//LB_Managers.Text = DT.Rows[0]["ManagerIds"].ToString();
 					//审批人
 					LB_Approver.Text = DT.Rows[0]["Approver"].ToString();
 					//预算经费编号
@@ -132,6 +136,10 @@ namespace Dianda.Web.Admin.budgetManage.todo
 					LB_StartTime.Text = DT.Rows[0]["StartTime"].ToString();
 					//预算结束时间
 					LB_EndTime.Text = DT.Rows[0]["EndTime"].ToString();
+					//项目负责人
+					LB_Managers.Text = userExt.GetUserRealNamesByIds(DT.Rows[0]["ManagerIds"].ToString(), ',');
+					//所属部门
+					LB_Department.Text = userGroupExt.GetGroupNamesByIds(DT.Rows[0]["DepartmentIds"].ToString());
 					//所属专项资金
 					//LB_SpecialFundsName.Text = DT.Rows[0]["SpecialFundsName"].ToString();
 					//所属帐户

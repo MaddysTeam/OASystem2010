@@ -57,9 +57,54 @@
                 资金卡统计</a>
         </td>
     </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px">
+        <td align="left">
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
+        id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
+        <td align="left">
+            <a href="/Admin/budgetManage/todo/list.aspx?role=manage" target="_self" class="master_a">
+                待办经费管理</a>
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px">
+        <td align="left">
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
+        id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
+        <td align="left">
+            <a href="/Admin/budgetManage/department/list.aspx?role=manage" target="_self" class="master_a">
+                部门预算管理</a>
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px">
+        <td align="left">
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
+        id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
+        <td align="left">
+            <a href="/Admin/budgetManage/todo/showHistoryAll.aspx?role=manage" target="_self" class="master_a">
+                待办经费统计</a>
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px">
+        <td align="left">
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
+        id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
+        <td align="left">
+            <a href="/Admin/budgetManage/department/showHistoryAll.aspx?role=manage" target="_self" class="master_a">
+                部门经费统计</a>
+        </td>
+    </tr>
     <tr>
         <td align="left">
             <img src="/Admin/images/OAimages/leftsideBar_bot.jpg" />
         </td>
     </tr>
+	
 </table>

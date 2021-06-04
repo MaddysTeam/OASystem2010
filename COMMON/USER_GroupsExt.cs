@@ -10,7 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Collections;
 using System.IO;
 using System.Data.OleDb;
- 
+using System.Collections.Generic;
+
 namespace Dianda.COMMON
 {
     /// <summary>
@@ -94,11 +95,31 @@ namespace Dianda.COMMON
             }
             return DT;
         }
-        /// <summary>
-        /// 将指定ID的用户组设置为默认用户组
-        /// <param name="ID">用户指定为默认组的ID</param>
-        /// </summary>
-        public void UpdateISMOREN(string ID)
+
+
+		/// <summary>
+		///获取指定ID的用户组信息
+		///ID是一个带‘，’的组的组合串
+		/// </summary>
+		public string GetGroupNamesByIds(string id)
+		{
+			DataTable dt = getGroupsById(id);
+			List<string> ls = new List<string>();
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				ls.Add(dt.Rows[i]["NAME"].ToString());
+			}
+
+			return string.Join(",", ls.ToArray());
+		}
+
+
+
+		/// <summary>
+		/// 将指定ID的用户组设置为默认用户组
+		/// <param name="ID">用户指定为默认组的ID</param>
+		/// </summary>
+		public void UpdateISMOREN(string ID)
         {
             if (ID != "")
             {
@@ -111,4 +132,45 @@ namespace Dianda.COMMON
 
         }
     }
+
+	/// <summary>
+	/// 用户表的扩张方法
+	/// </summary>
+   public class USER_Ext
+	{
+
+		COMMON.pageControl pagecontrols = new pageControl();
+
+		public string GetUserRealNamesByIds(string userIds,char splitChar)
+		{
+			string[] ids = userIds.Split(splitChar);
+			string sqlId = string.Empty;
+			for (int i = 0; i < ids.Length; i++)
+			{
+				sqlId += "'" + ids[i]+ "'";
+				if (i < ids.Length - 1)
+				{
+					sqlId += ",";
+				}
+			}
+
+			if (string.IsNullOrEmpty(sqlId))
+				return string.Empty;
+
+			string whereOption=string.Format(" where id in ({0})",sqlId);
+			string sql = "select realName from USER_Users "+ whereOption;
+
+			DataTable dt= pagecontrols.doSql(sql).Tables[0];
+			List<string> ls = new List<string>();
+			for (int i = 0; i < dt.Rows.Count; i++)
+			{
+				ls.Add(dt.Rows[i][0].ToString());
+			}
+
+			return string.Join(",",ls.ToArray());
+			
+		}
+
+	}
+
 }

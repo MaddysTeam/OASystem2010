@@ -240,7 +240,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 				//    /*给业务申请者发信息*/
 				//}
 
-				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"list.aspx?pageindex=" + Request["pageindex"] + "\";</script>";	
+				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"list.aspx?role=manage&pageindex=" + Request["pageindex"] + "\";</script>";	
 				Response.Write(coutws);
 			}
 			catch(Exception en)
@@ -260,7 +260,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			//string status = Request["Status"].ToString();
 
 			//Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
-			string coutws = "<script language=\"javascript\" type=\"text/javascript\">location.href = \"list.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
+			string coutws = "<script language=\"javascript\" type=\"text/javascript\">location.href = \"list.aspx?role=manage&pageindex=" + Request["pageindex"] + "\";</script>";
 			Response.Write(coutws);
 		}
 

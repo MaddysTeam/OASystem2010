@@ -158,6 +158,26 @@ namespace Dianda.BLL
 			return GetList("");
 		}
 
+
+		public string GetNotes(string budgetId)
+		{
+			string outputNotes = string.Empty;
+			if (!string.IsNullOrEmpty(budgetId))
+			{
+				List<Dianda.Model.Budget_Apply_History> historyList = GetModelList(" budgetId=" + budgetId);
+				if (historyList != null && historyList.Count > 0)
+				{
+					foreach (Dianda.Model.Budget_Apply_History model in historyList)
+					{
+						outputNotes += string.IsNullOrEmpty(model.NOTES) ? "" : model.NOTES + "</br>";
+					}
+				}
+
+			}
+
+			return outputNotes;
+		}
+
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

@@ -86,8 +86,19 @@
 	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
         id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
         <td align="left">
+            <a href="/Admin/budgetManage/todo/showHistoryAll.aspx?role=manage" target="_self" class="master_a">
+                待办经费统计</a>
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px">
+        <td align="left">
+        </td>
+    </tr>
+	 <tr style="background: url(/Admin/images/OAimages/leftsideBar_bg.jpg); height: 20px"
+        id="form1_tr" onmouseover="chag_bg(1);" onmouseout="rest_bg(1);">
+        <td align="left">
             <a href="/Admin/budgetManage/department/showHistoryAll.aspx?role=manage" target="_self" class="master_a">
-                部门预算汇总统计</a>
+                部门经费统计</a>
         </td>
     </tr>
     <tr>

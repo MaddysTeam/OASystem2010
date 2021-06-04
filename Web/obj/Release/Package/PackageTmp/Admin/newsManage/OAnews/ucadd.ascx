@@ -4,6 +4,7 @@
 <script type="text/javascript" src="../../../ueditor/ueditor.config.js" charset="utf-8"></script>
 <script type="text/javascript" src="../../../ueditor/ueditor.all.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="../../../ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
+<script src="../../js/jquery.1.12.4.js"></script>
 <script>
 	$(function () {
 
@@ -22,7 +23,6 @@
 	function isqd(btn) {
 		setContentValue();
 	}
-
 
 	function setContentValue() {
 		var temp = UE.getEditor('myEditor').getContent();
@@ -171,3 +171,9 @@
     </tr>
 </table>
 <input type="hidden" runat="server" id="hid" class="hid" />
+<script>
+	
+	$('input[type="radio"]').on('click', function () {
+		setContentValue();
+	});
+</script>

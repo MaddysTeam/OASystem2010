@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dianda.COMMON;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 		BLL.Budget budgetBll = new Dianda.BLL.Budget();
 		BLL.Budget_Detail budgetDetailBll = new Dianda.BLL.Budget_Detail();
 		Dianda.COMMON.common common = new COMMON.common();
+		USER_Ext userExt = new USER_Ext();
+		USER_GroupsExt userGroupExt = new USER_GroupsExt();
 
 		const string _PageAdd = "/admin/personalProjectManage/OACashApply/add.aspx";
 		const string _PageAdd1 = "/Admin/budgetManage/showHistory.aspx";
@@ -267,7 +270,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 			//if (PageStr == "add")
 			//   Response.Redirect(_PageAdd + ReturnCS());
 			//else
-			Response.Redirect("showHistory.aspx?id=" + Request["id"] + "&role=manage");
+			Response.Redirect("showHistory.aspx?id=" + Request["id"] + "&PageRole=manage");
 		}
 		public string ReturnCS()
 		{
@@ -310,8 +313,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 					}
 
 					lblBalance.Text = dt.Rows[0]["Balance"].ToString();
-					//lblApproverRealName.Text = dt.Rows[0]["ApproverRealName"].ToString();
-					//lblStatas.Text = dt.Rows[0]["Statas"].ToString();
+					lblManager.Text = userExt.GetUserRealNamesByIds(dt.Rows[0]["ManagerIds"].ToString(),',');
+					lblDepartment.Text = userGroupExt.GetGroupNamesByIds(dt.Rows[0]["DepartmentIds"].ToString());
 					string startTime = string.IsNullOrEmpty(dt.Rows[0]["StartTime"].ToString()) ? "" : DateTime.Parse(dt.Rows[0]["StartTime"].ToString()).ToLongDateString();
 					string endTime = string.IsNullOrEmpty(dt.Rows[0]["EndTime"].ToString()) ? "" : DateTime.Parse(dt.Rows[0]["EndTime"].ToString()).ToLongDateString();
 					lblStartEndDate.Text = string.Format("{0} - {1}", startTime, endTime);

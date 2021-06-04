@@ -8,3 +8,8 @@ E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\bin\Release\FlashUpload
 E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Release\FlashUpload.csprojResolveAssemblyReference.cache
 E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Release\FlashUpload.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\FlashUpload\obj\Release\FlashUpload.pdb
+E:\项目文件(GitLab)\OA2021\FlashUpload\bin\Release\FlashUpload.dll
+E:\项目文件(GitLab)\OA2021\FlashUpload\bin\Release\FlashUpload.pdb
+E:\项目文件(GitLab)\OA2021\FlashUpload\obj\Release\FlashUpload.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\FlashUpload\obj\Release\FlashUpload.dll
+E:\项目文件(GitLab)\OA2021\FlashUpload\obj\Release\FlashUpload.pdb

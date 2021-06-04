@@ -67,8 +67,10 @@ namespace Dianda.Web.Admin.budgetManage.todo
 
 				this.txtJF.Text = snm;
 
-				if (Request["nowPaging"] != null)
-					nowPaging = common.cleanXSS(Request["nowPaging"].ToString());
+				//if (Request["nowPaging"] != null)
+				//	nowPaging = common.cleanXSS(Request["nowPaging"].ToString());
+
+				SetRowCount();
 
 				BindData();
 
@@ -83,7 +85,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 				{
 					td_left.Visible = true;
 					/*设置模板页中的管理值*/
-					(Master.FindControl("Label_navigation") as Label).Text = "管理 > 财务管理 > 部门预算汇总统计";
+					(Master.FindControl("Label_navigation") as Label).Text = "管理 > 财务管理 > 待办预算汇总统计";
 					/*设置模板页中的管理值*/
 				}
 
@@ -99,21 +101,43 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			}
 		}
 
-		protected void BindData()
+		protected void BindData(int pageIndex=1)
 		{
 			try
 			{
 				string swhere = " 1=1 ";
-				//swhere += string.Format(" and budgetName like %{0}%",this.txtJF);
-				DataTable DT = new DataTable();
-				DT = new COMMON.common().GetDatePaging(pageSize, int.Parse(nowPaging), "vDepartment_Budget_Statistical", "*", "ID", swhere, "", "", "");
-				this.GridView2.DataSource = DT;
-				this.GridView2.DataBind();
+				if (!string.IsNullOrEmpty(txtJF.Text))
+				{
+					swhere += string.Format(" and BudgetName like '%{0}%'", txtJF.Text);
+				}
 
-				common.GroupRows(GridView2, 10, 10);
-				common.GroupRows(GridView2, 10, 11);
-				common.GroupRows(GridView2, 10, 12);
-				//ShowPaging(sqlAll);
+				string allTiaoshu = dtrowsHidden.Value.ToString();//获取到所有的条数
+				int alltiaoshuInt = int.Parse(allTiaoshu);
+				DataTable dt = new DataTable();
+				dt = pageControl.GetList_FenYe_Common(swhere, pageIndex, GridView2.PageSize, alltiaoshuInt, "vBudget_Todo_Statistical", "AddTime").Tables[0];
+				pageIndex = pageControl.pageindex(pageIndex, GridView2.PageSize, alltiaoshuInt);//获取当前要显示的页码数【如果最后一页的最后一条记录被删除后，还能正常显示】
+																								
+				if (dt.Rows.Count > 0)
+				{
+					string rowNumberCol = "PX";
+					dt.Columns.Add(rowNumberCol, typeof(string));
+					for (int i = 0; i < dt.Rows.Count; i++)
+					{
+						dt.Rows[i][rowNumberCol] = i + 1;
+					}
+
+					GridView2.Visible = true;
+					GridView2.DataSource = dt;
+					GridView2.DataBind();
+					LB_MSG.Text = "";
+
+					//common.GroupRows(GridView2, 10, 10);
+					//common.GroupRows(GridView2, 10, 11);
+					//common.GroupRows(GridView2, 10, 12);
+
+					pageControl.SetSelectPage(pageIndex, int.Parse(dtrowsHidden.Value.ToString()), DDL_ToPage, GridView2.PageSize, FirstPage, NextPage, PreviousPage, LastPage, Label_showInfo);//加载通用组件里面的分页函数
+					pageControlShow.Visible = true;//如果记录集不为空，则显示分页控件
+				}
 
 			}
 			catch
@@ -233,101 +257,34 @@ namespace Dianda.Web.Admin.budgetManage.todo
 			return decimal.Parse(Val) < 0 ? "<font color='red'>" + Val + "</font>" : Val;
 		}
 
-
-		private void ShowPaging(string sql)
+		/// <summary>
+		/// 当分页控件中的“第一页”“第二页”...发生时，触发下面的事件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void PageChange_Click(object sender, EventArgs e)
 		{
-			DataTable dt = pageControl.doSql(sql).Tables[0];
-			int totalCount = dt.Rows.Count;
-			if (totalCount == 0)
-			{
-				tabUsGridPaging.Visible = false;
-				return;
-			}
-			else
-			{
-				tabUsGridPaging.Visible = true;
-			}
-			int totalPage = 0;
-			if (pageSize != 0)
-			{
-				if ((totalCount % pageSize) > 0)
-					totalPage = (totalCount / pageSize) + 1;
-				else
-					totalPage = (totalCount / pageSize) + 0;
-			}
-			else
-			{
-				totalPage = 0;
-			}
-
-			if (int.Parse(nowPaging) == 1)
-				this.homePage.Visible = false;
-			else
-				this.homePage.Visible = true;
-
-			if (int.Parse(nowPaging) - 1 < 1)
-				this.firstPage.Visible = false;
-			else
-				this.firstPage.Visible = true;
-
-			if (int.Parse(nowPaging) + 1 > totalPage)
-				this.nextPage.Visible = false;
-			else
-				this.nextPage.Visible = true;
-
-			if (int.Parse(nowPaging) >= totalPage)
-				this.lastPage.Visible = false;
-			else
-				this.lastPage.Visible = true;
-
-			this.totalRecord.Text = "共" + totalCount + "条";
-			this.totalPage.Text = "共" + totalPage + "页";
-			this.nowPage.Text = "当前第" + nowPaging + "页";
-
-			this.targetPage.Items.Clear();
-			for (int i = 1; i <= totalPage; i++)
-			{
-				ListItem li = new ListItem(i.ToString(), i.ToString());
-				if (i == int.Parse(nowPaging))
-					li.Selected = true;
-				this.targetPage.Items.Add(li);
-			}
+			int page = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());//获取到触发源
+			pageindexHidden.Value = page.ToString();//给隐藏的页码记录器赋值
+			SetRowCount();
+			BindData(page);
 		}
 
-		protected void btnSelect_Click(object sender, EventArgs e)
+		/// <summary>
+		/// 当分页控件中的下拉菜单触发时
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void DDL_ToPage_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=1&snm=" + this.txtJF.Text.Trim());
+			int page = Convert.ToInt32(((DropDownList)sender).SelectedValue.ToString());
+			pageindexHidden.Value = page.ToString();
+			SetRowCount();
+			BindData(page);
 		}
 
-		protected void homePage_Click(object sender, EventArgs e)
-		{
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=1&snm=" + this.txtJF.Text.Trim());
-		}
 
-		protected void firstPage_Click(object sender, EventArgs e)
-		{
-			int p = int.Parse(nowPaging);
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=" + (p - 1).ToString() + "&snm=" + this.txtJF.Text.Trim());
-		}
-
-		protected void nextPage_Click(object sender, EventArgs e)
-		{
-			int p = int.Parse(nowPaging);
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=" + (p + 1).ToString() + "&snm=" + this.txtJF.Text.Trim());
-		}
-
-		protected void lastPage_Click(object sender, EventArgs e)
-		{
-			int p = int.Parse(this.targetPage.Items[targetPage.Items.Count - 1].Value);
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=" + p.ToString() + "&snm=" + this.txtJF.Text.Trim());
-		}
-
-		protected void targetPage_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			int p = int.Parse(this.targetPage.SelectedValue);
-			Response.Redirect("showHistoryAll.aspx?PageRole=" + PageRole + "&nowPaging=" + p.ToString() + "&snm=" + this.txtJF.Text.Trim());
-		}
-
+		
 		protected void btnReport_Click(object sender, EventArgs e)
 		{
 
@@ -362,7 +319,32 @@ namespace Dianda.Web.Admin.budgetManage.todo
 
 		protected void btnSearch_Click(object sender, EventArgs e)
 		{
-
+			BindData(1);
 		}
+
+
+		/// <summary>
+		/// 获取到当前数据集中总共有多少条记录
+		/// </summary>
+		private void SetRowCount()
+		{
+			try
+			{
+				int count = pageControl.tableRowCout("","vBudget_Todo_Statistical","1");
+
+				if (count > 0)
+				{
+					dtrowsHidden.Value = count.ToString();
+				}
+				else
+				{
+					dtrowsHidden.Value = "0";
+				}
+			}
+			catch
+			{
+			}
+		}
+
 	}
 }

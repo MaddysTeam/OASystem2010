@@ -263,7 +263,7 @@ namespace Dianda.COMMON
         /// <param name="rePageSize">当前页要显示多少条记录，如果不是最后一页，则显示pageSize条，如果是最后一页，则显示rePageSize条</param>
         /// <returns></returns>
         public DataSet GetList_FenYe(string strWhere, int page, int pageSize, int rePageSize, string tableName, string orderString)
-        {
+			{
             StringBuilder strSql = new StringBuilder();
             if (pageSize == rePageSize)
             {

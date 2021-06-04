@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dianda.COMMON;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 			set { ViewState["PageRole"] = value; }
 		}
 
-		public string BudgetID {
+		public string BudgetID
+		{
 			get
 			{
 				if (ViewState["BudgetId"] != null)
@@ -40,6 +42,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 		BLL.Budget_Apply_History bBudget_Apply_History = new Dianda.BLL.Budget_Apply_History();
 		BLL.Budget_Detail budget_DetailBll = new Dianda.BLL.Budget_Detail();
 		COMMON.common common = new COMMON.common();
+		USER_Ext userExt = new USER_Ext();
+		USER_GroupsExt userGroupExt = new USER_GroupsExt();
 
 		string hztotal = "";
 		string hzActionBalance = "0";
@@ -52,6 +56,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 					PageRole = common.cleanXSS(Request["PageRole"].ToString());
 
 				BudgetID = Request["id"].ToString();
+
+			    LB_Info.Text=bBudget_Apply_History.GetNotes(BudgetID);
 
 				//显示部门子项目预算的基本信息
 				ShowInitInfo(BudgetID);
@@ -102,6 +108,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 		public void ShowButton(bool b)
 		{
 			Button_jz.Visible = b;
+			Button_cancel.Visible = b;
 		}
 
 		protected void ShowInitInfo(string ID)
@@ -131,27 +138,10 @@ namespace Dianda.Web.Admin.budgetManage.department
 					LB_StartTime.Text = DT.Rows[0]["StartTime"].ToString();
 					//预算结束时间
 					LB_EndTime.Text = DT.Rows[0]["EndTime"].ToString();
-					//所属专项资金
-					//LB_SpecialFundsName.Text = DT.Rows[0]["SpecialFundsName"].ToString();
-					//所属帐户
-					//LB_AccountName.Text = DT.Rows[0]["AccountName"].ToString();
-					//所属预算报告
-					//LB_SFOrderName.Text = "<a href='" + DT.Rows[0]["BudgetList"].ToString() + "' target='_blank'>" + DT.Rows[0]["SFOrderName"].ToString() + "</a>";
-
-					//LB_Info.Text = "&nbsp;可用金额调整情况：<br>" + DT.Rows[0]["TEMP0"].ToString();
-
-
-					//DList_YSJE.DataSource = DT;
-					//DList_YSJE.DataBind();
-					//DList_YSJE.RepeatColumns = DT.Rows.Count;
-
-					//DList_KYJE.DataSource = DT;
-					//DList_KYJE.DataBind();
-					//DList_KYJE.RepeatColumns = DT.Rows.Count;
-
-					//DList_DQYE.DataSource = DT;
-					//DList_DQYE.DataBind();
-					//DList_DQYE.RepeatColumns = DT.Rows.Count;
+					//项目负责人
+					LB_Managers.Text = userExt.GetUserRealNamesByIds(DT.Rows[0]["ManagerIds"].ToString(), ',');
+					//所属部门
+					//LB_Department.Text = userGroupExt.GetGroupNamesByIds(DT.Rows[0]["DepartmentIds"].ToString());
 				}
 				else
 				{
@@ -182,8 +172,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 				for (int i = 1; i < dt.Columns.Count; i++)
 				{
 					applyValue = double.Parse(dt.Rows[0][i].ToString());
-					balance= double.Parse(dt.Rows[0][i].ToString());
-					if(applyValue<0)
+					balance = double.Parse(dt.Rows[0][i].ToString());
+					if (applyValue < 0)
 						currentBalanceRow[i] = double.Parse(dt.Rows[1][i].ToString()) + double.Parse(dt.Rows[0][i].ToString());
 					else
 						currentBalanceRow[i] = double.Parse(dt.Rows[1][i].ToString()) - double.Parse(dt.Rows[0][i].ToString());
@@ -288,10 +278,10 @@ namespace Dianda.Web.Admin.budgetManage.department
 		/// <param name="e"></param>
 		protected void PageChange_Click(object sender, EventArgs e)
 		{
-				int page = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());//获取到触发源
+			int page = Convert.ToInt32(((LinkButton)sender).CommandArgument.ToString());//获取到触发源
 			pageindexHidden.Value = page.ToString();//给隐藏的页码记录器赋值
 			SetRowCount(BudgetID);
-			BindDetailData(BudgetID,page);
+			BindDetailData(BudgetID, page);
 		}
 
 		/// <summary>
@@ -314,7 +304,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			try
 			{
-				string strSQL = "SELECT ID FROM vBudget_User_Apply WHERE BudgetID="+common.SafeString(id);
+				string strSQL = "SELECT ID FROM vBudget_User_Apply WHERE BudgetID=" + common.SafeString(id);
 				DataTable dt = new DataTable();
 				dt = pageControl.doSql(strSQL).Tables[0];
 

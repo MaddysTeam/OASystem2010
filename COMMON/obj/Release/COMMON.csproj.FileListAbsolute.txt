@@ -14,3 +14,11 @@ E:\项目文件(GitLab)\OA\src\OA_System2010\COMMON\bin\Release\MySql.Data.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\COMMON\obj\Release\COMMON.csprojResolveAssemblyReference.cache
 E:\项目文件(GitLab)\OA\src\OA_System2010\COMMON\obj\Release\DIANDA.COMMON.dll
 E:\项目文件(GitLab)\OA\src\OA_System2010\COMMON\obj\Release\DIANDA.COMMON.pdb
+E:\项目文件(GitLab)\OA2021\COMMON\bin\Release\DIANDA.COMMON.dll
+E:\项目文件(GitLab)\OA2021\COMMON\bin\Release\DIANDA.COMMON.pdb
+E:\项目文件(GitLab)\OA2021\COMMON\bin\Release\DIANDA.DBUtility.dll
+E:\项目文件(GitLab)\OA2021\COMMON\bin\Release\ICSharpCode.SharpZipLib.dll
+E:\项目文件(GitLab)\OA2021\COMMON\bin\Release\MySql.Data.dll
+E:\项目文件(GitLab)\OA2021\COMMON\obj\Release\COMMON.csprojResolveAssemblyReference.cache
+E:\项目文件(GitLab)\OA2021\COMMON\obj\Release\DIANDA.COMMON.dll
+E:\项目文件(GitLab)\OA2021\COMMON\obj\Release\DIANDA.COMMON.pdb

@@ -85,84 +85,111 @@ namespace Dianda.Web.Admin.budgetManage.department {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// tabUsGridPaging 控件。
+        /// HiddenField1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tabUsGridPaging;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
         
         /// <summary>
-        /// homePage 控件。
+        /// dtrowsHidden 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton homePage;
+        protected global::System.Web.UI.WebControls.HiddenField dtrowsHidden;
         
         /// <summary>
-        /// firstPage 控件。
+        /// pageControlShow 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton firstPage;
+        protected global::System.Web.UI.HtmlControls.HtmlTable pageControlShow;
         
         /// <summary>
-        /// nextPage 控件。
+        /// FirstPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton nextPage;
+        protected global::System.Web.UI.WebControls.LinkButton FirstPage;
         
         /// <summary>
-        /// lastPage 控件。
+        /// PreviousPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lastPage;
+        protected global::System.Web.UI.WebControls.LinkButton PreviousPage;
         
         /// <summary>
-        /// totalRecord 控件。
+        /// NextPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalRecord;
+        protected global::System.Web.UI.WebControls.LinkButton NextPage;
         
         /// <summary>
-        /// totalPage 控件。
+        /// LastPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalPage;
+        protected global::System.Web.UI.WebControls.LinkButton LastPage;
         
         /// <summary>
-        /// nowPage 控件。
+        /// Label_showInfo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nowPage;
+        protected global::System.Web.UI.WebControls.Label Label_showInfo;
         
         /// <summary>
-        /// targetPage 控件。
+        /// DDL_ToPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList targetPage;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_ToPage;
+        
+        /// <summary>
+        /// Label2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// pageindexHidden 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pageindexHidden;
+        
+        /// <summary>
+        /// H_NAME 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField H_NAME;
     }
 }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Text;
+using Dianda.COMMON;
 
 namespace Dianda.Web.Admin.budgetManage.todo
 {
@@ -79,7 +80,7 @@ namespace Dianda.Web.Admin.budgetManage.todo
 		BLL.USER_Groups groups_bll = new Dianda.BLL.USER_Groups();
 		Model.USER_Users user_model = new Dianda.Model.USER_Users();
 		COMMON.common common = new COMMON.common();
-
+		USER_Ext userExt = new USER_Ext();
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -378,9 +379,10 @@ namespace Dianda.Web.Admin.budgetManage.todo
 					//HiddenField hid = (HiddenField)e.Row.FindControl("Hid_ID");
 					string id = DataBinder.Eval(e.Row.DataItem, "ID").ToString();
 					string budgetName = DataBinder.Eval(e.Row.DataItem, "BudgetName").ToString();
+					string managerIds = DataBinder.Eval(e.Row.DataItem, "ManagerIds").ToString();
 
 					e.Row.Cells[1].Text = "<a href='showHistory.aspx?id=" + id + "&PageRole=" + PageRole + "' title='" + budgetName + "'>" + budgetName + "</a>";
-
+					e.Row.Cells[3].Text = userExt.GetUserRealNamesByIds(managerIds, ',');
 					//string time = DataBinder.Eval(e.Row.DataItem, "EndTime").ToString();
 					//string CardNum = DataBinder.Eval(e.Row.DataItem, "CardNum").ToString();
 					//string parentBudgetName = DataBinder.Eval(e.Row.DataItem, "ParentBudgetName").ToString();

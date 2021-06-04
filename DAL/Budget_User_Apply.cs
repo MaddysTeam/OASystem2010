@@ -58,6 +58,7 @@ namespace Dianda.DAL
 					new SqlParameter("@DoUserId", SqlDbType.NVarChar,50),
 					new SqlParameter("@DetailName", SqlDbType.NVarChar,8),
 					new SqlParameter("@RoundNO", SqlDbType.NVarChar,50),
+					new SqlParameter("@Notes", SqlDbType.NVarChar,1000),
 			};
 			parameters[0].Value = model.BudgetID;
 			parameters[1].Value = model.DetailID;

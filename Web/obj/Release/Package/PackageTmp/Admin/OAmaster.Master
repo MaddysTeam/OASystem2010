@@ -281,6 +281,7 @@
 <tr  runat="server" id="menu_budgetManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/budgetManage/budgetmanage.aspx" target="_self" class="mchild_a2">预算申请</a></td></tr>
 <tr  runat="server" id="menu_cashapplyManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashApplyPerson.aspx" target="_self" class="mchild_a2" id="td_menu5">经费预约</a></td></tr>
 <tr  runat="server" id="menu_cardsearchManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashCard.aspx" target="_self" class="mchild_a2">资金卡查询</a></td></tr>
+<tr  runat="server" id="menu_budgetList" ><td class="menuChildTd">&gt; <a href="/Admin/budgetManage/list.aspx?role=viewer" target="_self" class="mchild_a2">项目经费查询</a></td></tr>
 </table>
 </div>
 </td></tr></table>
@@ -298,7 +299,7 @@
 <div id="menu6_child" style="visibility:hidden; position:absolute; width:120px; z-index:9999; margin-left:0px;">
 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
 <tr  runat="server" id="menu_menManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/userManager/OAusersmanage/manage.aspx" target="_self" class="mchild_a2" id="td_menu6">人事管理</a></td></tr>
-<tr  runat="server" id="menu_cashManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashApply.aspx?role=manage" target="_self" class="mchild_a2">财务管理</a></td></tr>
+<tr  runat="server" id="menu_cashManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/manageCashApply.aspx?role=manage" target="_self" class="mchild_a2">经费管理</a></td></tr>
 <tr  runat="server" id="menu_cashManage_show" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/cashCardManage/Cash_Account.aspx?role=viewer" target="_self" class="mchild_a2">财务管理</a></td></tr>
 <tr   runat="server" id="menu_projectManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/SystemProjectManage/ProjectInfo/manage.aspx" target="_self" class="mchild_a2">项目管理</a></td></tr>
 <tr  runat="server" id="menu_foodManage" visible="false"><td class="menuChildTd">&gt; <a href="/Admin/applyManage/OrderfoodManage/manage.aspx" target="_self" class="mchild_a2">订饭管理</a></td></tr>

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Dianda.Web.Admin.budgetManage.department
@@ -16,6 +12,17 @@ namespace Dianda.Web.Admin.budgetManage.department
 		BLL.Budget budgetBll = new Dianda.BLL.Budget();
 		BllExt.Groups groups_bllext = new Dianda.BllExt.Groups();
 		COMMON.common common = new COMMON.common();
+
+		public string ParentId
+		{
+			get
+			{
+				if (ViewState["ParentId"] != null)
+					return ViewState["ParentId"].ToString();
+				return "1";
+			}
+			set { ViewState["ParentId"] = value; }
+		}
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -41,21 +48,11 @@ namespace Dianda.Web.Admin.budgetManage.department
 				if (null != Request["ID"] && !Request["ID"].ToString().Equals(""))
 				{
 					ShowInitInfor(common.cleanXSS(Request["ID"].ToString()));
-					//        LB_file.Visible = true;
-
-					//        //设置模板页中的管理值
-					//        (Master.FindControl("Label_navigation") as Label).Text = "经费 > 预算申请 > 编辑申请 ";
-					//        //设置模板页中的管理值
-					//    }
-					//    else
-					//    {
-					//        LB_file.Visible = false;
-					//        //设置模板页中的管理值
-					//        (Master.FindControl("Label_navigation") as Label).Text = "经费 > 预算申请 > 新建申请 ";
-					//        //设置模板页中的管理值
 				}
 				else // 新增
 				{
+					ParentId = Request["parentId"];
+
 					//显示详细插件
 					budgetDetails.main("");
 				}
@@ -77,6 +74,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 			try
 			{
 				budgetModel = budgetBll.GetModel(int.Parse(ID));
+
+				ParentId = budgetModel.ParentId.ToString();
 
 				TB_Code.Text = budgetModel.Code;
 				//预算名称
@@ -112,32 +111,6 @@ namespace Dianda.Web.Admin.budgetManage.department
 				budgetDetails.Balance = budgetModel.Balance.ToString();
 				budgetDetails.LimitNums = budgetModel.LimitNums.ToString();
 				budgetDetails.main(budgetModel.ID.ToString());
-
-				//LB_BudgetLimit.Text = budgetModel.LimitNums.ToString();
-
-				//cashorder_model = cashorder_bll.GetModel(int.Parse(ID));
-				////预算报告名称
-				//TB_Name.Text = cashorder_model.NAMES;
-				////报告审批人
-				//DDL_AssignChecker.SelectedValue = cashorder_model.Checker;
-				////所属项目
-				//if (null != cashorder_model.ProjectID && !cashorder_model.ProjectID.ToString().Equals("9999"))
-				//{
-				//    RBL_project.SelectedValue = "1";
-				//    DDL_Project.Visible = true;
-				//    DDL_Project.SelectedValue = cashorder_model.ProjectID.ToString();
-				//}
-				//else
-				//{
-				//    RBL_project.SelectedValue = "0";
-				//    DDL_Project.Visible = false;
-				//}
-				////预算金额
-				//TB_BudgetAmount.Text = cashorder_model.BudgetAmount.ToString();
-				////预算金额单位
-				//RB_BudgetAmount.SelectedValue = cashorder_model.BAUNIT.ToString().Equals("万元") ? "1" : "0";
-
-
 			}
 			catch (Exception e)
 			{
@@ -244,80 +217,6 @@ namespace Dianda.Web.Admin.budgetManage.department
 					budgetBll.Add(budgetModel);
 				}
 
-
-				//    //ID
-				//    cashorder_model.ID = cashorder_bll.GetMaxId();
-				//    //预算报告的名称
-				//    cashorder_model.NAMES = TB_Name.Text.Trim().ToString();
-				//    //所属项目
-				//    if (RBL_project.SelectedValue.ToString().Equals("1"))//表示有所属项目
-				//    {
-				//        cashorder_model.ProjectID = int.Parse(DDL_Project.SelectedValue.ToString());
-				//    }
-				//    else
-				//    {
-				//        cashorder_model.ProjectID = 9999;
-				//    }
-				//    //申请时间
-				//    cashorder_model.ADDTIME = DateTime.Now;
-				//    //预算金额
-				//    cashorder_model.BudgetAmount = decimal.Parse(TB_BudgetAmount.Text.Trim().ToString());
-				//    //预算金额单位
-				//    cashorder_model.BAUNIT = RB_BudgetAmount.SelectedItem.Text.ToString();
-				//    //申请人
-				//    cashorder_model.Applyuser = user_model.ID;
-				//    //审核状态
-				//    cashorder_model.Status = 0;
-				//    //删除标记
-				//    cashorder_model.Delflag = 0;
-				//    //预算报告的文件路径
-				//    if (TB_Name.Text.Trim().ToString().Equals(""))
-				//    {
-				//        tag.Text = "预算报告名称不能为空！";
-				//        return;
-				//    }
-				//    else if (TB_BudgetAmount.Text.Trim().ToString().Equals(""))
-				//    {
-				//        tag.Text = "预算金额不能为空！";
-				//        return;
-				//    }
-				//    else if (FileUpload_list.FileName.Length <= 0)
-				//    {
-				//        tag.Text = "上传预算报告项不能为空！";
-				//        return;
-				//    }
-				//    if (FileUpload_list.FileName.Length > 2)
-				//    {
-				//        string[] content = fileup.UpFile_COMMONS(FileUpload_list, "/AllFileUp/fileup", "");
-				//        //1-成功；0-失败；2-类型不支持；3-大小不符合;文件的路径；文件名称；文件类型；图标；大小；操作结果
-				//        if (content[0] == "0")
-				//        {
-				//            tag.Text = "文件上传失败，请重新上传！";
-				//            return;
-				//        }
-				//        else if (content[0] == "2")
-				//        {
-				//            tag.Text = "系统不允许此类文件上传,文件上传失败，请重新上传！";
-				//            return;
-				//        }
-				//        else if (content[0] == "3")
-				//        {
-				//            tag.Text = "文件上传大小不符合，文件上传失败，请重新上传！";
-				//            return;
-				//        }
-
-				//        cashorder_model.BudgetList = content[1];
-				//    }
-				//    //资金卡数目
-				//    cashorder_model.CarNums = 0;
-				//    //指定审批人
-				//    cashorder_model.Checker = DDL_AssignChecker.SelectedValue.ToString();
-				//    //备注信息
-				//    cashorder_model.Note = user_model.REALNAME + " " + DateTime.Now + "上传预算报告：<a href='" + cashorder_model.BudgetList.ToString() + "' target='_blank'>" + FileUpload_list.FileName.ToString() + "</a><br>";
-
-				//    //添加操作
-				//    cashorder_bll.Add(cashorder_model);
-
 				//    /*给业务申请者发信息*/
 				//    Model.FaceShowMessage mFaceShowMessage = new Dianda.Model.FaceShowMessage();
 				//    BLL.FaceShowMessage bFaceShowMessage = new Dianda.BLL.FaceShowMessage();
@@ -336,11 +235,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//    /*给业务申请者发信息*/
 				//}
 
-
-				//string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入列表页面\"); location.href = \"budgetmanage.aspx?pageindex=" + Request["pageindex"] + "\";</script>";
-				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在返回部门预算编辑页面\"); location.href = \"add.aspx?ID="+ budgetModel.ParentId+ "\";</script>";
+				string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在返回部门预算编辑页面\"); location.href = \"add.aspx?ID="+ ParentId + "\";</script>";
 				Response.Write(coutws);
-
 			}
 			catch
 			{ }
@@ -353,12 +249,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 		/// <param name="e"></param>
 		protected void Button_cancel_click(object sender, EventArgs e)
 		{
-			//string page = Request["pageindex"].ToString();
-			//string status = Request["Status"].ToString();
-
-			//Response.Redirect("budgetmanage.aspx?pageindex=" + page + "&Status=" + status);
-			string coutws = "<script language=\"javascript\" type=\"text/javascript\">location.href = \"add.aspx?ID=" + budgetModel.ParentId + "\";</script>";
-			Response.Write(coutws);
+			string redirectUrl = "<script language=\"javascript\" type=\"text/javascript\">location.href = \"add.aspx?ID=" + ParentId + "\";</script>";
+			Response.Write(redirectUrl);
 		}
 
 

@@ -53,12 +53,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 					ShowInitInfor(common.cleanXSS(id));
 
 					BindChildBudgetList(int.Parse(id));
-					
-					//        LB_file.Visible = true;
 
-					//        //设置模板页中的管理值
-					//        (Master.FindControl("Label_navigation") as Label).Text = "经费 > 预算申请 > 编辑申请 ";
-					//        //设置模板页中的管理值
+					LB_BudgetLimit.Text = GetParentBudgetBalance(id).ToString();
 				}
 				else
 				{
@@ -117,7 +113,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 				string actionType = Request["actionType"];
 				if (actionType != null)
 				{
-					Button_sumbit.Text = "编辑";
+					Button_sumbit.Text = "编辑并继续新增子项目";
 				}
 			
 				////预算金额
@@ -202,14 +198,14 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 					//指定审批人
 					budgetModel.ApproverIDs = DDL_AssignChecker.SelectedValue.ToString();
-					budgetModel.BudgetType = int.Parse(BudgetTypeEnum.department.ToString());
+					budgetModel.BudgetType = (int)BudgetTypeEnum.department;
 					budgetModel.StartTime = DateTime.Parse(this.TB_StartDateTime.Value);
 					budgetModel.EndTime = DateTime.Parse(this.TB_EndDateTime.Value);
 					budgetModel.DATETIME = DateTime.Now;
 
 					budgetBll.Update(budgetModel);
 
-					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx\";</script>";
+					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx?PageRole=manage&parentId=" + id + "\";</script>";
 					Response.Write(coutws);
 				}
 				else//新建
@@ -230,7 +226,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 					budgetBll.Add(budgetModel);
 
-					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx\";</script>";
+					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx?PageRole=manage\";</script>";
 					Response.Write(coutws);
 				}
 
@@ -269,6 +265,13 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 		}
 
+		protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+		{
+			if (e.Row.RowType == DataControlRowType.DataRow)
+			{
+				//e.Row.Cells[5].Text = "<a href='showParent.aspx?id=" + parentId + "&PageRole=" + PageRole + "' title='" + parentBudgetName + "'>" + parentBudgetName + "</a>"; // parentBudgetName;
+			}
+		}
 
 		/// <summary>
 		/// 部门进行切换的时候，要做人员列表的切换
@@ -350,12 +353,12 @@ namespace Dianda.Web.Admin.budgetManage.department
 			this.GridView2.DataBind();
 		}
 
-		protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+		private string GetParentBudgetBalance(string parentBudgetId)
 		{
-			if (e.Row.RowType == DataControlRowType.DataRow)
-			{
-				//e.Row.Cells[5].Text = "<a href='showParent.aspx?id=" + parentId + "&PageRole=" + PageRole + "' title='" + parentBudgetName + "'>" + parentBudgetName + "</a>"; // parentBudgetName;
-			}
+			string sql = string.Format("SELECT isnull(sum(Balance),0) totalBalance FROM vBudget_Department_List  where ParentId={0} group by ParentId",parentBudgetId);
+			DataTable tb= new Dianda.COMMON.pageControl().doSql(sql).Tables[0];
+			return tb.Rows[0]["totalBalance"].ToString()+"元";
 		}
+		
 	}
 }

@@ -91,7 +91,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 		private void BindData(string id)
 		{
-			string parentBudgetSql = "select DetailName,Balance,RealSpend, (case when RealSpend>0 then (Balance - RealSpend) else (Balance + RealSpend) end) as CurrentBalance from vBudget_Parent_Detail where parentId=" + common.SafeString(id);
+			string parentBudgetSql = "select DetailName,Balance,RealSpend, Balance + RealSpend as CurrentBalance from vBudget_Parent_Detail where parentId=" + common.SafeString(id);
 			DataTable DT = new DataTable();
 			DT = pageControl.doSql(parentBudgetSql).Tables[0];
 			DList_ParentBudgetDetail.DataSource = DT;

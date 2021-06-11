@@ -90,12 +90,12 @@ namespace Dianda.Web.Admin.budgetManage.department
 				//报告审批人
 				DDL_AssignChecker.SelectedValue = budgetModel.ApproverIDs;
 
-				if (!budgetModel.DepartmentIDs.Equals("9999"))
+				if (budgetModel.DepartmentIDs != null && !budgetModel.DepartmentIDs.Equals("9999"))
 				{
 					HID_Department.Value = budgetModel.DepartmentIDs;
 				}
 
-				if (!budgetModel.ManagerIDs.Equals("9999"))
+				if (budgetModel.DepartmentIDs != null && !budgetModel.ManagerIDs.Equals("9999"))
 				{
 					HID_Manager.Value = budgetModel.ManagerIDs;
 				}
@@ -226,7 +226,7 @@ namespace Dianda.Web.Admin.budgetManage.department
 
 					budgetBll.Add(budgetModel);
 
-					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx?PageRole=manage\";</script>";
+					string coutws = "<script language=\"javascript\" type=\"text/javascript\">alert(\"操作成功！现在进入子项目页面\"); location.href = \"addChild.aspx?PageRole=manage&parentId=" + budgetModel.ID + "\";</script>";
 					Response.Write(coutws);
 				}
 
@@ -357,7 +357,8 @@ namespace Dianda.Web.Admin.budgetManage.department
 		{
 			string sql = string.Format("SELECT isnull(sum(Balance),0) totalBalance FROM vBudget_Department_List  where ParentId={0} group by ParentId",parentBudgetId);
 			DataTable tb= new Dianda.COMMON.pageControl().doSql(sql).Tables[0];
-			return tb.Rows[0]["totalBalance"].ToString()+"元";
+			 
+			return tb.Rows.Count > 0? tb.Rows[0]["totalBalance"].ToString()+"元" : "0元";
 		}
 		
 	}
